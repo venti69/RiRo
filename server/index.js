@@ -18,6 +18,13 @@ app.post('/register', (req, res) => {
         .catch((err) => res.json(err));
 });
 
+app.post('/login', (req, res) => {
+    console.log(req.body);
+    EmployeeModel.find({})
+        .then((employees) => res.json(employees))
+        .catch((err) => res.json(err));
+});
+
 app.get('/', (req, res) => {
     try {
         res.status(200).json({ msg: 'Hello Rómeó!' });
