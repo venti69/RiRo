@@ -21,7 +21,7 @@ const Navbar = () => {
             )}
             {admin ? (
                 <>
-                    <Link to="http://localhost:3001">Szerver</Link>
+                    <Link to="http://localhost:3001/server">Szerver</Link>
                 </>
             ) : (
                 <></>
