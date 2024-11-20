@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const EmployeeModel = require('./models/Employee');
+// const Asd = require('./server');
 
 const app = express();
 app.use(express.json());
@@ -25,13 +26,9 @@ app.post('/login', (req, res) => {
         .catch((err) => res.json(err));
 });
 
-app.get('/', (req, res) => {
-    try {
-        res.status(200).json({ msg: 'Hello Rómeó!' });
-    } catch (error) {
-        res.status(500).json({ msg: error.message });
-    }
-});
+const serverRoutes = require('./server');
+
+app.use('/', serverRoutes);
 
 app.listen(3001, () => {
     console.log('Fut a szerver');
