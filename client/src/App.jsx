@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import { LoginContext } from './Helpers/Context';
 import Logout from './Logout';
+import Fooldal from './pages/Fooldal';
 
 function App() {
     const [admin, setAdmin] = useState(false);
@@ -19,7 +20,8 @@ function App() {
             <BrowserRouter>
                 <Navbar />
                 <Routes>
-                    <Route path="/home" element={<Home />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/home" element={<Fooldal />} />
                     <Route path="/register" element={<Signup />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/logout" element={<Logout />} />

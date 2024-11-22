@@ -10,7 +10,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="brand">MyWebsite</div>
             <div className="nav-links">
-                <NavLink to="/" exact activeClassName="active">Home</NavLink>
+                <NavLink to="/home" exact activeClassName="active">Home</NavLink>
                 {loggedIn ? (
                     <NavLink to="/logout" activeClassName="active">Kilépés</NavLink>
                 ) : (

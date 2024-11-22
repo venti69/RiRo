@@ -51,6 +51,13 @@ app.get('/server', (req, res) => {
         res.status(500).json({ msg: error.message });
     }
 });
+app.get('/', (req, res) => {
+    try {
+        res.status(200).render( "Home.jsx" );
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+});
 // app.use('/', require('./routes/mainRoutes.js'));
 
 //Időpontok
