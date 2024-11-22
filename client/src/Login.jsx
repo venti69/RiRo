@@ -42,7 +42,7 @@ function Login() {
     return (
         <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
             <div className="bg-white p3 rounded w-25">
-                <h2>Regisztráció</h2>
+                <h2>Bejelentkezés</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="email">

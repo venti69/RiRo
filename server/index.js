@@ -16,7 +16,14 @@ mongoose.connect('mongodb+srv://asd:asd@teszt.63nge.mongodb.net/');
 //FÁRADT VAGYOK, MAJD ÓRÁN
 //https://www.youtube.com/watch?v=ZVyIIyZJutM    17:58a
 
-app.post('/register', (req, res) => {
+app.post('/register', async (req, res) => {
+    if (!email || !password) {
+        return res.status(400).json({msg: "Minden mezőt kötelező kitölteni"})
+    }
+    const regisztralt = await EmployeeModel.findOne({email});
+    if (regisztralt) {
+        return res.status(401).json({msg: 'Ilyen adatokkal létezik felhasználó!'})
+    }
     EmployeeModel.create(req.body)
         .then((employees) => res.json(employees))
         .catch((err) => res.json(err));
@@ -37,7 +44,7 @@ app.listen(3001, () => {
     console.log('Fut a szerver');
 });
 
-app.get('/', (req, res) => {
+app.get('/server', (req, res) => {
     try {
         res.status(200).render( "index.ejs" );
     } catch (error) {
