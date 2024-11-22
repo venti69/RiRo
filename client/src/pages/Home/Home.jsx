@@ -1,15 +1,22 @@
-import React from 'react';
+// import React from 'react';
 import { Link } from 'react-router-dom';
-import './home.css';
+import styles from './Home.module.css';
 
 const Home = () => {
     return (
-        <div className="home-container">
-            <h1>Üdvözöljük a Kórház Felületünkön</h1>
-            <p>Ha már tag, lépjen be:</p>
-            <Link to="/login" className="btn">Belépés</Link>
-            <p>Ha még nem tag, regisztráljon:</p>
-            <Link to="/register" className="btn">Regisztráció</Link>
+        <div className={styles.container}>
+            <div className={styles.card}>
+                <h1 className={styles.title}>Üdvözöljük a Modern Kórházi Felületünkön</h1>
+                <p className={styles.text}>Digitális egészségügy, ahogy megálmodtuk.</p>
+                <div className={styles.buttons}>
+                    <Link to="/login" className={styles.primaryButton}>
+                        <span className={styles.icon}>🔑</span> Már tag? Belépés
+                    </Link>
+                    <Link to="/register" className={styles.secondaryButton}>
+                        <span className={styles.icon}>📝</span> Új felhasználó? Regisztráció
+                    </Link>
+                </div>
+            </div>
         </div>
     );
 };

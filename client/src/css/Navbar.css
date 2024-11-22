@@ -3,7 +3,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #00ffb3; /* Gyönyörű kék */
+    background-color: #00ffb3;
+    background: linear-gradient(90deg, #5d9cec, #f56a79);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 

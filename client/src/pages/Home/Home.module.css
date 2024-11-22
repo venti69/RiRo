@@ -1,0 +1,142 @@
+:root {
+    --card-gradient: rgba(255, 255, 255, 0.85); 
+    --primary-color: #5d9cec;
+    --secondary-color: #f56a79;
+    --button-shadow: rgba(0, 0, 0, 0.3);
+}
+body{
+    background-image: url(./bg/bgi.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--background-gradient);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Modern, dinamikus háttér animáció */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+    animation: moveBackground 6s infinite linear;
+    transform: translate(-25%, -25%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes moveBackground {
+    0% {
+        transform: translate(-25%, -25%);
+    }
+    50% {
+        transform: translate(-20%, -20%);
+    }
+    100% {
+        transform: translate(-25%, -25%);
+    }
+}
+
+.card {
+    /* background: var(--card-gradient); */
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.2s ease-in-out;
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #5d9cec, #f56a79);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.primaryButton, .secondaryButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    box-shadow: 0 8px 15px var(--button-shadow);
+    color: #ffffff;
+    
+}
+
+.primaryButton {
+    background-color: var(--primary-color);
+}
+
+.primaryButton:hover {
+    background-color: #4a8de4;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px var(--button-shadow);
+}
+
+.secondaryButton {
+    background-color: var(--secondary-color);
+}
+
+.secondaryButton:hover {
+    background-color: #e45562;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px var(--button-shadow);
+}
+
+.icon {
+    font-size: 1.3rem;
+    color: inherit;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
