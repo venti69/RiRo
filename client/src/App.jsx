@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import { LoginContext } from './Helpers/Context';
 import Logout from './Logout';
 import Fooldal from './pages/Fooldal/Fooldal';
+import Info from './pages/Info/Info';
 
 function App() {
     const [admin, setAdmin] = useState(false);
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/register" element={<Signup />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/logout" element={<Logout />} />
+                    <Route path="/info" element={<Info />} />
                 </Routes>
             </BrowserRouter>
         </LoginContext.Provider>

@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
     let navigate = useNavigate();
-    const { admin, setAdmin } = useContext(LoginContext);
-    const { loggedIn, setLoggedIn } = useContext(LoginContext);
+    // const { admin, setAdmin } = useContext(LoginContext);
+    // const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
-    setAdmin(false);
-    setLoggedIn(false);
-
-    if (loggedIn === false) {
+    const loggedIn = localStorage.getItem('isLoggedIn');
+    
+    if (loggedIn === true) {
+        localStorage.setItem('isLoggedIn', false);
+        localStorage.setItem('isAdmin', false);
         navigate('/');
     }
     return <div></div>;

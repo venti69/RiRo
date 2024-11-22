@@ -4,23 +4,29 @@ import { LoginContext } from '../Helpers/Context.js';
 import '../css/Navbar.css';
 
 const Navbar = () => {
-    const { admin, loggedIn } = useContext(LoginContext);
+    // const { admin, loggedIn, setLoggedIn } = useContext(LoginContext);
+
+    const loggedIn = Boolean(+localStorage.getItem('isLoggedIn'));
+    const admin = Boolean(+localStorage.getItem('isAdmin'));
+
+    // const loggedIn = false;
+    // const admin = false;
 
     return (
         <nav className="navbar">
-            <div className="brand">Elmegyógy Korház</div>
+            <div className="brand">Elmegyógy Kórház</div>
             <div className="nav-links">
-                <NavLink to="/home" exact activeClassName="active">Főoldal</NavLink>
+                <NavLink to="/home">Főoldal</NavLink>
                 {loggedIn ? (
-                    <NavLink to="/logout" activeClassName="active">Kilépés</NavLink>
+                    <NavLink to="/logout">Kilépés</NavLink>
                 ) : (
                     <>
-                        <NavLink to="/register" activeClassName="active">Regisztráció</NavLink>
-                        <NavLink to="/login" activeClassName="active">Bejelentkezés</NavLink>
+                        <NavLink to="/register">Regisztráció</NavLink>
+                        <NavLink to="/login">Bejelentkezés</NavLink>
                     </>
                 )}
                 {admin && (
-                    <NavLink to="http://localhost:3001/server" activeClassName="active">
+                    <NavLink to="http://localhost:3001/server">
                         Szerver
                     </NavLink>
                 )}
