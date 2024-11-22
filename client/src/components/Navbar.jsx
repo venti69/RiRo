@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { LoginContext } from '../Helpers/Context.js';
-import './Navbar.css';
+import '../css/Navbar.css';
 
 const Navbar = () => {
     const { admin, loggedIn } = useContext(LoginContext);
 
     return (
         <nav className="navbar">
-            <div className="brand">MyWebsite</div>
+            <div className="brand">Elmegyógy Korház</div>
             <div className="nav-links">
-                <NavLink to="/home" exact activeClassName="active">Home</NavLink>
+                <NavLink to="/home" exact activeClassName="active">Főoldal</NavLink>
                 {loggedIn ? (
                     <NavLink to="/logout" activeClassName="active">Kilépés</NavLink>
                 ) : (

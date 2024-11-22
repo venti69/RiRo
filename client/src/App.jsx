@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Signup from './Signup';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Login';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import Navbar from './components/Navbar';
 import { LoginContext } from './Helpers/Context';
 import Logout from './Logout';
-import Fooldal from './pages/Fooldal';
+import Fooldal from './pages/Fooldal/Fooldal';
 
 function App() {
     const [admin, setAdmin] = useState(false);

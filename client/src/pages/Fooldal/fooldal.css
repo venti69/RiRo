@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.fooldal-container {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+}
+
+.fooldal-container h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    color: #fffae3; /* Világos szöveg */
+}
+
+.fooldal-container p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #dfe6e9; /* Halvány szöveg */
+}
+
+.fooldal-container .btn {
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    background: #6c5ce7;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.fooldal-container .btn:hover {
+    background: #a29bfe;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}

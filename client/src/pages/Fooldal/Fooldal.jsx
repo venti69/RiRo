@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './fooldal.css';
 
 const Fooldal = () => {
     return (
