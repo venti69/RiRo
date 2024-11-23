@@ -2,10 +2,8 @@ import { useContext, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { LoginContext } from './Helpers/Context';
 
 function Signup() {
-    const { admin, setAdmin } = useContext(LoginContext);
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();

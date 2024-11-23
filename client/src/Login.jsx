@@ -1,18 +1,15 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-// import { LoginContext } from './Helpers/Context';
+import BelepContext from './Helpers/LoginContext';
 
 function Login() {
-    // const { admin, setAdmin } = useContext(LoginContext);
-    // const { loggedIn, setLoggedIn } = useContext(LoginContext);
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const navigate = useNavigate();
 
-    localStorage.setItem('isLoggedIn', 0)
-    localStorage.setItem('isAdmin', 0)
+    const { setIsLogged, setIsAdmin } = useContext(BelepContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,7 +18,6 @@ function Login() {
             .then((result) => {
                 const employees = result.data;
                 console.log(employees);
-                
 
                 for (let i = 0; i < employees.length; i++) {
                     if (
@@ -29,22 +25,18 @@ function Login() {
                         employees[i].password === password &&
                         employees[i].isAdmin === true
                     ) {
-                        // setAdmin(true);
-                        // setLoggedIn(true);
-                        localStorage.setItem('isLoggedIn', 1);
-                        localStorage.setItem('isAdmin', 1);
-                        navigate('/home');
+                        setIsLogged(true);
+                        setIsAdmin(true);
                     } else if (
                         employees[i].email === email &&
                         employees[i].password === password &&
                         employees[i].isAdmin === false
                     ) {
-                        localStorage.setItem('isLoggedIn', 1);
-                        navigate('/home');
-                        // setLoggedIn(true);
+                        setIsLogged(true);
                     }
                 }
 
+                navigate('/home');
             })
             .catch((err) => console.log(err));
     };

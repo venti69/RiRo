@@ -1,16 +1,27 @@
-import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { LoginContext } from '../Helpers/Context.js';
+import { useContext, useState, useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import '../css/Navbar.css';
+import BelepContext from '../Helpers/LoginContext.jsx';
 
 const Navbar = () => {
-    // const { admin, loggedIn, setLoggedIn } = useContext(LoginContext);
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [admin, setAdmin] = useState(false);
+    const { getIsLogged, setIsLogged, getIsAdmin, setIsAdmin } =
+        useContext(BelepContext);
+    const navigate = useNavigate();
 
-    const loggedIn = Boolean(+localStorage.getItem('isLoggedIn'));
-    const admin = Boolean(+localStorage.getItem('isAdmin'));
+    useEffect(() => {
+        setLoggedIn(getIsLogged());
+        setAdmin(getIsAdmin());
+    }, []);
 
-    // const loggedIn = false;
-    // const admin = false;
+    const kilep = () => {
+        setIsLogged(false);
+        setLoggedIn(false);
+        setIsAdmin(false);
+        setAdmin(false);
+        navigate('/');
+    };
 
     return (
         <nav className="navbar">
@@ -18,17 +29,16 @@ const Navbar = () => {
             <div className="nav-links">
                 <NavLink to="/home">Főoldal</NavLink>
                 {loggedIn ? (
-                    <NavLink to="/logout">Kilépés</NavLink>
+                    <button onClick={kilep}>Kilépés</button>
                 ) : (
+                    // <NavLink to="/logout">Kilépés</NavLink>
                     <>
                         <NavLink to="/register">Regisztráció</NavLink>
                         <NavLink to="/login">Bejelentkezés</NavLink>
                     </>
                 )}
                 {admin && (
-                    <NavLink to="http://localhost:3001/server">
-                        Szerver
-                    </NavLink>
+                    <NavLink to="http://localhost:3001/server">Szerver</NavLink>
                 )}
             </div>
         </nav>
