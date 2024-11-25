@@ -17,6 +17,10 @@ mongoose.connect('mongodb+srv://asd:asd@teszt.63nge.mongodb.net/');
 //https://www.youtube.com/watch?v=ZVyIIyZJutM    17:58a
 
 app.post('/register', async (req, res) => {
+    const {
+        email,
+        password
+    } = req.body;
     if (!email || !password) {
         return res.status(400).json({msg: "Minden mezőt kötelező kitölteni"})
     }
