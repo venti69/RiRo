@@ -3,6 +3,7 @@ import styles from './Home.module.css';
 import { useContext, useState, useEffect } from 'react';
 import BelepContext from '../../Helpers/LoginContext';
 
+
 const Home = () => {
     const [loggedIn, setLoggedIn] = useState(false);
     const { getIsLogged, setIsLogged } = useContext(BelepContext);
