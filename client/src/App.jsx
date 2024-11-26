@@ -18,7 +18,7 @@ function App() {
                     element={<Home />}
                 />
                 <Route
-                    path="/home"
+                    path="/fooldal"
                     element={<Fooldal />}
                 />
                 <Route
