@@ -1,57 +1,49 @@
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import '../css/Carousel.css';
 
-import React, { useState } from "react";
+const NewsCarousel = () => {
+    const news = [
+        {
+            title: "Új CT berendezés érkezett a kórházba",
+            description: "Mostantól még gyorsabb diagnosztika érhető el.",
+            image: "/path-to-image1.jpg",
+            link: "/news/1"
+        },
+        {
+            title: "Influenza szezon kezdete",
+            description: "Védőoltás mostantól elérhető a rendelőkben.",
+            image: "/path-to-image2.jpg",
+            link: "/news/2"
+        },
+        // További hírek
+    ];
 
-const NewsCarousel = ({ slides = [] }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-  
-    const handleNext = () => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === slides.length - 1 ? 0 : prevIndex + 1
-      );
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
     };
-  
-    const handlePrev = () => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === 0 ? slides.length - 1 : prevIndex - 1
-      );
-    };
-  
+
     return (
-      <div className="carousel">
-        <div
-          className="carousel-slides"
-          style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-          }}
-        >
-          {Array.isArray(slides) && slides.map((slide, index) => (
-            <div
-              className="carousel-slide"
-              key={index}
-              style={{ backgroundImage: `url(${slide})` }}
-            ></div>
-          ))}
-        </div>
-        <button className="carousel-button prev" onClick={handlePrev}>
-          ❮
-        </button>
-        <button className="carousel-button next" onClick={handleNext}>
-          ❯
-        </button>
-        <div className="carousel-dots">
-          {Array.isArray(slides) && slides.map((_, index) => (
-            <button
-              key={index}
-              className={`dot ${index === currentIndex ? "active" : ""}`}
-              onClick={() => setCurrentIndex(index)}
-            ></button>
-          ))}
-        </div>
-      </div>
+        <Slider {...settings}>
+            {news.map((item, index) => (
+                <div key={index} className="news-slide">
+                    <img src={item.image} alt={item.title} />
+                    <div className="news-content">
+                        <h3>{item.title}</h3>
+                        <p>{item.description}</p>
+                        <a href={item.link} className="btn">Tovább</a>
+                    </div>
+                </div>
+            ))}
+        </Slider>
     );
-  };
-  
-  export default NewsCarousel;
+};
+
+export default NewsCarousel;
