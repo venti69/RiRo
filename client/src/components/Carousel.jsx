@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import '../css/Carousel.css';
+import kep from "../image/asd.jpg"
 
 const NewsCarousel = () => {
     const news = [
@@ -34,7 +35,7 @@ const NewsCarousel = () => {
         <Slider {...settings}>
             {news.map((item, index) => (
                 <div key={index} className="news-slide">
-                    <img src={item.image} alt={item.title} />
+                    <img src={kep} alt="nem megy" />
                     <div className="news-content">
                         <h3>{item.title}</h3>
                         <p>{item.description}</p>
