@@ -27,7 +27,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="brand">Elmegyógy Kórház</div>
             <div className="nav-links">
-                <NavLink to="/home">Főoldal</NavLink>
+                <NavLink to="/fooldal">Főoldal</NavLink>
                 {loggedIn ? (
                     <button onClick={kilep}>Kilépés</button>
                 ) : (
