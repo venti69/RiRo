@@ -2,40 +2,49 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import '../css/Carousel.css';
-import kep from "../image/asd.jpg"
+import kep from "../assets/images/szte.jpg"
+import kep2 from "../assets/images/szeged.jpg"
+import { useState, useEffect } from "react";
 
 const NewsCarousel = () => {
-    const news = [
-        {
-            title: "Új CT berendezés érkezett a kórházba",
-            description: "Mostantól még gyorsabb diagnosztika érhető el.",
-            image: "/path-to-image1.jpg",
-            link: "/news/1"
-        },
-        {
-            title: "Influenza szezon kezdete",
-            description: "Védőoltás mostantól elérhető a rendelőkben.",
-            image: "/path-to-image2.jpg",
-            link: "/news/2"
-        },
-        // További hírek
-    ];
+    const [news, setNews] = useState([]); 
+    
+    useEffect(() => {
+        setNews([
+            {
+                title: "SZTE hírek.",
+                description: "A link átdobja magát a Szeged SZTE Hírek oldalra, ahol friss egészségügyi híreket olvashat.",
+                image: kep,
+                link: "https://u-szeged.hu/hirportal"
+            },
+            {
+                title: "Szeged friss hírei",
+                description: " ",
+                image: kep2,
+                link: "https://szeged365.hu/"
+            },
+            // További hírek
+        ]);
+
+    }, []); // empty dependency array means it runs only once, on mount
+    
 
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 5000,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 9000,
     };
 
     return (
+        <>  
         <Slider {...settings}>
             {news.map((item, index) => (
                 <div key={index} className="news-slide">
-                    <img src={kep} alt="nem megy" />
+                    <img src={item.image} alt="nem megy" />
                     <div className="news-content">
                         <h3>{item.title}</h3>
                         <p>{item.description}</p>
@@ -44,6 +53,8 @@ const NewsCarousel = () => {
                 </div>
             ))}
         </Slider>
+        {/* <img src={kep} alt="" /> */}
+        </>
     );
 };
 

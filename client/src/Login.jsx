@@ -36,7 +36,7 @@ function Login() {
                     }
                 }
 
-                navigate('/home');
+                navigate('/fooldal');
                 window.location.reload();
             })
             .catch((err) => console.log(err));
