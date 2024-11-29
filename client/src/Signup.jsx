@@ -1,86 +1,64 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import '../src/css/Signup.css';
 
 function Signup() {
-    const [name, setName] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post('http://localhost:3001/register', {
-                name,
-                email,
-                password,
-            })
+            .post('http://localhost:3001/register', { name, email, password })
             .then((result) => {
                 console.log(result);
                 navigate('/login');
             })
             .catch((err) => console.log(err));
     };
+
     return (
-        <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
-            <div className="bg-white p-3 rounded w-25">
-                <h2>Regisztráció</h2>
+        <div className="signup-container">
+            <div className="signup-card">
+                <h2 className="signup-title">Regisztráció</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label htmlFor="email">
-                            <strong>Név</strong>
-                        </label>
+                    <div className="input-group">
+                        <label htmlFor="name">Név</label>
                         <input
                             type="text"
-                            placeholder="Név"
-                            autoComplete="off"
-                            name="email"
-                            className="form-control rounded-0"
+                            placeholder="Add meg a neved"
                             onChange={(e) => setName(e.target.value)}
                         />
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="email">
-                            <strong>Email cím</strong>
-                        </label>
+                    <div className="input-group">
+                        <label htmlFor="email">Email cím</label>
                         <input
                             type="email"
-                            placeholder="Email cím"
-                            autoComplete="off"
-                            name="email"
-                            className="form-control rounded-0"
+                            placeholder="Add meg az e-mail címed"
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="password">
-                            <strong>Jelszó</strong>
-                        </label>
+                    <div className="input-group">
+                        <label htmlFor="password">Jelszó</label>
                         <input
                             type="password"
-                            placeholder="Jelszó"
-                            autoComplete="off"
-                            name="password"
-                            className="form-control rounded-0"
+                            placeholder="Írd be a jelszavad"
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <button
-                        type="submit"
-                        className="btn btn-succes border w-100 rounded-0"
-                    >
+                    <button type="submit" className="btn-primary">
                         Regisztráció
                     </button>
                 </form>
-                <p>Van már fiókja?</p>
-                <Link
-                    to="/login"
-                    className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"
-                >
-                    Bejelentkezés
-                </Link>
+                <p className="login-text">
+                    Van már fiókod?{' '}
+                    <Link to="/login" className="login-link">
+                        Jelentkezz be!
+                    </Link>
+                </p>
             </div>
         </div>
     );

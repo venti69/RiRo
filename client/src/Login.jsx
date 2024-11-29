@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import BelepContext from './Helpers/LoginContext';
+import'../src/css/Login.css';
 
 function Login() {
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     const { setIsLogged, setIsAdmin } = useContext(BelepContext);
@@ -14,78 +15,58 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post('http://localhost:3001/login', { email, password: password })
+            .post('http://localhost:3001/login', { email, password })
             .then((result) => {
                 const employees = result.data;
-                console.log(employees);
-
-                for (let i = 0; i < employees.length; i++) {
+                employees.forEach((employee) => {
                     if (
-                        employees[i].email === email &&
-                        employees[i].password === password &&
-                        employees[i].isAdmin === true
+                        employee.email === email &&
+                        employee.password === password
                     ) {
                         setIsLogged(true);
-                        setIsAdmin(true);
-                    } else if (
-                        employees[i].email === email &&
-                        employees[i].password === password &&
-                        employees[i].isAdmin === false
-                    ) {
-                        setIsLogged(true);
+                        setIsAdmin(employee.isAdmin);
                     }
-                }
-
+                });
                 navigate('/fooldal');
                 window.location.reload();
             })
             .catch((err) => console.log(err));
     };
+
     return (
-        <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
-            <div className="bg-white p3 rounded w-25">
-                <h2>Bejelentkezés</h2>
+        <div className="login-container">
+            <div className="login-card">
+                <h2 className="login-title">Bejelentkezés</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label htmlFor="email">
-                            <strong>Email</strong>
-                        </label>
+                    <div className="input-group">
+                        <label htmlFor="email">Email</label>
                         <input
                             type="email"
-                            className="form-control rounded-0"
-                            autoComplete="off"
-                            placeholder="Email"
+                            placeholder="Add meg az e-mail címed"
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="email">
-                            <strong>Jelszó</strong>
-                        </label>
+                    <div className="input-group">
+                        <label htmlFor="password">Jelszó</label>
                         <input
                             type="password"
-                            className="form-control rounded-0"
-                            name="password"
-                            placeholder="Jelszó"
+                            placeholder="Írd be a jelszavad"
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <button
-                        type="submit"
-                        className="btn btn-succes w-100 rounded-0"
-                    >
+                    <button type="submit" className="btn-primary">
                         Bejelentkezés
                     </button>
                 </form>
-                <p>Nincs még fiókja?</p>
-                <Link
-                    to="/register"
-                    className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"
-                >
-                    Regisztrálás
-                </Link>
+                <p className="register-text">
+                    Nincs még fiókod?{' '}
+                    <Link to="/register" className="register-link">
+                        Regisztrálj most!
+                    </Link>
+                </p>
             </div>
         </div>
     );
 }
+
 export default Login;

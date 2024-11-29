@@ -1,22 +1,55 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import '../../css/Info.css';
 
 const Info = () => {
-  return (
-    <div>
-        <p>Weboldalunk célja, hogy könnyen és érintekzés nélkül tudjon időpontot kérni esetleges műtétekhez.</p>
-        <br />
-        <p><Link to={"/fooldal"}>Főoldalunkon</Link> körbe tud nézni, ha rögtön időpontot szeretne kérni itt meg teheti <Link to={"/"}>Időpont kérése</Link></p>
-        <ul>
-            <h2>Weboldal készítői: </h2><br /><ul>Dizájn</ul>
-            <li>Demeter Richárd</li><br /><ul>Program</ul>
-            <li>Nagyváti Rómeó</li>
-            <h2>Segédkezett</h2>
-            <li>Bodrogi Péter Róbert</li>
-        </ul><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <footer style={{fontSize: '10px'}}>© A képeket  "<b>https://u-szeged.hu/site/upload/2024/11/kja___az_szte_ot_szakteruleten_is_a_legjobbak_kozott_a_shanghairanking_friss_rangsorain.jpg</b>" és <br /> "<b>https://investinszeged.hu/wp-content/uploads/2017/09/dom_teri_rendezveny.jpg</b>" kölcsönöztük</footer>
-    </div>
-  )
-}
+  const position = [46.259271, 20.155039]; // Szeged koordinátái
 
-export default Info
+  return (
+    <div className="info-container">
+      <div className="text-section">
+        <p>
+          Weboldalunk célja, hogy könnyen és érintekzés nélkül tudjon időpontot kérni esetleges műtétekhez.
+        </p>
+        <p>
+          <Link to={"/fooldal"}>Főoldalunkon</Link> körbe tud nézni, ha rögtön időpontot szeretne kérni, itt megteheti: <Link to={"/"}>Időpont kérése</Link>.
+        </p>
+        <div>
+          <h2>Weboldal készítői:</h2>
+          <h4>Dizájn</h4>
+          <ul>
+            <li>Demeter Richárd</li>
+          </ul>
+          <h4>Program</h4>
+          <ul>
+            <li>Nagyváti Rómeó</li>
+          </ul>
+          <h4>Segédkezett:</h4>
+          <ul>
+            <li>Bodrogi Péter Róbert</li>
+          </ul>
+        </div>
+      </div>
+      <div className="map-section">
+        <MapContainer center={position} zoom={13} className="map">
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution=" <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
+          />
+          <Marker position={position}>
+            <Popup>
+              Szeged, Szent-Györgyi Albert Klinikai Központ
+            </Popup>
+          </Marker>
+        </MapContainer>
+      </div>
+      <footer className="footer">
+        © A képeket: "<b>https://u-szeged.hu/...rangsorain.jpg</b>" és "<b>https://investinszeged.hu/...rendezveny.jpg</b>" kölcsönöztük
+      </footer>
+    </div>
+  );
+};
+
+export default Info;
