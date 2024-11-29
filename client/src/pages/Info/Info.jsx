@@ -40,7 +40,7 @@ const Info = () => {
           />
           <Marker position={position}>
             <Popup>
-              Szeged, Szent-Györgyi Albert Klinikai Központ
+              RiRo Kórház
             </Popup>
           </Marker>
         </MapContainer>

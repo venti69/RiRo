@@ -19,7 +19,7 @@ const NewsCarousel = () => {
             },
             {
                 title: "Szeged friss hírei",
-                description: " ",
+                description: "Szeged Friss híreit olvashatja, ha a linkre tovább megy. (Szeged365)",
                 image: kep2,
                 link: "https://szeged365.hu/"
             },
@@ -41,15 +41,16 @@ const NewsCarousel = () => {
 
     return (
         <>  
-        <Slider {...settings}>
+        <Slider {...settings} style={{margin: "100px auto", width: "80vw", borderRadius: "15px"}}>
             {news.map((item, index) => (
                 <div key={index} className="news-slide">
                     <img src={item.image} alt="nem megy" />
                     <div className="news-content">
                         <h3>{item.title}</h3>
                         <p>{item.description}</p>
-                        <a href={item.link} className="btn">Tovább</a>
+                        <a href={item.link} className="btn" target="_blank">Tovább</a>
                     </div>
+                    
                 </div>
             ))}
         </Slider>

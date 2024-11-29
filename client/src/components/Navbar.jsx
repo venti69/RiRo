@@ -3,18 +3,20 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import '../css/Navbar.css';
 import BelepContext from '../Helpers/LoginContext.jsx';
 
+
 const Navbar = () => {
+    const [isHovered, setIsHovered] = useState(false);
     const [loggedIn, setLoggedIn] = useState(false);
     const [admin, setAdmin] = useState(false);
     const { getIsLogged, setIsLogged, getIsAdmin, setIsAdmin } =
-        useContext(BelepContext);
+    useContext(BelepContext);
     const navigate = useNavigate();
-
+    
     useEffect(() => {
         setLoggedIn(getIsLogged());
         setAdmin(getIsAdmin());
     }, []);
-
+    
     const kilep = () => {
         setIsLogged(false);
         setLoggedIn(false);
@@ -22,24 +24,35 @@ const Navbar = () => {
         setAdmin(false);
         navigate('/');
     };
-
+    
     return (
         <nav className="navbar">
-            <div className="brand">Elmegyógy Kórház</div>
+            <div className="brand">RiRo Kórház</div>
             <div className="nav-links">
                 <NavLink to="/fooldal">Főoldal</NavLink>
                 {loggedIn ? (
-                    <button onClick={kilep}>Kilépés</button>
-                ) : (
+                    <button onClick={kilep} className="kilepes" style={{
+                    backgroundColor: isHovered ? "#023e8a" : "transparent", // Hover szín
+                    fontWeight: "bold",
+                    border: "none",
+                    color: isHovered ? "#f60": "white",
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                    transition: "background-color 0.3s ease",}} onMouseEnter={() => setIsHovered(true)} // Hover állapot kezdete
+      onMouseLeave={() => setIsHovered(false)}>Kilépés</button>,
                     // <NavLink to="/logout">Kilépés</NavLink>
+                    <NavLink to="/info">Információ</NavLink>
+                ) : (
                     <>
                         <NavLink to="/register">Regisztráció</NavLink>
                         <NavLink to="/login">Bejelentkezés</NavLink>
+
                     </>
                 )}
                 {admin && (
                     <NavLink to="http://localhost:3001/server">Szerver</NavLink>
                 )}
+
             </div>
         </nav>
     );
