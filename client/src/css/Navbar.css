@@ -28,6 +28,7 @@
 
 .navbar a:hover{
     background-color: #696b6ca5; 
+    color: black;
 }
 
 .navbar a.active {
