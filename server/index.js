@@ -82,7 +82,7 @@ app.use('/api/hospital/orvosok', require('./routes/orvosokRoutes.js'));
 // Páciensek betegek
 app.use('/patient', require('./routes/patientRoutes.js'));
 // Egyedi
-app.use('/api/hospital/egyedi', require('./routes/egyediOrvosRoutes.js'));
+// app.use('/api/hospital/egyedi', require('./routes/egyediOrvosRoutes.js'));
 // Users
-// app.use('/api/hospital/users', require('./routes/usersRoutes.js'));
+app.use('/api/hospital/users', require('./routes/usersRoutes.js'));
 

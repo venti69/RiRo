@@ -1,6 +1,6 @@
 const path = require('node:path');
 const Appointment = require('../models/Appointment');
-exports.deleteAppointment = async (req, res) => {
+exports. deleteAppointment = async (req, res) => {
     const {
         id
     } = req.params;

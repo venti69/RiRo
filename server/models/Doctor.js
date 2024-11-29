@@ -14,8 +14,8 @@ const orvosSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        idopontok: {
-            type: [Date],
+        neme: {
+            type: String,
             required: true,
         },
         isEditMode: { type: Boolean, default: true },
