@@ -1,7 +1,7 @@
 :root {
     --card-gradient: rgba(255, 255, 255, 0.85); 
-    --primary-color: #5d9cec;
-    --secondary-color: #f56a79;
+    --primary-color: #696b6ca5;
+    --secondary-color: #684a1e91;
     --button-shadow: rgba(0, 0, 0, 0.3);
 }
 body{
@@ -68,7 +68,8 @@ body{
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 20px;
-    background: linear-gradient(90deg, #5d9cec, #f56a79);
+    /* background: linear-gradient(90deg, #5d9cec, #f56a79); */
+    background: linear-gradient(90deg, rgba(110, 57, 12, 0.586), rgba(50, 49, 49, 0.683));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

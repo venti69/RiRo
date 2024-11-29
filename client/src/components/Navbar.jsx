@@ -31,17 +31,21 @@ const Navbar = () => {
             <div className="nav-links">
                 <NavLink to="/fooldal">Főoldal</NavLink>
                 {loggedIn ? (
+                    <>
                     <button onClick={kilep} className="kilepes" style={{
-                    backgroundColor: isHovered ? "#023e8a" : "transparent", // Hover szín
-                    fontWeight: "bold",
-                    border: "none",
-                    color: isHovered ? "#f60": "white",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    transition: "background-color 0.3s ease",}} onMouseEnter={() => setIsHovered(true)} // Hover állapot kezdete
-      onMouseLeave={() => setIsHovered(false)}>Kilépés</button>,
-                    // <NavLink to="/logout">Kilépés</NavLink>
-                    <NavLink to="/info">Információ</NavLink>
+                        backgroundColor: isHovered ? "#696b6ca5" : "transparent", // Hover szín
+                        fontWeight: "bold",
+                        border: "none",
+                        color: isHovered ? "#f60": "white",
+                        borderRadius: "5px",
+                        cursor: "pointer",
+                        transition: "background-color 0.3s ease",}} onMouseEnter={() => setIsHovered(true)}
+                         // Hover állapot kezdete
+
+                        onMouseLeave={() => setIsHovered(false)}>Kilépés</button>
+                        <NavLink to="/info">Információ</NavLink>
+                        {/* <NavLink to="/logout">Kilépés</NavLink> */}
+                        </>
                 ) : (
                     <>
                         <NavLink to="/register">Regisztráció</NavLink>

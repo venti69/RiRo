@@ -4,7 +4,7 @@
     justify-content: space-between;
     padding: 10px 20px;
     background-color: #00ffb3;
-    background: linear-gradient(90deg, #5d9cec, #f56a79);
+    background: linear-gradient(90deg, rgba(110, 57, 12, 0.586), rgba(57, 57, 57, 0.145));
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -27,11 +27,11 @@
 }
 
 .navbar a:hover{
-    background-color: #023e8a; /* Sötétebb kék */
+    background-color: #696b6ca5; 
 }
 
 .navbar a.active {
-    background-color: #48cae4; /* Aktív link színe */
+    background-color: #684a1e91; /* Aktív link színe */
     color: black; /* Fekete szöveg */
 }
 

@@ -12,6 +12,7 @@
     text-align: center;
     object-fit: cover;
     filter: brightness(0.7);
+    border-radius: 100px;
 }
 
 .news-content {
@@ -30,6 +31,7 @@
 .news-content p {
     font-size: 1rem;
     margin-bottom: 15px;
+    /* border-radius: 100px; */
 }
 
 .news-content .btn {
