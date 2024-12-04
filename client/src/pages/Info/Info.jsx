@@ -8,7 +8,7 @@ const Info = () => {
   const position = [46.259271, 20.155039]; // Szeged koordinátái
 
   return (
-    <div className="info-container">
+    <div className="info-container"><br />
       <div className="text-section">
         <p>
           Weboldalunk célja, hogy könnyen és érintekzés nélkül tudjon időpontot kérni esetleges műtétekhez.

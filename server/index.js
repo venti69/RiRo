@@ -18,6 +18,7 @@ mongoose.connect('mongodb+srv://asd:asd@teszt.63nge.mongodb.net/');
 
 app.post('/register', async (req, res) => {
     const {
+        name,
         email,
         password
     } = req.body;

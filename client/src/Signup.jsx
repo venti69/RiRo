@@ -9,15 +9,31 @@ function Signup() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit =  (e) => {
         e.preventDefault();
-        axios
-            .post('http://localhost:3001/register', { name, email, password })
-            .then((result) => {
-                console.log(result);
-                navigate('/login');
-            })
-            .catch((err) => console.log(err));
+
+        const regisztral = async () => {
+            const response = await fetch('http://localhost:3001/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, password }),
+            });
+            
+            const result = await response.json();
+
+            console.log(result);
+                
+                if (response.ok) {
+                    alert('Sikeres regisztráció!');
+                    navigate('/login');
+                } else {
+                    alert(result.msg);
+                }
+        };
+
+        regisztral();
     };
 
     return (
