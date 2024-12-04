@@ -44,7 +44,7 @@ const NewsCarousel = () => {
         <Slider {...settings} style={{margin: "100px auto", width: "50vw", borderRadius: "150px"}}>
             {news.map((item, index) => (
                 <div key={index} className="news-slide">
-                    <img src={item.image} alt="nem megy" />
+                    <img src={item.image} alt="Kép" />
                     <div className="news-content">
                         <h3>{item.title}</h3>
                         <p>{item.description}</p>

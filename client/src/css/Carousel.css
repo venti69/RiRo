@@ -47,4 +47,8 @@
     background-color: #4a8de4;
     
 } 
+.slick-prev:before, .slick-next:before{
+    color: black;
+    
+}
 
