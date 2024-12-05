@@ -1,0 +1,42 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #00ffb3;
+    background: linear-gradient(90deg, #0046AD, rgba(0, 0, 0, 0.145));
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+}
+
+/* .navbar .nav-links {
+    display: flex;
+    gap: 15px;  
+} */
+
+.navbar a {
+    text-decoration: none;
+    color: white; /* Fehér szöveg */
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover{
+    background-color: #696b6ca5; 
+    color: black;
+}
+
+/* .navbar a.active {
+    background-color: #684a1e91; 
+    color: black; 
+} */
+
+/* .navbar .brand {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: bold;
+} */
