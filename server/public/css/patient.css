@@ -1,5 +1,5 @@
 /* Alap konténer */
-.main-doc-container {
+.patient-main {
     padding: 20px;
     background-color: #f3f6f9;
     min-height: 100vh;
@@ -7,7 +7,7 @@
 }
 
 /* Fejléc */
-.doctors-section h3 {
+.patients-section h3 {
     font-size: 2.5rem;
     font-weight: bold;
     text-align: center;
@@ -16,53 +16,46 @@
 }
 
 /* Kártyák tároló */
-.doctor-list {
+.patient-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     padding: 0 10px;
 }
 
-/* Orvos kártyák */
-.doctor-card {
+/* Páciens kártyák */
+.patient-card {
     /* background-color: #ffffff; */
     background: linear-gradient(90deg, rgba(110, 57, 12, 0.586), rgba(57, 57, 57, 0.533));
     border: 1px solid #e0e0e0;
-    border-radius: 10px;
+    border-radius: 25px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: left;
 }
 
-.doctor-card:hover {
+.patient-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Orvos adatok */
-.doctor-card h4 {
+/* Páciens adatok */
+.patient-card h4 {
     font-size: 1.4rem;
     font-weight: bold;
     color: #333;
     margin-bottom: 15px;
 }
 
-.doctor-card h5 {
-    font-size: 1.2rem;
-    color: #555;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-.doctor-card p {
+.patient-card p {
     font-size: 1rem;
     color: #777;
     margin-bottom: 20px;
 }
 
 /* Gombok */
-.doctor-card button {
+.patient-card button {
     background-color: #0046ad;
     color: white;
     border: none;
@@ -74,11 +67,11 @@
     margin-right: 10px;
 }
 
-.doctor-card button:hover {
+.patient-card button:hover {
     background-color: #003580;
 }
 
-.doctor-card form button {
+.patient-card form button {
     background-color: #d9534f;
     color: white;
     border: none;
@@ -89,6 +82,6 @@
     transition: background-color 0.3s ease;
 }
 
-.doctor-card form button:hover {
+.patient-card form button:hover {
     background-color: #c9302c;
 }

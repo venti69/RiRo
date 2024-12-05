@@ -31,11 +31,11 @@
                     <% doctors.forEach((doctor) => { %>
                     <div class="doctor-card">
                         <h4>
-                            <%= doctor.isEditMode ? 'Orvos szerkesztése' :
+                            <%= doctor.isEditMode ? '' :
                             'Orvos felvétele' %>
                         </h4>
-                        <h5>Név: <%= doctor.nev %></h5>
-                        <p>Szakirány: <%= doctor.szak %></p>
+                        <h5 style="color: aliceblue;">Név: <%= doctor.nev %></h5>
+                        <p style="color: aliceblue;">Szakirány: <%= doctor.szak %></p>
                         <button
                             onclick="window.location.href='/api/hospital/egyedi/<%= doctor._id %>'"
                         >
