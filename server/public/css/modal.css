@@ -1,0 +1,11 @@
+#modal-container{
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    width: auto;
+    height: auto;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    text-align: center;
+
+}

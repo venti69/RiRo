@@ -6,7 +6,6 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0"
         />
-
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -23,10 +22,10 @@
     </head>
     <body>
         <%- include('./nav.ejs') %>
-
+        <div id="modal-container"></div>
         <div class="main-doc-container">
             <div class="doctors-section">
-                <h3>Felhasználok</h3>
+                <h3>Felhasználók</h3>
                 <div class="doctor-list">
                     <% employees.forEach(employee => { %>
                     <div class="doctor-card">
@@ -35,10 +34,22 @@
                         </h4>
                         <h5 style="color: aliceblue;">Név: <%= employee.name %></h5>
                         <p style="color: aliceblue;">Email cím: <%= employee.email %></p>
+                        
+                        <!-- Gomb a modál megnyitásához -->
+                        <button 
+                            type="button" 
+                            class="btn btn-primary" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#employeeModal<%= employee.id %>"
+                            onClick="megnyit('<%= employee.name %>', '<%= employee.email %>')">
+                            Részletek
+                        </button>
                     </div>
                     <% }) %>
                 </div>
             </div>
         </div>
+
+        <script src="/js/modal.js"></script>
     </body>
 </html>
