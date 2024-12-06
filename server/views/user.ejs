@@ -27,34 +27,11 @@
     <body>
         <%- include('./nav.ejs') %>
 
-        <div class="main-doc-container">
-            <div class="doctors-section">
-                <h3>Orvosok</h3>
-                <div class="doctor-list">
-                    <% doctors.forEach((doctor) => { %>
-                    <div class="doctor-card">
-                        <h4>
-                            <%= doctor.isEditMode ? 'Orvos szerkesztése' :
-                            'Orvos felvétele' %>
-                        </h4>
-                        <h5>Név: <%= doctor.nev %></h5>
-                        <p>Szakirány: <%= doctor.szak %></p>
-                        <button
-                            onclick="window.location.href='/api/hospital/egyedi/<%= doctor._id %>'"
-                        >
-                            Szerkesztés
-                        </button>
-                        <form
-                            method="POST"
-                            action="/doctors/delete/<%= doctor._id %>"
-                            style="display: inline"
-                        >
-                            <button type="submit">Törlés</button>
-                        </form>
-                    </div>
-                    <% }) %>
-                </div>
-            </div>
-        </div>
+        <h1>Employee List</h1>
+    <ul>
+        <% employees.forEach(employee => { %>
+            <li><%= employee.name %> (<%= employee.email %>)</li>
+        <% }); %>
+    </ul>
     </body>
 </html>

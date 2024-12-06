@@ -1,12 +1,10 @@
-const path = require('node:path');
-const Users = require('../models/User');
+const Employee = require('../models/Employee');
 
-exports.getUsers = async (req, res) => {
+exports.getEmployee = async (req, res) => {
     try {
-        const users = await Users.find({});
-        // console.log(doctors);
-        res.status(200).render({ users });
+        const employees = await Employee.find({});
+        res.status(200).render('employeeList', { employees });
     } catch (error) {
-        res.status(500).render({ msg: error });
+        res.status(500).render('error', { msg: error.message });
     }
 };

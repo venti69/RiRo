@@ -1,19 +1,27 @@
+
+
 const mongoose = require('mongoose');
 
-const EmployeeSchema = new mongoose.Schema({
-    isAdmin: {
-        type: Boolean,
-        default: false
+const EmployeeSchema = new mongoose.Schema(
+    {
+        name: {
+            type: String,
+            required: true,
+        },
+        email: {
+            type: String,
+            required: true,
+        },
+        password: {
+            type: String,
+            required: true,
+        },
+        isAdmin: { type: Boolean, default: false },
     },
-    name: String,
-    email: String,
-    password: String,
-});
+    {
+        timestamps: true,
+    }
+);
+const EmployeeModel = mongoose.model('employee', EmployeeSchema);
 
-const EmployeeModel = new mongoose.model('employee', EmployeeSchema);
 module.exports = EmployeeModel;
-
-
-/*
-
-*/

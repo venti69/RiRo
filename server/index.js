@@ -78,12 +78,12 @@ app.use('/api/hospital/idopontok', require('./routes/appointmentCardRoutes.js'))
 
 app.use('/doctors', require('./routes/doctorsRoutes.js'));
 
-app.use('/api/hospital/orvosok', require('./routes/orvosokRoutes.js'));
+// app.use('/api/hospital/orvosok', require('./routes/orvosokRoutes.js'));
 // app.use('/api/hospital/appointments/add', require('./routes/addIdopontRoutes.js'));
 // Páciensek betegek
 app.use('/patient', require('./routes/patientRoutes.js'));
 // Egyedi
 // app.use('/api/hospital/egyedi', require('./routes/egyediOrvosRoutes.js'));
 // Users
-app.use('/api/hospital/users', require('./routes/usersRoutes.js'));
+app.use('/users', require('./routes/usersRoutes.js'));
 
