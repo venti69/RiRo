@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
+const bcrypt = require('bcrypt');
 const EmployeeModel = require('./models/Employee');
 const app = express();
 const Patient = require('./models/Patient');
@@ -29,15 +30,31 @@ app.post('/register', async (req, res) => {
     if (regisztralt) {
         return res.status(401).json({msg: 'Ilyen adatokkal létezik felhasználó!'})
     }
-    EmployeeModel.create(req.body)
+    const hashedPassword = await bcrypt.hash(password, 10);
+    req.body.password = hashedPassword;
+
+
+    EmployeeModel.create({name:name, email:email, password:hashedPassword})
         .then((employees) => res.json(employees))
         .catch((err) => res.json(err));
 });
 
 app.post('/login', (req, res) => {
     console.log(req.body);
+    const {email, password} = req.body;
     EmployeeModel.find({})
-        .then((employees) => res.json(employees))
+        .then((employees) => {
+        const user = employees.find(employee => employee.email === email);
+        if (bcrypt.compare(password, user.password)){
+            res.status(200).json({loggedIn: true, isAdmin: user.isAdmin, msg: "Sikeres bejelentkezés"}
+
+            )
+        }
+        else {
+            res.status(403).json({loggedIn: false, msg: "Sikertelen bejelentkezés"})
+        }
+        
+    })
         .catch((err) => res.json(err));
 });
 
@@ -88,4 +105,4 @@ app.use('/patient', require('./routes/patientRoutes.js'));
 // app.use('/api/hospital/egyedi', require('./routes/egyediOrvosRoutes.js'));
 // Users
 app.use('/users', require('./routes/usersRoutes.js'));
-
+app.use('/update', require('./routes/updateRoutes.js'));

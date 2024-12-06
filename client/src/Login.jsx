@@ -17,16 +17,11 @@ function Login() {
         axios
             .post('http://localhost:3001/login', { email, password })
             .then((result) => {
-                const employees = result.data;
-                employees.forEach((employee) => {
-                    if (
-                        employee.email === email &&
-                        employee.password === password
-                    ) {
+                const employee = result.data;
+                console.log(employee);
+                window.alert('SIKERES BELÉPÉS')
                         setIsLogged(true);
                         setIsAdmin(employee.isAdmin);
-                    }
-                });
                 navigate('/fooldal');
                 window.location.reload();
             })

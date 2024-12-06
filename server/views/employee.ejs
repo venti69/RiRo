@@ -27,11 +27,7 @@
     <body>
         <%- include('./nav.ejs') %>
 
-        <h1>Employee List</h1>
-    <ul>
-        <% employees.forEach(employee => { %>
-            <li><%= employee.name %> (<%= employee.email %>)</li>
-        <% }); %>
-    </ul>
+        <h1>Felhasználó szerkesztése</h1>
+        <p><%= employee.name %></p>
     </body>
 </html>

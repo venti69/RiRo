@@ -34,7 +34,6 @@ function megnyit(name, email) {
     modalContainer.appendChild(modalBox);
 }
 function torol(_id) {
-    console.log('Törlésre kerülő id:', _id);
 
     fetch(`/torol/${_id}`, {
         method: 'DELETE',
@@ -56,4 +55,7 @@ function torol(_id) {
         console.error('Hiba történt:', error);
         alert('Hiba történt a törlés során!');
     });
+}
+async function szerkeszt(id){
+    await fetch(`/update/${id}`);
 }
