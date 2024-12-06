@@ -111,7 +111,7 @@ body{
 }
 
 .primaryButton:hover {
-    background-color: #4a8de4;
+    background-color: #696B6Ca5;
     transform: translateY(-3px);
     box-shadow: 0 12px 20px var(--button-shadow);
 }
@@ -121,7 +121,7 @@ body{
 }
 
 .secondaryButton:hover {
-    background-color: #e45562;
+    background-color: #684A1E91;
     transform: translateY(-3px);
     box-shadow: 0 12px 20px var(--button-shadow);
 }
