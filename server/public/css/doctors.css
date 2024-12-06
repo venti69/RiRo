@@ -18,7 +18,8 @@
 /* Kártyák tároló */
 .doctor-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    grid-template-columns: 32% 32% 32%;
     gap: 30px;
     padding: 0 10px;
 }
@@ -91,4 +92,19 @@
 
 .doctor-card form button:hover {
     background-color: #c9302c;
+}
+
+
+@media screen and (max-width: 964px) {
+    .doctor-list{
+        grid-template-columns: 47% 47%;
+        /* gap: 10px; */
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .doctor-list{
+        grid-template-columns: 100%;
+        /* gap: 10px; */
+    }
 }
