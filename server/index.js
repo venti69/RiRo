@@ -66,13 +66,15 @@ app.get('/', (req, res) => {
 // app.use('/', require('./routes/mainRoutes.js'));
 
 //Időpontok
-/* 
-app.use('/api/hospital/appointment', require('./routes/appointmentRoutes.js'));
-app.use('/api/hospital/appointments', require('./routes/idopontokRoutes.js'));
-app.use('/api/hospital/appointments/add', require('./routes/addIdopontRoutes.js'));
-app.use('/api/hospital/appointments/delete', require('./routes/torIdopontRoutes.js'));
-app.use('/api/hospital/appointments/update', require('./routes/upIdopontRoutes.js'));
-app.use('/api/hospital/idopontok', require('./routes/appointmentCardRoutes.js'));*/
+
+// app.use('/api/hospital/appointment', require('./routes/appointmentRoutes.js'));
+// app.use('/api/hospital/appointments', require('./routes/idopontokRoutes.js'));
+// app.use('/api/hospital/appointments/add', require('./routes/addIdopontRoutes.js'));
+
+app.use('/torol', require('./routes/torlUsersRoute.js'));
+
+// app.use('/api/hospital/appointments/update', require('./routes/upIdopontRoutes.js'));
+// app.use('/api/hospital/idopontok', require('./routes/appointmentCardRoutes.js'));
 // Orvosok
 
 

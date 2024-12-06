@@ -33,3 +33,27 @@ function megnyit(name, email) {
     // Modális doboz hozzáadása a tartályhoz
     modalContainer.appendChild(modalBox);
 }
+function torol(_id) {
+    console.log('Törlésre kerülő id:', _id);
+
+    fetch(`/torol/${_id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('A felhasználó sikeresen törölve lett!');
+            document.getElementById(`employee-${_id}`).remove();
+        } else {
+            alert('A felhasználó sikeresen törölve lett!');
+            window.location.reload();
+        }
+    })
+    .catch(error => {
+        console.error('Hiba történt:', error);
+        alert('Hiba történt a törlés során!');
+    });
+}
