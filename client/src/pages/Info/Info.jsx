@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-// import 'leaflet/dist/leaflet.css';
+import 'leaflet/dist/leaflet.css';
 import '../../css/Info.css';
 
 const Info = () => {

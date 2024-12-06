@@ -1,28 +1,35 @@
 function megnyit(name, email) {
-    let modalContainer = document.getElementById('modal-container');
+    const modalContainer = document.getElementById('modal-container');
 
     // Minden korábbi tartalom törlése
     modalContainer.innerHTML = '';
-    
+
     // Beállítjuk a modál stílusát (megnyitás)
-    modalContainer.style.display = 'block';
+    modalContainer.style.display = 'flex';
+
+    // Modális doboz létrehozása
+    const modalBox = document.createElement('div');
+    modalBox.className = 'modal-box';
 
     // Név megjelenítése
-    let nevTarto = document.createElement('div');
-    nevTarto.textContent = `Név: ${name}`;
-    modalContainer.appendChild(nevTarto);
+    const nameTitle = document.createElement('h2');
+    nameTitle.textContent = `Név: ${name}`;
+    modalBox.appendChild(nameTitle);
 
-    // E-mail megjelenítése
-    let emailTarto = document.createElement('div');
-    emailTarto.textContent = `E-mail: ${email}`;
-    modalContainer.appendChild(emailTarto);
+    // Email megjelenítése
+    const emailInfo = document.createElement('p');
+    emailInfo.textContent = `E-mail: ${email}`;
+    modalBox.appendChild(emailInfo);
 
     // Bezáró gomb létrehozása
-    let bezaroGomb = document.createElement('button');
-    bezaroGomb.textContent = 'Bezár';
-    bezaroGomb.addEventListener('click', () => {
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Bezár';
+    closeButton.className = 'modal-close-btn';
+    closeButton.addEventListener('click', () => {
         modalContainer.style.display = 'none'; // Modál elrejtése
-        modalContainer.innerHTML = ''; // Tartalom törlése
     });
-    modalContainer.appendChild(bezaroGomb);
+    modalBox.appendChild(closeButton);
+
+    // Modális doboz hozzáadása a tartályhoz
+    modalContainer.appendChild(modalBox);
 }
