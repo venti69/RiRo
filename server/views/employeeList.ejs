@@ -35,17 +35,30 @@
                         <h5 style="color: aliceblue;">Név: <%= employee.name %></h5>
                         <p style="color: aliceblue;">Email cím: <%= employee.email %></p>
                         
-                        <!-- Gomb a modál megnyitásához -->
-                        <button 
+                        <!-- Gombok konténerben -->
+                        <div class="button-container">
+                            <button 
+                                type="button" 
+                                class="btn btn-warning edit-button" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#editModal<%= employee.id %>" 
+                                onClick="szerkesztes('<%= employee.id %>', '<%= employee.name %>', '<%= employee.email %>')">
+                                Szerkesztés
+                            </button>
+                            <button 
+                                class="btn btn-danger delete-button" 
+                                onClick="torol('<%= employee.id%>')">
+                                Töröl
+                            </button>
+                            <button 
                             type="button" 
-                            class="btn btn-primary" 
+                            class="btn btn-success details-button" 
                             data-bs-toggle="modal" 
-                            data-bs-target="#employeeModal<%= employee.id %>"
+                            data-bs-target="#employeeModal<%= employee.id %>" 
                             onClick="megnyit('<%= employee.name %>', '<%= employee.email %>')">
                             Részletek
                         </button>
-                        <button onclick="szerkeszt('<%= employee.id %>')">Kaki</button>
-                        <button onclick="torol('<%= employee.id%>')">Töröl</button>
+                        </div>
                     </div>
                     <% }) %>
                 </div>

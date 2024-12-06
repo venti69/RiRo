@@ -1,61 +1,77 @@
-function megnyit(name, email) {
+function szerkesztes(id, name, email) {
     const modalContainer = document.getElementById('modal-container');
 
-    // Minden korábbi tartalom törlése
+    // Töröljük a modal tartalmát
     modalContainer.innerHTML = '';
 
-    // Beállítjuk a modál stílusát (megnyitás)
+    // Megnyitjuk a modal-t
     modalContainer.style.display = 'flex';
 
-    // Modális doboz létrehozása
+    // Modális doboz
     const modalBox = document.createElement('div');
     modalBox.className = 'modal-box';
 
-    // Név megjelenítése
-    const nameTitle = document.createElement('h2');
-    nameTitle.textContent = `Név: ${name}`;
-    modalBox.appendChild(nameTitle);
+    // Szerkesztés fejléc
+    const title = document.createElement('h2');
+    title.textContent = `Szerkesztés - ${name}`;
+    modalBox.appendChild(title);
 
-    // Email megjelenítése
-    const emailInfo = document.createElement('p');
-    emailInfo.textContent = `E-mail: ${email}`;
-    modalBox.appendChild(emailInfo);
+    // Név input mező
+    const nameInput = document.createElement('input');
+    nameInput.type = 'text';
+    nameInput.value = name;
+    nameInput.className = 'form-control mb-3';
+    nameInput.placeholder = 'Név';
+    modalBox.appendChild(nameInput);
 
-    // Bezáró gomb létrehozása
+    // Email input mező
+    const emailInput = document.createElement('input');
+    emailInput.type = 'email';
+    emailInput.value = email;
+    emailInput.className = 'form-control mb-3';
+    emailInput.placeholder = 'Email cím';
+    modalBox.appendChild(emailInput);
+
+    // Mentés gomb
+    const saveButton = document.createElement('button');
+    saveButton.textContent = 'Mentés';
+    saveButton.className = 'btn btn-success';
+    saveButton.addEventListener('click', () => {
+        // Küldd el az új adatokat a szervernek
+        const updatedName = nameInput.value;
+        const updatedEmail = emailInput.value;
+
+        fetch(`/users/${id}/edit`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: updatedName, email: updatedEmail })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Adatok sikeresen frissítve!');
+                location.reload(); // Frissítjük az oldalt
+            } else {
+                alert('Hiba történt!');
+            }
+        });
+
+        // Modal bezárása
+        modalContainer.style.display = 'none';
+    });
+    modalBox.appendChild(saveButton);
+
+    // Bezáró gomb
     const closeButton = document.createElement('button');
-    closeButton.textContent = 'Bezár';
-    closeButton.className = 'modal-close-btn';
+    closeButton.textContent = 'Mégse';
+    closeButton.className = 'btn btn-secondary ms-2';
     closeButton.addEventListener('click', () => {
-        modalContainer.style.display = 'none'; // Modál elrejtése
+        modalContainer.style.display = 'none'; // Modal elrejtése
     });
     modalBox.appendChild(closeButton);
 
-    // Modális doboz hozzáadása a tartályhoz
+    // Hozzáadjuk a modális dobozt a konténerhez
     modalContainer.appendChild(modalBox);
-}
-function torol(_id) {
-
-    fetch(`/torol/${_id}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('A felhasználó sikeresen törölve lett!');
-            document.getElementById(`employee-${_id}`).remove();
-        } else {
-            alert('A felhasználó sikeresen törölve lett!');
-            window.location.reload();
-        }
-    })
-    .catch(error => {
-        console.error('Hiba történt:', error);
-        alert('Hiba történt a törlés során!');
-    });
-}
-async function szerkeszt(id){
-    await fetch(`/update/${id}`);
 }

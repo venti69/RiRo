@@ -1,0 +1,51 @@
+.button-container {
+    display: flex;
+    flex-wrap: wrap; /* Engedélyezi a sorok törését, ha nem férnek el */
+    justify-content: space-between;
+    gap: 10px; /* Gombok közötti távolság */
+    margin-top: 10px; /* Távolság a gombok felett */
+}
+
+.button-container button {
+    flex: 1; /* Egyforma szélességűvé teszi a gombokat */
+    min-width: 100px; /* Minimális szélesség, hogy ne zsugorodjanak túl kicsire */
+}
+
+.edit-button {
+    background-color: #ffc107; /* Sárga */
+    color: white;
+}
+
+.details-button {
+    background-color: #28a745; /* Zöld */
+    color: white;
+}   
+
+.delete-button {
+    background-color: #dc3545; /* Piros */
+    color: white;
+}
+
+
+modal.css
+
+
+.modal-box input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}

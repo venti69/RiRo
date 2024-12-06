@@ -1,69 +1,20 @@
-/* Modális tartály */
-#modal-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.7); 
-    display: none; 
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-/* Modális doboz */
-.modal-box {
-    background: #ffffff; 
-    border-radius: 12px; 
-    width: 90%;
-    max-width: 500px; 
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
-    animation: scaleUp 0.3s ease-in-out; 
-    text-align: center;
-}
-
-/* Modális tartalom */
-.modal-box h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #0046ad;
-    font-weight: bold;
-}
-
-.modal-box p {
+.modal-box input {
+    width: 100%;
+    padding: 10px;
     font-size: 1rem;
-    color: #333;
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-/* Bezáró gomb */
-.modal-close-btn {
-    background-color: #d9534f;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
 }
 
-.modal-close-btn:hover {
-    background-color: #c9302c;
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: #fff;
+    font-weight: bold;
 }
 
-/* Animációk */
-@keyframes scaleUp {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+.btn-warning:hover {
+    background-color: #e0a800;
 }
+

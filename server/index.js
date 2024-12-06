@@ -80,6 +80,16 @@ app.get('/', (req, res) => {
         res.status(500).json({ msg: error.message });
     }
 });
+app.post('/users/:id/edit', (req, res) => {
+    const { id } = req.params;
+    const { name, email } = req.body;
+
+    // Adatok frissítése az adatbázisban
+    EmployeeModel.updateOne({ _id: id }, { name, email })
+    .then(() => res.json({ success: true }))
+    .catch(err => res.status(500).json({ success: false, error: err.message }));
+
+});
 // app.use('/', require('./routes/mainRoutes.js'));
 
 //Időpontok
