@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import '../../css/Info.css';
 
 const Info = () => {
-  const position = [46.259271, 20.155039]; // Szeged koordinátái
-
+  // const position = [46.259271, 20.155039]; // Szeged koordinátái
+  const apiKey = 'YOUR_MAPTILER_API_KEY';
   return (
     <div className="info-container"><br />
       <div className="text-section">
@@ -33,17 +33,13 @@ const Info = () => {
         </div>
       </div>
       <div className="map-section">
-        <MapContainer center={position} zoom={13} className="map">
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution=" <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
-          />
-          <Marker position={position}>
-            <Popup>
-              RiRo Kórház
-            </Popup>
-          </Marker>
-        </MapContainer>
+      <ReactMapGL
+            {...viewport}
+            width="100%"
+            height="500px"
+            mapboxApiAccessToken="your_mapbox_token"
+            onViewportChange={nextViewport => setViewport(nextViewport)}
+        />
       </div>
       <footer className="footer">
         © A képeket: "<b>https://u-szeged.hu/...rangsorain.jpg</b>" és "<b>https://investinszeged.hu/...rendezveny.jpg</b>" kölcsönöztük
@@ -53,3 +49,5 @@ const Info = () => {
 };
 
 export default Info;
+
+//https://docs.maptiler.com/leaflet/examples/vector-tiles-in-leaflet-js/?key=kAaGwk9PUfZVksUOb7FY&mapId=satellite ITT VAN A TÉRKÉÉÉP!!!
