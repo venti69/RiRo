@@ -27,7 +27,7 @@ const Navbar = () => {
     
     return (
         <nav className="navbar">
-            <div className="brand">RiRo Kórház</div>
+            <div className="brand">RiRo-Kórház</div>
             <div className="nav-links">
                 <NavLink to="/fooldal">Főoldal</NavLink>
                 {loggedIn ? (
@@ -36,7 +36,7 @@ const Navbar = () => {
                         backgroundColor: isHovered ? "#696b6ca5" : "transparent", // Hover szín
                         fontWeight: "bold",
                         border: "none",
-                        color: isHovered ? "#f60": "white",
+                        color: isHovered ? "black": "white",
                         borderRadius: "5px",
                         cursor: "pointer",
                         transition: "background-color 0.3s ease",}} onMouseEnter={() => setIsHovered(true)}
