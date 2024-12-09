@@ -5,6 +5,7 @@ import '../../css/images.css';
 import Romeo from '../../assets/images/Romeo.jpg';
 import Ricsi from '../../assets/images/Ricsi.jpg';
 import Bodrogi from '../../assets/images/Bodrogi.jpg';
+import bgi from '../Home/bg/bgi.jpg';
 
 
 const Fooldal = () => {
@@ -35,7 +36,7 @@ const Fooldal = () => {
             </section>
 
             {/* Szolgáltatások szekció */}
-            <section style={{ padding: "60px 20px", backgroundColor: "#f9f9f9" }}>
+            <section style={{ padding: "60px 20px", backgroundImage: "url('../Home/bg/bgi.jpg')" }}>
                 <div className="container" style={{ textAlign: "center" }}>
                     <h2 style={{ fontSize: "2.5rem", marginBottom: "40px", color: "#333" }}>
                         Szolgáltatásaink
@@ -77,7 +78,7 @@ const Fooldal = () => {
                                     alt="Konzultáció"
                                     style={{ marginBottom: "20px", borderRadius: "50%" }}
                                 />
-                                <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#00c6fb" }}>Szakorvosi Konzultáció</h5>
+                                <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#00c6fb" }}>Diabetológiai Konzultáció</h5>
                                 <p style={{ fontSize: "1rem", color: "#666" }}>Tapasztalt és együttérző szakorvosok állnak rendelkezésére.</p>
                             </div>
                         </div>
