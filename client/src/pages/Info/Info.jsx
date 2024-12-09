@@ -18,11 +18,11 @@ const Info = () => {
         </p>
         <div>
           <h2>Weboldal készítői:</h2>
-          <h4>Dizájn</h4>
+          <h4>Dizájn része</h4>
           <ul>
             <li>Demeter Richárd</li>
           </ul>
-          <h4>Program</h4>
+          <h4>Program része</h4>
           <ul>
             <li>Nagyváti Rómeó</li>
           </ul>
