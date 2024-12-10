@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import '../../css/Info.css';
 
 const Info = () => {
-  // const position = [46.259271, 20.155039]; // Szeged koordinátái
-  const apiKey = 'YOUR_MAPTILER_API_KEY';
+  // Szegedi kórház koordinátái
+  const hospitalPosition = [46.259277, 20.155028];
+
   return (
     <div className="info-container"><br />
       <div className="text-section">
@@ -14,7 +15,7 @@ const Info = () => {
           Weboldalunk célja, hogy könnyen és érintekzés nélkül tudjon időpontot kérni esetleges műtétekhez.
         </p>
         <p>
-          <Link to={"/fooldal"}>Főoldalunkon</Link> körbe tud nézni, ha rögtön időpontot szeretne kérni, itt megteheti: <Link to={"/"}>Időpont kérése</Link>.
+          <Link to="/fooldal">Főoldalunkon</Link> körbe tud nézni, ha rögtön időpontot szeretne kérni, itt megteheti: <Link to="/">Időpont kérése</Link>.
         </p>
         <div>
           <h2>Weboldal készítői:</h2>
@@ -33,13 +34,19 @@ const Info = () => {
         </div>
       </div>
       <div className="map-section">
-      <ReactMapGL
-            {...viewport}
-            width="100%"
-            height="500px"
-            mapboxApiAccessToken="your_mapbox_token"
-            onViewportChange={nextViewport => setViewport(nextViewport)}
-        />
+        <MapContainer
+          center={hospitalPosition}
+          zoom={14}
+          style={{ width: '100%', height: '500px' }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+          />
+          <Marker position={hospitalPosition}>
+            <Popup>Szegedi Kórház: Ide kattintva időpontot kérhet!</Popup>
+          </Marker>
+        </MapContainer>
       </div>
       <footer className="footer">
         © A képeket: "<b>https://u-szeged.hu/...rangsorain.jpg</b>" és "<b>https://investinszeged.hu/...rendezveny.jpg</b>" kölcsönöztük
@@ -49,5 +56,3 @@ const Info = () => {
 };
 
 export default Info;
-
-//https://docs.maptiler.com/leaflet/examples/vector-tiles-in-leaflet-js/?key=kAaGwk9PUfZVksUOb7FY&mapId=satellite ITT VAN A TÉRKÉÉÉP!!!
