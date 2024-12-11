@@ -1,0 +1,117 @@
+/* Alap konténer */
+.appointment-main {
+    padding: 20px;
+    background-color: #f3f6f9;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.appointment-list {
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+}
+
+
+.faszom{
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.info-container {
+    padding: 40px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+.patients-section h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0046ad;
+}
+
+/* Fejléc stílus */
+.text-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #0046ad;
+    margin-bottom: 30px;
+    text-align: center;
+    text-shadow: 1px 1px 2px #ccc;
+}
+
+/* Kártya konténer */
+.appointment-card {
+    max-width: 800px;
+    background: linear-gradient(90deg, rgba(110, 57, 12, 0.586), rgba(57, 57, 57, 0.533));
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.appointment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Szöveges információ */
+.appointment-card p {
+    font-size: 1.2rem;
+    color: whitesmoke;
+    margin: 10px 0;
+}
+
+/* Gombok */
+.appointment-card button {
+    background-color: #0046ad;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-right: 10px;
+}
+.talalka{
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0046ad;
+}
+
+.appointment-card button:hover {
+    background-color: #003580;
+    transform: scale(1.05);
+}
+
+.appointment-card .delete-button {
+    background-color: #d9534f;
+}
+
+.appointment-card .delete-button:hover {
+    background-color: #c9302c;
+}
+
+/* Reszponzivitás */
+@media screen and (max-width: 768px) {
+    .appointment-card {
+        padding: 15px;
+        width: 95%;
+    }
+
+    .text-section h1 {
+        font-size: 2.5rem;
+    }
+}
