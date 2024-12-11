@@ -1,7 +1,9 @@
 const express = require('express');
-const { getAppointment } = require('../controllers/idopontokRouteControllers');
+const { GetAllIdopont, CreateIdopont } = require('../controllers/idopontokRouteControllers');
 
 const router = express.Router();
-router.get('/', getAppointment);
+
+router.get('/', GetAllIdopont);
+router.post('/', CreateIdopont);
 
 module.exports = router;

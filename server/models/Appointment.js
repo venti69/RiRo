@@ -1,15 +1,13 @@
-// models/Appointment.js
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const appointmentSchema = new Schema({
+
+const appointmentSchema = new mongoose.Schema({
     patientName: { type: String, required: true },
     doctorName: { type: String, required: true },
-    date: { type: Date, required: true },
-    // Add more fields as needed
+    idopont: { type: Date, required: true },
 });
 
-const Appointment =
-    mongoose.model('Appointment', appointmentSchema);
+
+const Appointment = mongoose.model('appointment', appointmentSchema);
 
 module.exports = Appointment;

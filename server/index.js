@@ -90,28 +90,16 @@ app.post('/users/:id/edit', (req, res) => {
             res.status(500).json({ success: false, error: err.message })
         );
 });
-// app.use('/', require('./routes/mainRoutes.js'));
 
-//Időpontok
 
-// app.use('/api/hospital/appointment', require('./routes/appointmentRoutes.js'));
-// app.use('/api/hospital/appointments', require('./routes/idopontokRoutes.js'));
-// app.use('/api/hospital/appointments/add', require('./routes/addIdopontRoutes.js'));
 
 app.use('/torol', require('./routes/torlUsersRoute.js'));
+app.use('/idopont', require('./routes/idopontokRoutes.js'))
 
-// app.use('/api/hospital/appointments/update', require('./routes/upIdopontRoutes.js'));
-// app.use('/api/hospital/idopontok', require('./routes/appointmentCardRoutes.js'));
-// Orvosok
 
 app.use('/doctors', require('./routes/doctorsRoutes.js'));
 
-// app.use('/api/hospital/orvosok', require('./routes/orvosokRoutes.js'));
-// app.use('/api/hospital/appointments/add', require('./routes/addIdopontRoutes.js'));
-// Páciensek betegek
 app.use('/patient', require('./routes/patientRoutes.js'));
-// Egyedi
-// app.use('/api/hospital/egyedi', require('./routes/egyediOrvosRoutes.js'));
-// Users
+
 app.use('/users', require('./routes/usersRoutes.js'));
 app.use('/update', require('./routes/updateRoutes.js'));

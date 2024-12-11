@@ -32,6 +32,9 @@ const Navbar = () => {
                 <NavLink to="/fooldal">Főoldal</NavLink>
                 {loggedIn ? (
                     <>
+                        <NavLink to="/info">Információ</NavLink>
+                        <NavLink to="/idopont">Időpontfoglalás</NavLink>
+                        <NavLink to="/orvosok">Orvosok</NavLink>
                     <button onClick={kilep} className="kilepes" style={{
                         backgroundColor: isHovered ? "#696b6ca5" : "transparent", // Hover szín
                         fontWeight: "bold",
@@ -43,8 +46,6 @@ const Navbar = () => {
                          // Hover állapot kezdete
 
                         onMouseLeave={() => setIsHovered(false)}>Kilépés</button>
-                        <NavLink to="/info">Információ</NavLink>
-                        {/* <NavLink to="/logout">Kilépés</NavLink> */}
                         </>
                 ) : (
                     <>

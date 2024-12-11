@@ -7,6 +7,8 @@ import Navbar from './components/Navbar';
 // import Logout from './Logout';
 import Fooldal from './pages/Fooldal/Fooldal';
 import Info from './pages/Info/Info';
+import Idopont from './pages/Idopont/Idopont';
+import Orvosok from './pages/Orvosok/Orvosok';
 
 function App() {
     return (
@@ -36,6 +38,14 @@ function App() {
                 <Route
                     path="/info"
                     element={<Info />}
+                />
+                <Route
+                    path="/idopont"
+                    element={<Idopont />}
+                />
+                <Route
+                    path="/orvosok"
+                    element={<Orvosok />}
                 />
             </Routes>
         </BrowserRouter>

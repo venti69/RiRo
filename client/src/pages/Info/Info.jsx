@@ -15,7 +15,7 @@ const Info = () => {
           Weboldalunk célja, hogy könnyen és érintekzés nélkül tudjon időpontot kérni esetleges műtétekhez.
         </p>
         <p>
-          <Link to="/fooldal">Főoldalunkon</Link> körbe tud nézni, ha rögtön időpontot szeretne kérni, itt megteheti: <Link to="/">Időpont kérése</Link>.
+          <Link to="/fooldal">Főoldalunkon</Link> körbe tud nézni, ha rögtön időpontot szeretne kérni, itt megteheti: <Link to="/idopont">Időpont kérése</Link>.
         </p>
         <div>
           <h2>Weboldal készítői:</h2>
