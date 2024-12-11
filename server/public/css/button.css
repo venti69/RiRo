@@ -19,16 +19,14 @@
 .details-button {
     background-color: #28a745; /* Zöld */
     color: white;
-}   
+}
 
 .delete-button {
     background-color: #dc3545; /* Piros */
     color: white;
 }
 
-
-modal.css
-
+/* modal.css */
 
 .modal-box input {
     width: 100%;

@@ -17,70 +17,106 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"
         ></script>
-        <link rel="stylesheet" href="/CSS/stilus.css">
+        <link
+            rel="stylesheet"
+            href="/CSS/stilus.css"
+        />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
         <title>Felhasználok</title>
     </head>
     <body>
         <%- include('./nav.ejs') %>
-        <div id="modal-container"></div>
+        <div
+            class="modal"
+            id="modal-container"
+            aria-hidden="true"
+        ></div>
         <div class="main-doc-container">
             <div class="doctors-section">
                 <h3>Felhasználók</h3>
                 <div class="doctor-list">
                     <% employees.forEach(employee => { %>
                     <div class="doctor-card">
-                        <h4>
-                            <%= employee.name %> (<%= employee.email %>)
-                        </h4>
-                        <h5 style="color: aliceblue;">Név: <%= employee.name %></h5>
-                        <p style="color: aliceblue;">Email cím: <%= employee.email %></p>
-                        
+                        <h4><%= employee.name %> (<%= employee.email %>)</h4>
+                        <h5 style="color: aliceblue">
+                            Név: <%= employee.name %>
+                        </h5>
+                        <p style="color: aliceblue">
+                            Email cím: <%= employee.email %>
+                        </p>
+
                         <!-- Gombok konténerben -->
                         <div class="button-container">
-                            <button 
-                                type="button" 
-                                class="btn btn-warning edit-button" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#editModal<%= employee.id %>" 
-                                onClick="szerkesztes('<%= employee.id %>', '<%= employee.name %>', '<%= employee.email %>')">
+                            <button
+                                type="button"
+                                class="btn btn-warning edit-button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#editModal<%= employee.id %>"
+                                onClick="szerkesztes('<%= employee.id %>', '<%= employee.name %>', '<%= employee.email %>')"
+                            >
                                 Szerkesztés
                             </button>
-                            <button 
-                                class="btn btn-danger delete-button" 
-                                onClick="torol('<%= employee.id%>')">
+                            <button
+                                class="btn btn-danger delete-button"
+                                onClick="torol('<%= employee.id%>')"
+                            >
                                 Töröl
                             </button>
                             <!-- Gomb a Részletek megnyitásához -->
-<button 
-type="button" 
-class="btn btn-success details-button"
-onClick="megnyit('<%= employee.name %>', '<%= employee.email %>', '<%= employee.id %>')">
-Részletek
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="employeeModal<%= employee.id %>" tabindex="-1" aria-labelledby="employeeModalLabel<%= employee.id %>" aria-hidden="true">
-<div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="employeeModalLabel<%= employee.id %>">Alkalmazott Részletei</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <p><strong>Név:</strong> <span id="modalName"></span></p>
-            <p><strong>Email:</strong> <span id="modalEmail"></span></p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégsem</button>
-        </div>
-    </div>
-</div>
-</div>
-
-
-
+                            <button
+                                type="button"
+                                class="btn btn-success details-button"
+                                onClick="megnyit('<%= employee.name %>', '<%= employee.email %>', '<%= employee.id %>')"
+                            >
+                                Részletek
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div
+                        class="modal"
+                        id="employeeModal"
+                        tabindex="-1"
+                        aria-labelledby="employeeModalLabel<%= employee.id %>"
+                        aria-hidden="true"
+                    >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5
+                                        class="modal-title"
+                                        id="employeeModalLabel<%= employee.id %>"
+                                    >
+                                        Alkalmazott Részletei
+                                    </h5>
+                                    <button
+                                        type="button"
+                                        class="btn-close"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Close"
+                                    ></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        <strong>Név:</strong>
+                                        <span id="modalName"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Email:</strong>
+                                        <span id="modalEmail"></span>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button
+                                        type="button"
+                                        class="btn btn-secondary"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Mégsem
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <% }) %>
@@ -91,6 +127,5 @@ Részletek
         <script src="/js/modal.js"></script>
         <script src="/js/torol.js"></script>
         <script src="/js/megnyit.js"></script>
-
     </body>
 </html>

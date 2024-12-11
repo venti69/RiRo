@@ -6,6 +6,16 @@ function szerkesztes(id, name, email) {
 
     // Megnyitjuk a modal-t
     modalContainer.style.display = 'flex';
+    modalContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+
+    // Modális doboz
+    const modalDialog = document.createElement('div');
+    modalDialog.className = 'modal-dialog';
+
+    // Modális doboz
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-content';
+    modalContent.style.padding = '1em';
 
     // Modális doboz
     const modalBox = document.createElement('div');
@@ -44,19 +54,19 @@ function szerkesztes(id, name, email) {
         fetch(`/users/${id}/edit`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name: updatedName, email: updatedEmail })
+            body: JSON.stringify({ name: updatedName, email: updatedEmail }),
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Adatok sikeresen frissítve!');
-                location.reload(); // Frissítjük az oldalt
-            } else {
-                alert('Hiba történt!');
-            }
-        });
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    alert('Adatok sikeresen frissítve!');
+                    location.reload(); // Frissítjük az oldalt
+                } else {
+                    alert('Hiba történt!');
+                }
+            });
 
         // Modal bezárása
         modalContainer.style.display = 'none';
@@ -73,5 +83,11 @@ function szerkesztes(id, name, email) {
     modalBox.appendChild(closeButton);
 
     // Hozzáadjuk a modális dobozt a konténerhez
-    modalContainer.appendChild(modalBox);
+    modalContent.appendChild(modalBox);
+
+    // Hozzáadjuk a modális dobozt a konténerhez
+    modalDialog.appendChild(modalContent);
+
+    // Hozzáadjuk a modális dobozt a konténerhez
+    modalContainer.appendChild(modalDialog);
 }

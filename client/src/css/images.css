@@ -1,6 +1,6 @@
 img {
-    width: 110px;    /* Szélesség beállítása */
-    height: 110px;   /* Magasság beállítása */
+    width: 110px; /* Szélesség beállítása */
+    height: 110px; /* Magasság beállítása */
     object-fit: cover; /* A képet a konténer méretéhez vágja */
     border-radius: 50%; /* Kör alakúra vágja */
     object-position: 0px 0px;
