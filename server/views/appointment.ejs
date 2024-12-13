@@ -45,7 +45,8 @@
                         <p style="color: aliceblue">
                             Orvos neve: <%= appointments.doctorName %>
                         </p>
-                        <p>Időpont: <%= appointments.idopont %></p>
+                        <p>Időpont: <%= appointments.idopont.getFullYear() %>-<%= appointments.idopont.getMonth() + 1 %>-<%= appointments.idopont.getDate() %>
+                        </p>
 
                         <div class="button-container">
                             <button
