@@ -35,6 +35,7 @@ const Navbar = () => {
                         <NavLink to="/info">Információ</NavLink>
                         <NavLink to="/idopont">Időpontfoglalás</NavLink>
                         <NavLink to="/orvosok">Orvosok</NavLink>
+                        <NavLink to="/adatok">Adatok</NavLink>
                     <button onClick={kilep} className="kilepes" style={{
                         backgroundColor: isHovered ? "#696b6ca5" : "transparent", // Hover szín
                         fontWeight: "bold",

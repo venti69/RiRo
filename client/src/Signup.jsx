@@ -7,6 +7,14 @@ function Signup() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [phone, setPhone] = useState('');
+    const [gender, setGender] = useState('');
+    const [address, setAddress] = useState('');
+    const [ssn, setSsn] = useState('');
+    const [motherName, setMotherName] = useState('');
+    const [birthName, setBirthName] = useState('');
+    const [birthDate, setBirthDate] = useState(Date().now);
+    const [illness, setIllness] = useState([]);
     const navigate = useNavigate();
 
     const handleSubmit =  (e) => {
@@ -18,7 +26,7 @@ function Signup() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name, email, password }),
+                body: JSON.stringify({ name, email, password, phone, gender, address, ssn, motherName, birthName, birthDate, illness }),
             });
             
             const result = await response.json();

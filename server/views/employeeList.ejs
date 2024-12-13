@@ -57,21 +57,21 @@
                             >
                                 Szerkesztés
                             </button>
-                            <button
-                                class="btn btn-danger delete-button"
-                                onClick="torol('<%= employee.id%>')"
-                            >
-                                Töröl
-                            </button>
                             <!-- Gomb a Részletek megnyitásához -->
                             <button
-                                type="button"
-                                class="btn btn-success details-button"
-                                onClick="megnyit('<%= employee.name %>', '<%= employee.email %>', '<%= employee.id %>')"
+                            type="button"
+                            class="btn btn-success details-button"
+                            onClick="megnyit('<%= employee.name %>', '<%= employee.email %>', '<%= employee.id %>')"
                             >
-                                Részletek
-                            </button>
-                        </div>
+                            Részletek
+                        </button>
+                        <button
+                            class="btn btn-danger delete-button"
+                            onClick="torol('<%= employee.id%>')"
+                        >
+                            Töröl
+                        </button>
+                    </div>
                     </div>
                     <!-- Modal -->
                     <div

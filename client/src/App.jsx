@@ -9,6 +9,7 @@ import Fooldal from './pages/Fooldal/Fooldal';
 import Info from './pages/Info/Info';
 import Idopont from './pages/Idopont/Idopont';
 import Orvosok from './pages/Orvosok/Orvosok';
+import Adatok from './pages/Adatok/Adatok';
 
 function App() {
     return (
@@ -46,6 +47,10 @@ function App() {
                 <Route
                     path="/orvosok"
                     element={<Orvosok />}
+                />
+                <Route
+                    path="/adatok"
+                    element={<Adatok />}
                 />
             </Routes>
         </BrowserRouter>
