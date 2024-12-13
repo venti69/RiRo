@@ -36,39 +36,38 @@
             <div class="doctors-section">
                 <h3>Időpontok</h3>
                 <div class="doctor-list">
-                    <% appointment.forEach(appointment => { %>
+                    <% appointments.forEach(appointments => { %>
                     <div class="doctor-card">
-                        <h4><%= appointment.patientName %></h4>
+                        <h4><%= appointments.patientName %></h4>
                         <h5 style="color: aliceblue">
-                            Beteg neve: <%= appointment.patientName %>
+                            Beteg neve: <%= appointments.patientName %>
                         </h5>
                         <p style="color: aliceblue">
-                            Orvos neve: <%= appointment.doctorName %>
+                            Orvos neve: <%= appointments.doctorName %>
                         </p>
-                        <p>Időpont: <%= appointment.idopont %></p>
+                        <p>Időpont: <%= appointments.idopont %></p>
 
-                        <!-- Gombok konténerben -->
                         <div class="button-container">
                             <button
                                 type="button"
                                 class="btn btn-warning edit-button"
                                 data-bs-toggle="modal"
-                                data-bs-target="#editModal<%= employee.id %>"
-                                onClick="szerkesztes('<%= employee.id %>', '<%= employee.name %>', '<%= employee.email %>')"
+                                data-bs-target="#editModal<%= appointments.id %>"
+                                onClick="szerkesztes('<%= appointments.id %>', '<%= appointments.patientName %>', '<%= appointments.doctorName %>', '<%= appointments.idopont %>')"
                             >
                                 Szerkesztés
                             </button>
                             <button
                                 class="btn btn-danger delete-button"
-                                onClick="torol('<%= employee.id%>')"
+                                onClick="torol('<%= appointments.id%>')"
                             >
                                 Töröl
                             </button>
-                            <!-- Gomb a Részletek megnyitásához -->
+
                             <button
                                 type="button"
                                 class="btn btn-success details-button"
-                                onClick="megnyit('<%= employee.name %>', '<%= employee.email %>', '<%= employee.id %>')"
+                                onClick="megnyit('<%= appointments.patientName %>', '<%= appointments.doctorName %>', '<%= appointments.idopont %>')"
                             >
                                 Részletek
                             </button>
@@ -77,9 +76,9 @@
                     <!-- Modal -->
                     <div
                         class="modal"
-                        id="employeeModal"
+                        id="idopontModal"
                         tabindex="-1"
-                        aria-labelledby="employeeModalLabel<%= employee.id %>"
+                        aria-labelledby="employeeModalLabel<%= appointments.id %>"
                         aria-hidden="true"
                     >
                         <div class="modal-dialog">
@@ -87,7 +86,7 @@
                                 <div class="modal-header">
                                     <h5
                                         class="modal-title"
-                                        id="employeeModalLabel<%= employee.id %>"
+                                        id="employeeModalLabel<%= appointments.id %>"
                                     >
                                         Alkalmazott Részletei
                                     </h5>
@@ -125,8 +124,8 @@
             </div>
         </div>
 
-        <script src="/js/modal.js"></script>
-        <script src="/js/torol.js"></script>
-        <script src="/js/megnyit.js"></script>
+        <script src="/js/idopont/modal.js"></script>
+        <script src="/js/idopont/torol.js"></script>
+        <script src="/js/idopont/megnyit.js"></script>
     </body>
 </html>

@@ -29,3 +29,4 @@ exports.CreateIdopont = async (req, res) => {
         res.status(500).json({ msg: error });
     }
 };
+
