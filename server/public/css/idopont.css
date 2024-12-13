@@ -115,3 +115,7 @@
         font-size: 2.5rem;
     }
 }
+
+button.btn.btn-danger.delete-button{
+    background-color: #d9534f;
+}
