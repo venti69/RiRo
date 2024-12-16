@@ -2,7 +2,7 @@ const Employee = require('../models/Employee');
 
 exports.updateOrvosok = async (req, res) => {
     const {id} = req.params;
-    const {nev, szak} = req.body;
+    const {phone, gender, address, ssn, motherName, birthName, birthDate, illness} = req.body;
     
     console.log(id);
     
@@ -10,7 +10,7 @@ exports.updateOrvosok = async (req, res) => {
         const employee = await Employee.findById({_id:id});
         console.log(employee);
         if (doctor){
-            const ujDoctor = await Employee.findByIdAndUpdate({_id:id}, {nev: nev, szak: szak});
+            const ujDoctor = await Employee.findByIdAndUpdate({_id:id}, {phone, gender, address, ssn, motherName, birthName, birthDate, illness});
             console.log("új" +  ujDoctor);
             res.status(200).json({ msg: "Sikeres frissítés történt!" });
         } else {
