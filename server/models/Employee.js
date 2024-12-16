@@ -18,35 +18,35 @@ const EmployeeSchema = new mongoose.Schema(
         },
         phone:{
             type: String,
-            required: true,
+            default: '',
         },
         gender:{
             type: String,
-            required: true,
+            default: '',
         },
         address:{
             type: String,
-            required: true,
+            default: '',
         },
         ssn:{
             type: Number,
-            required: true,
+            default: 0,
         },
         motherName:{
             type: String,
-            required: true,
+            default: '',
         },
         birthName:{
             type: String,
-            required: true,
+            default: '',
         },
         birthDate:{
             type: Date,
-            required: true,
+            default: new Date().now,
         },
         illness:[{
             type: String,
-            required: false,
+            default: '',
         }],
         isAdmin: { type: Boolean, default: false },
     },

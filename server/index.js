@@ -102,5 +102,6 @@ app.use('/doctors', require('./routes/doctorsRoutes.js'));
 
 app.use('/patient', require('./routes/patientRoutes.js'));
 
+
 app.use('/users', require('./routes/usersRoutes.js'));
 app.use('/update', require('./routes/updateRoutes.js'));

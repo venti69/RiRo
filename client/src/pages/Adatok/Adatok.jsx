@@ -12,7 +12,7 @@ const Adatok = () => {
 
     return (
         <div style={{ overflowX: 'hidden', minHeight: "100vh", fontFamily: "Arial, sans-serif" }}>
-            
+            <br />
             <div className="signup-container">
             <div className="signup-card">
                 <h2 className="signup-title">Regisztráció</h2>
@@ -34,11 +34,11 @@ const Adatok = () => {
                         />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="password">Neme</label>
+                        <label htmlFor="password">Neme: </label>
                         <select name="" id="" onChange={(e) => setPassword(e.target.value)}>
+                            <option value="other">Egyéb</option>
                             <option value="male">Férfi</option>
                             <option value="female">Nő</option>
-                            <option value="other">Egyéb</option>
                         </select>
                     </div>
                     <div className="input-group">
@@ -73,6 +73,9 @@ const Adatok = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
+                    <button type="submit" className="btn-primary">
+                        Adatok mentése
+                    </button>
                 </form>
                 
             </div>

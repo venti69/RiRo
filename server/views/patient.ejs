@@ -11,23 +11,16 @@
 </head>
 <body>
     <%- include('./nav.ejs') %>
-
+    <div class="modal" id="modal-container" aria-hidden="true"></div>
     <div class="patient-main">
         <div class="form-sections">
-            <!-- <h4>
-                <#% if (selectedPatient) { %>
-                    Páciens szerkesztése
-                <#% } else { %>
-                    Új páciens felvétele
-                <#% } %>
-            </h4> -->
         </div>
     
         <div class="patients-section">
             <h3 style="text-align: center;">
                 Páciensek (<%= patients.length %>)
             </h3>
-    
+    <!-- Ha akarod, de úgyse mert úgyis kiveszem, akkor ezzel tudod megszámolni, hogy mennyi páciens van (<#%= patients.length %>) és kell a zárójel is, de a # nem-->
             <div class="patient-list">
                 <% patients.forEach(function(patient) { %>
                     <div class="patient-card">
@@ -35,9 +28,15 @@
                         <p style="color:aliceblue;">Kor: <%= patient.age %></p>
                         <p style="color: aliceblue;">Neme: <%= patient.gender %></p>
                         <div class="btn-container" style="width: 100%;">
-                            <form action="/patients/edit/<%= patient._id %>" method="GET">
-                                <button type="submit" style="background-color: #0046AD;">Szerkesztés</button>
-                            </form>
+                            <button
+                                type="button"
+                                class="btn btn-warning edit-button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#editModal<%= patient.id %>"
+                                onClick="szerkesztes('<%= patient.id %>','<%= patient.name %>', '<%= patient.age %>', '<%= patient.gender %>')"
+                            >
+                                Szerkesztés
+                            </button>
                             <br>
     
                             <form action="/patients/delete/<%= patient._id %>" method="POST">
@@ -49,6 +48,9 @@
             </div>
         </div>
     </div>
-    
+
+    <script src="/js/patient/modal.js"></script>
+    <script src="/js/patient/torol.js"></script>
+    <script src="/js/patient/megnyit.js"></script>
 </body>
 </html>
