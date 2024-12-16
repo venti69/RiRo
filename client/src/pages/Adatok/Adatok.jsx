@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState} from 'react';
 import NewsCarousel from '../../components/Carousel';
 import { Link } from 'react-router-dom';
 import '../../css/images.css';
@@ -10,6 +10,25 @@ import bgi from '../Home/bg/bgi.jpg';
 
 const Adatok = () => {
 
+    const [phone, setPhone] = useState('');
+    const [gender, setGender] = useState('');
+    const [address, setAddress] = useState('');
+    const [ssn, setSsn] = useState('');
+    const [motherName, setMotherName] = useState('');
+    const [birthName, setBirthName] = useState('');
+    const [birthDate, setBirthDate] = useState('');
+    const [illness, setIllness] = useState([]);
+
+    const kiegeszit = async () => {
+        const response = await fetch('https://localhost:3001/adatok', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({phone, gender, address, ssn, motherName, birthName, birthDate, illness}),
+        });
+     };
+
     return (
         <div style={{ overflowX: 'hidden', minHeight: "100vh", fontFamily: "Arial, sans-serif" }}>
             <br />
@@ -18,7 +37,7 @@ const Adatok = () => {
                 <h2 className="signup-title">Regisztráció</h2>
                 <form>
                     <div className="input-group">
-                        <label htmlFor="name">Telefonszám</label>
+                        <label htmlFor="phone">Telefonszám</label>
                         <input
                             type="text"
                             placeholder="Add meg a telefonszámod"
@@ -26,15 +45,15 @@ const Adatok = () => {
                         />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="email">Születés neve</label>
+                        <label htmlFor="birthName">Születés neve</label>
                         <input
-                            type="email"
+                            type="text"
                             placeholder="Add meg a születés neved"
                             onChange={(e) => setBirth(e.target.value)}
                         />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="password">Neme: </label>
+                        <label htmlFor="gender">Neme: </label>
                         <select name="" id="" onChange={(e) => setPassword(e.target.value)}>
                             <option value="other">Egyéb</option>
                             <option value="male">Férfi</option>
@@ -42,7 +61,7 @@ const Adatok = () => {
                         </select>
                     </div>
                     <div className="input-group">
-                        <label htmlFor="password">Lakcím</label>
+                        <label htmlFor="address">Lakcím</label>
                         <input
                             type="text"
                             placeholder="Add meg a lakcímed"
@@ -50,15 +69,15 @@ const Adatok = () => {
                         />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="password">Taj-szám</label>
+                        <label htmlFor="ssn">Taj-szám</label>
                         <input
-                            type="text"
+                            type="number"
                             placeholder="Add meg a Taj-számod"
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="password">Anyja neve</label>
+                        <label htmlFor="motherName">Anyja neve</label>
                         <input
                             type="text"
                             placeholder="Adja meg az anyja nevét"
@@ -66,14 +85,14 @@ const Adatok = () => {
                         />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="password">Születés dátum</label>
+                        <label htmlFor="birthDate">Születés dátum</label>
                         <input
                             type="date"
                             placeholder="Add meg a nemed"
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <button type="submit" className="btn-primary">
+                    <button type="submit" className="btn-primary" onClick={kiegeszit}>
                         Adatok mentése
                     </button>
                 </form>
