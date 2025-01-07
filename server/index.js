@@ -35,27 +35,34 @@ app.post('/register', async (req, res) => {
         .catch((err) => res.json(err));
 });
 
-app.post('/login', (req, res) => {
-    console.log(req.body);
+app.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    EmployeeModel.find({})
-        .then((employees) => {
-            const user = employees.find((employee) => employee.email === email);
-            if (bcrypt.compare(password, user.password)) {
-                res.status(200).json({
-                    loggedIn: true,
-                    isAdmin: user.isAdmin,
-                    msg: 'Sikeres bejelentkezés',
-                });
-            } else {
-                res.status(403).json({
-                    loggedIn: false,
-                    msg: 'Sikertelen bejelentkezés',
-                });
-            }
-        })
-        .catch((err) => res.json(err));
+
+    try {
+        // Felhasználó keresése email alapján
+        const user = await EmployeeModel.findOne({ email });
+        if (!user) {
+            return res.status(403).json({ msg: 'Sikertelen bejelentkezés: Felhasználó nem található.' });
+        }
+
+        // Jelszó ellenőrzése
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(403).json({ msg: 'Sikertelen bejelentkezés: Hibás jelszó.' });
+        }
+
+        // Sikeres bejelentkezés
+        res.status(200).json({
+            loggedIn: true,
+            isAdmin: user.isAdmin,
+            userId: user._id, // Felhasználó azonosítója
+            msg: 'Sikeres bejelentkezés',
+        });
+    } catch (err) {
+        res.status(500).json({ msg: 'Hiba történt a bejelentkezés során.', error: err.message });
+    }
 });
+
 
 // const serverRoutes = require('./server.js');
 

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import BelepContext from './Helpers/LoginContext';
-import'../src/css/Login.css';
+import '../src/css/Login.css';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -19,13 +19,26 @@ function Login() {
             .then((result) => {
                 const employee = result.data;
                 console.log(employee);
-                window.alert('SIKERES BELÉPÉS')
-                        setIsLogged(true);
-                        setIsAdmin(employee.isAdmin);
-                navigate('/fooldal');
-                window.location.reload();
+
+                // Sikeres bejelentkezés esetén a válasz adatainak elmentése a localStorage-ba
+                if (employee.loggedIn) {
+                    localStorage.setItem('userId', employee.userId);  // Felhasználó azonosítója
+                    localStorage.setItem('isAdmin', employee.isAdmin); // Admin státusz
+
+                    // Frissítjük a globális státuszokat
+                    setIsLogged(true);
+                    setIsAdmin(employee.isAdmin);
+
+                    window.alert('SIKERES BELÉPÉS');
+                    navigate('/fooldal');  // Navigálás a főoldalra
+                } else {
+                    window.alert(employee.msg);  // Ha nem sikerült bejelentkezni
+                }
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err);
+                window.alert('Bejelentkezési hiba történt');
+            });
     };
 
     return (

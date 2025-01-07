@@ -46,8 +46,7 @@ const EmployeeSchema = new mongoose.Schema(
         },
         illness:[{
             type: String,
-            default: '',
-        }],
+            }],
         isAdmin: { type: Boolean, default: false },
     },
     {

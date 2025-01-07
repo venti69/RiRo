@@ -1,7 +1,7 @@
 const express = require('express');
-const { updateOrvosok  } = require('../controllers/doktorokRouteControllers');
+const { postAdatok } = require('../controllers/adatokRouteControllers.js');
 
 const router = express.Router();
-router.post('/:id', updateOrvosok); 
+router.post('/', postAdatok); 
 
 module.exports = router;
