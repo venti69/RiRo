@@ -1,5 +1,5 @@
-function szerkesztes(id, patientName, doctorName, idopont) {
-    // console.log(patientName, doctorName, idopont);
+function szerkesztes(id, patientName, doctorName, idopont, phone, gender, address, ssn, motherName, birthName, birthDate) {
+    console.log(patientName, doctorName, phone);
     
     const modalContainer = document.getElementById('modal-container');
 
@@ -50,6 +50,55 @@ function szerkesztes(id, patientName, doctorName, idopont) {
     idoInput.className = 'form-control mb-3';
     idoInput.placeholder = 'Időpont';
     modalBox.appendChild(idoInput);
+    // Telefonszám
+    const phoneInput = document.createElement('input');
+    phoneInput.type = 'text';
+    phoneInput.value = phone;
+    phoneInput.className = 'form-control mb-3';
+    phoneInput.placeholder = 'Telefonszám';
+    modalBox.appendChild(phoneInput);
+    // Neme
+    const genderInput = document.createElement('input');
+    genderInput.type = 'text';
+    genderInput.value = gender;
+    genderInput.className = 'form-control mb-3';
+    genderInput.placeholder = 'Neme';
+    modalBox.appendChild(genderInput);
+    // Cím
+    const addressInput = document.createElement('input');
+    addressInput.type = 'text';
+    addressInput.value = address;
+    addressInput.className = 'form-control mb-3';
+    addressInput.placeholder = 'Cím';
+    modalBox.appendChild(addressInput);
+    // Tajszám
+    const ssnInput = document.createElement('input');
+    ssnInput.type = 'number';
+    ssnInput.value = ssn;
+    ssnInput.className = 'form-control mb-3';
+    ssnInput.placeholder = 'Tajszám';
+    modalBox.appendChild(ssnInput);
+    // Anyja neve
+    const motherNameInput = document.createElement('input');
+    motherNameInput.type = 'text';
+    motherNameInput.value = motherName;
+    motherNameInput.className = 'form-control mb-3';
+    motherNameInput.placeholder = 'Anyja neve';
+    modalBox.appendChild(motherNameInput);
+    // Birthname
+    const birthNameInput = document.createElement('input');
+    birthNameInput.type = 'text';
+    birthNameInput.value = birthName;
+    birthNameInput.className = 'form-control mb-3';
+    birthNameInput.placeholder = 'Birthname';
+    modalBox.appendChild(birthNameInput);
+    // Birthdate
+    const birthDateInput = document.createElement('input');
+    birthDateInput.type = 'text';
+    birthDateInput.value = birthDate;
+    birthDateInput.className = 'form-control mb-3';
+    birthDateInput.placeholder = 'Birthdate';
+    modalBox.appendChild(birthDateInput);
     // Mentés gomb
     const saveButton = document.createElement('button');
     saveButton.textContent = 'Mentés';
@@ -59,13 +108,20 @@ function szerkesztes(id, patientName, doctorName, idopont) {
         const updatedName = nameInput.value;
         const updatedEmail = emailInput.value;
         const updatedIdopont = idoInput.value;
+        const updatedPhone = phoneInput.value;
+        const updatedGender = genderInput.value;
+        const updatedAddress = addressInput.value;
+        const updatedSsn = ssnInput.value;
+        const updatedMotherName = motherNameInput.value;
+        const updatedBirthName = birthNameInput.value;
+        const updatedBirthDate = birthDateInput.value;
 
         fetch(`/idopontmodositas/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ patientName: updatedName, doctorName: updatedEmail, idopont: updatedIdopont }),
+            body: JSON.stringify({ patientName: updatedName, doctorName: updatedEmail, idopont: updatedIdopont, phone: updatedPhone, gender: updatedGender, address: updatedAddress, ssn: updatedSsn, motherName: updatedMotherName, birthName: updatedBirthName, birthDate: updatedBirthDate}),
         })
             .then((response) => response.json())
             .then((data) => {

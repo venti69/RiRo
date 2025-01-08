@@ -61,7 +61,7 @@
                             <button
                             type="button"
                             class="btn btn-success details-button"
-                            onClick="megnyit('<%= employee.name %>', '<%= employee.email %>', '<%= employee.id %>')"
+                            onClick="megnyit('<%= employee.name %>', '<%= employee.email %>', '<%= employee.id %>', '<%= employee.phone %>', '<%= employee.gender %>', '<%= employee.address %>', '<%= employee.ssn %>','<%= employee.motherName %>','<%= employee.birthName %>','<%= employee.birthDate %>')"
                             >
                             Részletek
                         </button>
@@ -105,6 +105,34 @@
                                     <p>
                                         <strong>Email:</strong>
                                         <span id="modalEmail"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Telefonszám:</strong>
+                                        <span id="modalPhone"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Neme:</strong>
+                                        <span id="modalGender"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Lakcím:</strong>
+                                        <span id="modalAddress"></span>
+                                    </p>
+                                    <p>
+                                        <strong>TAJ szám:</strong>
+                                        <span id="modalSsn"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Anyja neve:</strong>
+                                        <span id="modalMotherName"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Születés neve:</strong>
+                                        <span id="modalBirthName"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Születés dátum:</strong>
+                                        <span id="modalBirthDate"></span>
                                     </p>
                                 </div>
                                 <div class="modal-footer">
