@@ -9,7 +9,6 @@ const Adatok = () => {
     const [motherName, setMotherName] = useState('');
     const [birthName, setBirthName] = useState('');
     const [birthDate, setBirthDate] = useState('');
-    // const [illness, setIllness] = useState([]);
     const [message, setMessage] = useState('');
 
     const kiegeszit = async (e) => {
@@ -22,13 +21,12 @@ const Adatok = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:3001/adatok', {
-                method: 'POST',
+            const response = await fetch(`http://localhost:3001/adatok/${userId}`, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    userId, // A bejelentkezett felhasználó azonosítója
                     phone,
                     gender,
                     address,
@@ -40,7 +38,7 @@ const Adatok = () => {
             });
 
             if (response.ok) {
-                setMessage('Adatok sikeresen elmentve!');
+                setMessage('Adatok sikeresen frissítve!');
             } else {
                 const errorData = await response.json();
                 setMessage(`Hiba történt: ${errorData.message}`);
@@ -48,6 +46,36 @@ const Adatok = () => {
         } catch (error) {
             setMessage(`Hálózati hiba: ${error.message}`);
         }
+    };
+
+    const handleDateChange = (e) => {
+        const rawDate = e.target.value; // Formátum: yyyy-MM-dd
+        if (isValidDate(rawDate)) {
+            const formattedDate = formatDate(rawDate); // Átalakítás: yyyy. mm. dd.
+            setBirthDate(formattedDate);
+        } else {
+            setBirthDate(''); // Ha érvénytelen, töröljük az értéket
+        }
+    };
+
+    // Érvényes dátum ellenőrzése
+    const isValidDate = (date) => {
+        const dateRegex = /^\d{4}-\d{2}-\d{2}$/; // Ellenőrizzük, hogy yyyy-MM-dd formátum
+        if (!dateRegex.test(date)) return false;
+
+        const [year, month, day] = date.split('-').map(Number);
+        const testDate = new Date(year, month - 1, day); // Létrehozunk egy JS dátumot
+        return (
+            testDate.getFullYear() === year &&
+            testDate.getMonth() === month - 1 &&
+            testDate.getDate() === day
+        );
+    };
+
+    // Dátum formázása
+    const formatDate = (date) => {
+        const [year, month, day] = date.split('-');
+        return `${year}. ${month}. ${day}.`;
     };
 
     return (
@@ -109,8 +137,7 @@ const Adatok = () => {
                             <label htmlFor="birthDate">Születés dátum</label>
                             <input
                                 type="date"
-                                placeholder="Add meg a nemed"
-                                onChange={(e) => setBirthDate(e.target.value)}
+                                onChange={handleDateChange}
                             />
                         </div>
                         <button type="submit" className="btn-primary">

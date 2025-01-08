@@ -1,10 +1,12 @@
 const Employee = require('../models/Employee');
 
 exports.postAdatok = async (req, res) => {
+    try {
+        const {id} = req.params;        
     const {phone, gender, address, ssn, motherName, birthName, birthDate} = req.body;
     console.log(req.body);
-    
-    try {
+    await Employee.findByIdAndUpdate({_id:id}, {phone, gender, address, ssn, motherName, birthName, birthDate});
+
         res.status(200).json({ msg: "Sikeres frissítés történt!" });
         
     } catch (error) {

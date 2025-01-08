@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import BelepContext from './Helpers/LoginContext';
 import '../src/css/Login.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Toastify stílusok
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -11,6 +13,10 @@ function Login() {
     const navigate = useNavigate();
 
     const { setIsLogged, setIsAdmin } = useContext(BelepContext);
+
+    // Toastify értesítések
+    const successNotify = () => toast.success("Sikeres bejelentkezés!");
+    const errorNotify = (message) => toast.error(message || "Bejelentkezési hiba!");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,24 +26,26 @@ function Login() {
                 const employee = result.data;
                 console.log(employee);
 
-                // Sikeres bejelentkezés esetén a válasz adatainak elmentése a localStorage-ba
                 if (employee.loggedIn) {
-                    localStorage.setItem('userId', employee.userId);  // Felhasználó azonosítója
-                    localStorage.setItem('isAdmin', employee.isAdmin); // Admin státusz
+                    // Felhasználói adatok mentése localStorage-ba
+                    localStorage.setItem('userId', employee.userId);
+                    localStorage.setItem('isAdmin', employee.isAdmin);
 
-                    // Frissítjük a globális státuszokat
+                    // Globális státuszok frissítése
                     setIsLogged(true);
                     setIsAdmin(employee.isAdmin);
 
-                    window.alert('SIKERES BELÉPÉS');
-                    navigate('/fooldal');  // Navigálás a főoldalra
+                    successNotify(); // Toastify értesítés siker esetén
+                    setTimeout(()=> 1500);
+                    setTimeout(() => window.location.reload('/fooldal'),  navigate('/fooldal'), 1500);
+                    
                 } else {
-                    window.alert(employee.msg);  // Ha nem sikerült bejelentkezni
+                    errorNotify(employee.msg); // Toastify hibaüzenet az API válasz alapján
                 }
             })
             .catch((err) => {
                 console.log(err);
-                window.alert('Bejelentkezési hiba történt');
+                errorNotify("Hiba történt a bejelentkezés során.");
             });
     };
 
@@ -51,6 +59,7 @@ function Login() {
                         <input
                             type="email"
                             placeholder="Add meg az e-mail címed"
+                            value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
@@ -59,6 +68,7 @@ function Login() {
                         <input
                             type="password"
                             placeholder="Írd be a jelszavad"
+                            value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
@@ -66,6 +76,7 @@ function Login() {
                         Bejelentkezés
                     </button>
                 </form>
+                <ToastContainer /> {/* Toastify konténer a visszajelzésekhez */}
                 <p className="register-text">
                     Nincs még fiókod?{' '}
                     <Link to="/register" className="register-link">

@@ -2,43 +2,44 @@ import { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../src/css/Signup.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Ezt is hozzá kell adni a Toastify stílusok miatt.
 
 function Signup() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const [phone, setPhone] = useState('');
-    // const [gender, setGender] = useState('');
-    // const [address, setAddress] = useState('');
-    // const [ssn, setSsn] = useState('');
-    // const [motherName, setMotherName] = useState('');
-    // const [birthName, setBirthName] = useState('');
-    // const [birthDate, setBirthDate] = useState(Date().now);
-    // const [illness, setIllness] = useState([]);
     const navigate = useNavigate();
+    
+    // Sikeres regisztráció üzenet
+    const successNotify = () => toast.success("Sikeres regisztráció!");
+    // Hibás regisztráció üzenet
+    const errorNotify = (message) => toast.error(message || "Minden mező kitöltése kötelező!");
 
-    const handleSubmit =  (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         const regisztral = async () => {
-            const response = await fetch('http://localhost:3001/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, email, password }),
-            });
-            
-            const result = await response.json();
+            try {
+                const response = await fetch('http://localhost:3001/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, password }),
+                });
 
-            console.log(result);
-                
+                const result = await response.json();
+
                 if (response.ok) {
-                    alert('Sikeres regisztráció!');
-                    navigate('/login');
+                    successNotify(); // Toastify értesítés sikeres regisztráció esetén
+                    setTimeout(() => navigate('/login'), 1500); // 2 másodperc késleltetés navigáció előtt
                 } else {
-                    alert(result.msg);
+                    errorNotify(result.msg); // Hibaüzenet Toastify értesítés
                 }
+            } catch (error) {
+                errorNotify("Hálózati hiba történt, próbáld újra később!");
+            }
         };
 
         regisztral();
@@ -54,6 +55,7 @@ function Signup() {
                         <input
                             type="text"
                             placeholder="Add meg a neved"
+                            value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
                     </div>
@@ -62,6 +64,7 @@ function Signup() {
                         <input
                             type="email"
                             placeholder="Add meg az e-mail címed"
+                            value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
@@ -70,12 +73,14 @@ function Signup() {
                         <input
                             type="password"
                             placeholder="Írd be a jelszavad"
+                            value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                     <button type="submit" className="btn-primary">
                         Regisztráció
                     </button>
+                   <ToastContainer />
                 </form>
                 <p className="login-text">
                     Van már fiókod?{' '}
