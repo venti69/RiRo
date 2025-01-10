@@ -1,6 +1,6 @@
 /* Teljes oldal */
 .signup-container {
-    background-image: url(../pages/Home/bg/bgi.jpg  );
+    /* background-image: url(../pages/Home/bg/bgi.jpg  ); */
     background-size: cover;
     display: flex;
     justify-content: center;

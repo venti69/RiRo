@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../../css/images.css';
+import '../../css/Adatok.css';
 
 const Adatok = () => {
     const [phone, setPhone] = useState('');
@@ -134,12 +134,16 @@ const Adatok = () => {
                             />
                         </div>
                         <div className="input-group">
-                            <label htmlFor="birthDate">Születés dátum</label>
-                            <input
-                                type="date"
-                                onChange={handleDateChange}
-                            />
-                        </div>
+  <label htmlFor="birthdate">Születési dátum</label>
+  <input
+    type="date"
+    id="birthdate"
+    name="birthdate"
+    required
+    max="2025-01-10" // Ma legyen a maximum
+    className="date-input"
+  />
+</div>
                         <button type="submit" className="btn-primary">
                             Adatok mentése
                         </button>

@@ -29,7 +29,7 @@
 /* Kártyák */
 .doctor-card {
   width: 100%;
-  max-width: 250px; /* Méret limitálása */
+  max-width: 400px; /* Méret limitálása */
   background: #ffffff;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
