@@ -58,12 +58,7 @@
                             >
                                 Szerkesztés
                             </button>
-                            <button
-                                class="btn btn-danger delete-button"
-                                onClick="torol('<%= appointments.id%>')"
-                            >
-                                Töröl
-                            </button>
+                            
 
                             <button
                                 type="button"
@@ -71,6 +66,12 @@
                                 onClick="megnyit('<%= appointments.patientName %>', '<%= appointments.doctorName %>', '<%= appointments.idopont %>')"
                             >
                                 Részletek
+                            </button>
+                            <button
+                                class="btn btn-danger delete-button"
+                                onClick="torol('<%= appointments.id%>')"
+                            >
+                                Töröl
                             </button>
                         </div>
                     </div>
