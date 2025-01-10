@@ -33,7 +33,7 @@ const Navbar = () => {
                 {loggedIn ? (
                     <>
                         <NavLink to="/info">Információ</NavLink>
-                        <NavLink to="/idopont">Időpontfoglalás</NavLink>
+                        {/* <NavLink to="/idopont">Időpontfoglalás</NavLink> */}
                         <NavLink to="/orvosok">Orvosok</NavLink>
                         <NavLink to="/adatok">Adatok</NavLink>
                     <button onClick={kilep} className="kilepes" style={{
