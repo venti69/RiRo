@@ -106,6 +106,7 @@ app.use('/idopontmodositas', require('./routes/idopontmodositasRoutes.js'))
 
 
 app.use('/doctors', require('./routes/doctorsRoutes.js'));
+app.use('/doctorsfrontend', require('./routes/doctorsFrontendRoutes.js'));
 
 app.use('/patient', require('./routes/patientRoutes.js'));
 app.use('/adatok', require('./routes/adatokRoutes.js'));
