@@ -8,7 +8,7 @@ import Bodrogi from '../../assets/images/Bodrogi.jpg';
 import bgi from '../Home/bg/bgi.jpg';
 
 
-const Fooldal = () => {
+const Egeszseg = () => {
     window.onload = function () {
         // Ellenőrizzük, hogy az oldal már újratöltődött-e ebben a munkamenetben
         if (!sessionStorage.getItem('hasReloaded')) {
@@ -107,7 +107,7 @@ const Fooldal = () => {
                                     alt="Digitális Egészségügy"
                                     style={{ marginBottom: "20px", borderRadius: "50%" }}
                                 />
-                                <a href="/egeszseg"> <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#28a745" }}>Digitális Egészségügy</h5></a>
+                                <a href=""> <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#28a745" }}>Digitális Egészségügy</h5></a>
                                 <p style={{ fontSize: "1rem", color: "#666" }}>Hozzáférhető orvosi adatok, gyors időpontfoglalás, online rendszerek.</p>
                             </div>
                         </div>
@@ -145,4 +145,4 @@ const Fooldal = () => {
     );
 };
 
-export default Fooldal;
+export default Egeszseg;

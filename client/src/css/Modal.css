@@ -1,0 +1,48 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Magasabb réteg legyen, hogy ne takarja más elem */
+  }
+  
+  .modal-content {
+    position: relative; /* Fontos, hogy a z-index jól működjön a gombbal */
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001; /* Magasabb legyen, mint az overlay */
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1002; /* A gomb kiemelése */
+    color: black;
+  }
+  
+  .close-button:hover {
+    color: red; /* Interaktív vizuális visszajelzés */
+  }
+  
+  .modal-body {
+    padding: 10px 0;
+  }
+  
+  .modal-body p {
+    margin: 10px 0;
+  }
+  

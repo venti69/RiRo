@@ -10,6 +10,7 @@ import Info from './pages/Info/Info';
 import Idopont from './pages/Idopont/Idopont';
 import Orvosok from './pages/Orvosok/Orvosok';
 import Adatok from './pages/Adatok/Adatok';
+import Egeszseg from './pages/Egeszseg/Egeszseg';
 
 function App() {
     return (
@@ -51,6 +52,10 @@ function App() {
                 <Route
                     path="/adatok"
                     element={<Adatok />}
+                />
+                <Route
+                    path='/egeszseg'
+                    element={<Egeszseg/>}
                 />
             </Routes>
         </BrowserRouter>
