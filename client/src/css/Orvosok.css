@@ -12,7 +12,7 @@
   font-weight: bold;
   text-align: center;
   color: #2c3e50;
-  margin-bottom: 50px; /* Extra távolság a lista előtt */
+  margin-bottom: 10px; /* Extra távolság a lista előtt */
   text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
 }
 

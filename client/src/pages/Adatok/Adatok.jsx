@@ -80,7 +80,6 @@ const Adatok = () => {
 
     return (
         <div style={{ overflowX: 'hidden', minHeight: '100vh', fontFamily: 'Arial, sans-serif' }}>
-            <br />
             <div className="signup-container">
                 <div className="signup-card">
                     <h2 className="signup-title">Adatok felvétele</h2>
