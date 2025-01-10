@@ -1,27 +1,90 @@
+/* Általános beállítások */
 .info-container {
-    padding: 20px;
-  }
-  
+  padding: 50px 30px; /* Több hely az elemek körül */
+  /* background: linear-gradient(to bottom, #eef2f3, #8e9eab); */
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Fejléc */
+.text-section h1 {
+  font-size: 3.5rem; /* Nagyobb betűméret */
+  font-weight: bold;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 50px; /* Extra távolság a lista előtt */
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Doktor lista */
+.doctors-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 oszlop */
+  gap: 30px; /* Távolság az elemek között */
+  padding: 20px;
+  justify-items: center;
+  align-items: stretch;
+}
+
+/* Kártyák */
+.doctor-card {
+  width: 100%;
+  max-width: 250px; /* Méret limitálása */
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+.doctor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Kártya fejléc */
+.doctor-card-header {
+  background: linear-gradient(90deg, rgba(110, 57, 12, 0.586), rgba(57, 57, 57, 0.533));
+  padding: 20px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Kártya szöveg */
+.doctor-card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.doctor-card-body p {
+  font-size: 1.2rem;
+  color: #555555;
+  line-height: 1.5;
+}
+
+/* Navbar helyzete */
+body {
+  margin-top: 60px; /* Elkerüljük, hogy a navbarba belógjon */
+}
+
+/* Reszponzív nézetek */
+@media screen and (max-width: 1200px) {
   .doctors-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+      grid-template-columns: repeat(3, 1fr); /* 3 oszlop, kisebb kijelzőkhöz */
   }
-  
-  .doctor-card {
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  .doctors-list {
+      grid-template-columns: repeat(2, 1fr); /* 2 oszlop, tabletekhez */
   }
-  
-  .doctor-card h3 {
-    margin: 0;
-    color: #2c3e50;
+}
+
+@media screen and (max-width: 480px) {
+  .doctors-list {
+      grid-template-columns: 1fr; /* 1 oszlop mobilokhoz */
   }
-  
-  .doctor-card p {
-    margin: 5px 0;
-  }
-  
+}
