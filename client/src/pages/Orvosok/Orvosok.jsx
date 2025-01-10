@@ -29,7 +29,10 @@ const Idopont = () => {
               <h3>{doctor.nev}</h3>
             </div>
             <div className="doctor-card-body">
-              <p><strong>Szakma:</strong> {doctor.szak}</p>
+              <p><strong>Szakma: </strong> {doctor.szak}</p>
+              <p><strong>Elérhetőség: </strong>{doctor.telszam} {doctor.email}</p>
+              <p><strong>Neme: </strong>{doctor.neme}</p>
+              <p><strong>Kor: </strong>{doctor.kor}</p>
             </div>
           </div>
         ))}
