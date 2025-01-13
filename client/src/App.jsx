@@ -11,6 +11,8 @@ import Idopont from './pages/Idopont/Idopont';
 import Orvosok from './pages/Orvosok/Orvosok';
 import Adatok from './pages/Adatok/Adatok';
 import Egeszseg from './pages/Egeszseg/Egeszseg';
+import Vizsgalat from './pages/Vizsgalat/Vizsgalat';
+import Diabetologia from './pages/Diabetologia/Diabetologia';
 
 function App() {
     return (
@@ -56,6 +58,14 @@ function App() {
                 <Route
                     path='/egeszseg'
                     element={<Egeszseg/>}
+                />
+                <Route 
+                path='/vizsgalat'
+                element={<Vizsgalat/>}
+                />
+                <Route 
+                path='/diabetologia'
+                element={<Diabetologia/>}
                 />
             </Routes>
         </BrowserRouter>

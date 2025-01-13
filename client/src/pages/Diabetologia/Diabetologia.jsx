@@ -8,7 +8,7 @@ import Bodrogi from '../../assets/images/Bodrogi.jpg';
 import bgi from '../Home/bg/bgi.jpg';
 
 
-const Egeszseg = () => {
+const Fooldal = () => {
     window.onload = function () {
         // Ellenőrizzük, hogy az oldal már újratöltődött-e ebben a munkamenetben
         if (!sessionStorage.getItem('hasReloaded')) {
@@ -27,9 +27,8 @@ const Egeszseg = () => {
     return (
         <div style={{ overflowX: 'hidden', minHeight: "100vh", fontFamily: "Arial, sans-serif" }}>
             
-            
         </div>
     );
 };
 
-export default Egeszseg;
+export default Fooldal;

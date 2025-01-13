@@ -67,7 +67,7 @@ const Fooldal = () => {
                                     alt="Diagnosztika"
                                     style={{ marginBottom: "20px", borderRadius: "50%" }}
                                 />
-                                <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#005bea" }}>Diagnosztikai Vizsgálatok</h5>
+                                <a href="/vizsgalat"> <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#005bea" }}>Diagnosztikai Vizsgálatok</h5></a>
                                 <p style={{ fontSize: "1rem", color: "#666" }}>A legújabb technológiával pontos és gyors diagnosztikai megoldásokat kínálunk.</p>
                             </div>
                         </div>
@@ -87,7 +87,7 @@ const Fooldal = () => {
                                     alt="Konzultáció"
                                     style={{ marginBottom: "20px", borderRadius: "50%" }}
                                 />
-                                <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#00c6fb" }}>Diabetológiai Konzultáció</h5>
+                               <a href="/diabetologia"> <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#00c6fb" }}>Diabetológiai Konzultáció</h5></a>
                                 <p style={{ fontSize: "1rem", color: "#666" }}>Tapasztalt és együttérző szakorvosok állnak rendelkezésére.</p>
                             </div>
                         </div>
