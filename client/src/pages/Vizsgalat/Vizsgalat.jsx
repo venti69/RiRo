@@ -1,7 +1,8 @@
 import React from 'react';
-import NewsCarousel from '../../components/Carousel';
+import NewsCarousel from '../../components/Vcarousel';
 import { Link } from 'react-router-dom';
 import '../../css/images.css';
+import '../../css/Vizsgalatok.css';
 import Romeo from '../../assets/images/Romeo.jpg';
 import Ricsi from '../../assets/images/Ricsi.jpg';
 import Bodrogi from '../../assets/images/Bodrogi.jpg';
@@ -16,17 +17,16 @@ const Fooldal = () => {
             window.location.reload(); // Oldal újratöltése
         }
     };
-    
-    
         const slides = [
         "https://via.placeholder.com/1200x500/FF5733/ffffff?text=Slide+1",
         "https://via.placeholder.com/1200x500/33FF57/ffffff?text=Slide+2",
         "https://via.placeholder.com/1200x500/3357FF/ffffff?text=Slide+3",
     ];
-
     return (
         <div style={{ overflowX: 'hidden', minHeight: "100vh", fontFamily: "Arial, sans-serif" }}>
-            
+            <h1 className='vh1'>Diagnosztikai Vizsgálatok</h1>
+            <NewsCarousel />
+
         </div>
     );
 };
