@@ -1,4 +1,118 @@
-.vh1 
-{
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+h1.vh1 {
+    font-size: 2.5rem;
     text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+h6 {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 20px;
+    text-align: start;
+    color: rgb(243, 30, 0);
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+strong {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+}
+
+/* Táblázatok */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Carousel képek */
+.carousel img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Reszponzív iframe */
+iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+}
+
+/* Képek */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Konténerek */
+.article_txt {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+/* Linkek hover hatás */
+a:hover {
+    color: rgb(200, 0, 0);
+    text-decoration: underline;
+}
+
+/* Reszponzív design */
+@media (max-width: 768px) {
+    h1.vh1 {
+        font-size: 2rem;
+    }
+
+    .article_txt {
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    iframe {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1.vh1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
 }

@@ -50,6 +50,8 @@ const NewsCarousel = () => {
                         <p>{item.description}</p>
                         <a href={item.link} className="btn" target="_blank">Tovább</a>
                     </div>
+
+                    
                     
                 </div>
             ))}
