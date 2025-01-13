@@ -52,7 +52,7 @@ const Fooldal = () => {
                     </h2>
                     <div className="row g-4">
                         <div className="col-md-4">
-                            <div style={{
+                        <a href="/vizsgalat"><div style={{
                                 background: "white",
                                 padding: "20px",
                                 borderRadius: "15px",
@@ -67,12 +67,12 @@ const Fooldal = () => {
                                     alt="Diagnosztika"
                                     style={{ marginBottom: "20px", borderRadius: "50%" }}
                                 />
-                                <a href="/vizsgalat"> <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#005bea" }}>Diagnosztikai Vizsgálatok</h5></a>
+                                <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#005bea" }}>Diagnosztikai Vizsgálatok</h5>
                                 <p style={{ fontSize: "1rem", color: "#666" }}>A legújabb technológiával pontos és gyors diagnosztikai megoldásokat kínálunk.</p>
-                            </div>
+                            </div></a>
                         </div>
                         <div className="col-md-4">
-                            <div style={{
+                        <a href="/diabetologia"> <div style={{
                                 background: "white",
                                 padding: "20px",
                                 borderRadius: "15px",
@@ -87,12 +87,12 @@ const Fooldal = () => {
                                     alt="Konzultáció"
                                     style={{ marginBottom: "20px", borderRadius: "50%" }}
                                 />
-                               <a href="/diabetologia"> <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#00c6fb" }}>Diabetológiai Konzultáció</h5></a>
+                               <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#00c6fb" }}>Diabetológiai Konzultáció</h5>
                                 <p style={{ fontSize: "1rem", color: "#666" }}>Tapasztalt és együttérző szakorvosok állnak rendelkezésére.</p>
-                            </div>
+                            </div></a>
                         </div>
                         <div className="col-md-4">
-                            <div style={{
+                        <a href="/egeszseg"><div style={{
                                 background: "white",
                                 padding: "20px",
                                 borderRadius: "15px",
@@ -107,9 +107,9 @@ const Fooldal = () => {
                                     alt="Digitális Egészségügy"
                                     style={{ marginBottom: "20px", borderRadius: "50%" }}
                                 />
-                                <a href="/egeszseg"> <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#28a745" }}>Digitális Egészségügy</h5></a>
+                                <h5 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "#28a745" }}>Digitális Egészségügy</h5>
                                 <p style={{ fontSize: "1rem", color: "#666" }}>Hozzáférhető orvosi adatok, gyors időpontfoglalás, online rendszerek.</p>
-                            </div>
+                            </div></a>
                         </div>
                     </div>
                 </div>
