@@ -60,8 +60,8 @@ function szerkesztes(id, name, age, gender) {
         const updatedAge = ageInput.value;
         const updatedGender = genderInput.value;
 
-        fetch(`/users/${id}/edit`, {
-            method: 'POST',
+        fetch(`/patientmodositas/${id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -70,10 +70,10 @@ function szerkesztes(id, name, age, gender) {
             .then((response) => response.json())
             .then((data) => {
                 if (data.success) {
+                    alert('Hiba történt!');
+                } else {
                     alert('Adatok sikeresen frissítve!');
                     location.reload(); // Frissítjük az oldalt
-                } else {
-                    alert('Hiba történt!');
                 }
             });
 
