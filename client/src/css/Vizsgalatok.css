@@ -18,7 +18,7 @@ h6 {
     line-height: 1.5;
     margin-top: 20px;
     text-align: start;
-    color: rgb(243, 30, 0);
+    /* color: rgb(243, 30, 0); */
 }
 
 p {
@@ -34,7 +34,7 @@ strong {
 
 a {
     text-decoration: none;
-    color: rgb(255, 0, 0);
+    /* color: rgb(255, 0, 0); */
 }
 
 /* Táblázatok */
@@ -84,7 +84,7 @@ img {
 
 /* Linkek hover hatás */
 a:hover {
-    color: rgb(200, 0, 0);
+    /* color: rgb(200, 0, 0); */
     text-decoration: underline;
 }
 
