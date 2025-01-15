@@ -69,7 +69,7 @@ const Idopont = () => {
             )}
           </div>
         </div>
-      )}
+      )}      
     </div>
   );
 };
