@@ -28,6 +28,7 @@ const Fooldal = () => {
     ];
     return (
         <div style={{ overflowX: 'hidden', minHeight: "100vh", fontFamily: "Arial, sans-serif" }}>
+            <br /><br />
             <h1 className='vh1'>Diagnosztikai Vizsgálatok</h1>
             <NewsCarousel />
             <div className="article_txt">

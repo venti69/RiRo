@@ -9,7 +9,7 @@ const Idopont = () => {
   const [orvosok, setOrvosok] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
-  const kepek = [ "/src/assets/images/Ricsi.jpg", "/src/assets/images/Romeo.jpg",  "/src/assets/images/Bodrogi.jpg" ]
+  const kepek = [ "/src/assets/images/Romeo.jpg", "/src/assets/images/Ricsi.jpg",  "/src/assets/images/Bodrogi.jpg" ]
 
   useEffect(() => {
     const dolgoz = async () => {
@@ -38,7 +38,7 @@ const Idopont = () => {
   return (
     <div className="info-container">
       <div className="text-section">
-        <h1>Orvosok</h1>
+        <h1 className='h1Orvosok'>Orvosok</h1>
       </div>
       <div className="doctors-list">
         {orvosok.map((doctor, index) => (

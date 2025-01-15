@@ -6,6 +6,10 @@
   font-family: 'Arial', sans-serif;
 }
 
+.text-section{
+  margin-top: 2em;
+}
+
 /* Fejléc */
 .text-section h1 {
   font-size: 3.5rem; /* Nagyobb betűméret */
