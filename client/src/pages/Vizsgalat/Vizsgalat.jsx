@@ -9,6 +9,10 @@ import Bodrogi from '../../assets/images/Bodrogi.jpg';
 import bgi from '../Home/bg/bgi.jpg';
 
 
+
+
+
+
 const Fooldal = () => {
     window.onload = function () {
         // Ellenőrizzük, hogy az oldal már újratöltődött-e ebben a munkamenetben
