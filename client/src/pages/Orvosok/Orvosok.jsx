@@ -44,7 +44,7 @@ const Idopont = () => {
         {orvosok.map((doctor, index) => (
           <div key={doctor.id || index} className="doctor-card">
             <div className="doctor-card-header">
-             <p className="doctor-image"><img src={kepek[index % 3]} alt="Orvos kép"  /></p> 
+             <p className="doctor-image"><img src={kepek[index % 3]} alt="Orvos kép" style={{borderRadius: "50%"}} /></p> 
               <h3>{doctor.nev}</h3>
             </div>
             <div className="doctor-card-body">

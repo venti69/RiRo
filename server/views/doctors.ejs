@@ -51,13 +51,12 @@
                             >
                                 Szerkesztés
                             </button>
-                        <form
-                            method="POST"
-                            action="/doctors/delete/<%= doctor._id %>"
-                            style="display: inline"
+                            <button
+                            class="btn btn-danger delete-button"
+                            onClick="torol('<%= doctor._id%>')"
                         >
-                            <button type="submit">Törlés</button>
-                        </form>
+                            Töröl
+                        </button>
                     </div>
                     <% }) %>
                 </div>
