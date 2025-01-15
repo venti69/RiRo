@@ -36,7 +36,7 @@ const Fooldal = () => {
                             <div className="service-card">
                                 <img src={Romeo} alt="Diagnosztika" />
                                 <h5>Diagnosztikai Vizsgálatok</h5>
-                                <p>A legújabb technológiával pontos és gyors diagnosztikai megoldásokat kínálunk.</p>
+                                <p>Pontos és gyors diagnosztikai megoldásokat kínálunk.</p>
                             </div>
                         </a>
                     </div>

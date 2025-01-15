@@ -23,8 +23,10 @@
 /* Szolgáltatások szekció */
 .services-section {
     padding: 20px;
-    background-image: url('../Home/bg/bgi.jpg');
+    /* background-image: url('../Home/bg/bgi.jpg'); */
+    /* background-size: cover; */
     text-align: center;
+    /* background-repeat: no-repeat; */
 }
 
 .services-section h2 {

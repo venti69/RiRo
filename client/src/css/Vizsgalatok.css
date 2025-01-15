@@ -1,10 +1,12 @@
 body {
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
     background-color: #f8f8f8;
     color: #333;
-}
+} 
 
 h1.vh1 {
     font-size: 2.5rem;
@@ -64,13 +66,6 @@ iframe {
     border: 0;
 }
 
-/* Képek */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
 
 /* Konténerek */
 .article_txt {
@@ -82,11 +77,6 @@ img {
     max-width: 1200px;
 }
 
-/* Linkek hover hatás */
-a:hover {
-    /* color: rgb(200, 0, 0); */
-    text-decoration: underline;
-}
 
 /* Reszponzív design */
 @media (max-width: 768px) {
