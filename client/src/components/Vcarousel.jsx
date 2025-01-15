@@ -21,8 +21,8 @@ const NewsCarousel = () => {
                 title: "Szeged friss hírei",
                 description: "Szeged Friss híreit olvashatja, ha a linkre tovább megy. (Szeged365)",
                 image: kep2,
-                link: "https://szeged365.hu/"
-            },
+                link: "https://szeged365.hu/"   
+            },  
             // További hírek
         ]);
 

@@ -60,12 +60,10 @@ const Fooldal = () => {
         e-mail: <a href="mailto:office.radio@med.u-szeged.hu">office.radio@med.u-szeged.hu</a>
     </p>
     <p style={{ textAlign: "left" }}>
-        <img src="/site/upload/2020/09/facebook.png" width="40" height="40" alt="facebook" title="facebook" />
     </p>
     <table style={{ width: "80%" }} cellSpacing="0" cellPadding="0">
         <tbody>
-            <tr>
-                <th style={{ width: "50%" }}>
+            <tr style={{ width: "50%" }}>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2759.2725613817242!2d20.144926615487925!3d46.24480908903745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474489942a0a50f7%3A0x9956e4bf3c32b3dc!2sDepartment%20of%20Radiology%2C%20University%20of%20Szeged!5e0!3m2!1sen!2shu!4v1576948020182!5m2!1sen!2shu"
                         width="400"
@@ -75,10 +73,6 @@ const Fooldal = () => {
                         allowFullScreen
                         title="Radiológiai Klinika"
                     />
-                </th>
-                <th style={{ width: "50%", border: "1px solid rgb(0, 0, 0)" }}>
-                    <img src="/site/upload/2019/12/ujklinika_250x2502_450x298.png" width="450" height="298" alt="ujklinika" title="ujklinika" />
-                </th>
             </tr>
         </tbody>
     </table>

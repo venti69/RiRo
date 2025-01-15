@@ -65,6 +65,11 @@
   line-height: 1.5;
 }
 
+.doctor-image {
+  display: flex;
+  justify-content: center;
+}
+
 /* Navbar helyzete */
 body {
   margin-top: 60px; /* Elkerüljük, hogy a navbarba belógjon */

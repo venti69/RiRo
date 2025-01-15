@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
+import '../../css/images.css';
 import '../../css/Orvosok.css';
 import '../../css/Modal.css';
+
 
 const Idopont = () => { 
   const [orvosok, setOrvosok] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const kepek = [ "/src/assets/images/Ricsi.jpg", "/src/assets/images/Romeo.jpg",  "/src/assets/images/Bodrogi.jpg" ]
 
   useEffect(() => {
     const dolgoz = async () => {
@@ -41,10 +44,11 @@ const Idopont = () => {
         {orvosok.map((doctor, index) => (
           <div key={doctor.id || index} className="doctor-card">
             <div className="doctor-card-header">
+             <p className="doctor-image"><img src={kepek[index % 3]} alt="Orvos kép"  /></p> 
               <h3>{doctor.nev}</h3>
             </div>
             <div className="doctor-card-body">
-              <p><strong>Szakma: </strong> {doctor.szak}</p>
+              <p><strong>Szakma: </strong> {doctor.szak} </p>
               <button onClick={() => openModal(doctor)}>Részletek</button>
             </div>
           </div>
