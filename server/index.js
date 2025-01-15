@@ -100,6 +100,7 @@ app.post('/users/:id/edit', (req, res) => {
 
 
 
+
 app.use('/torol', require('./routes/torlUsersRoute.js'));
 app.use('/idopont', require('./routes/idopontokRoutes.js'))
 app.use('/idopontmodositas', require('./routes/idopontmodositasRoutes.js'))
