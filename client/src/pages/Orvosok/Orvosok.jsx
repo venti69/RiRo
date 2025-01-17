@@ -66,6 +66,7 @@ const Idopont = () => {
               <div className="modal-body">
                 <h2>{selectedDoctor.nev}</h2>
                 {/* <p><strong></strong> {selectedDoctor.orvoskep}</p> */}
+                <img src={selectedDoctor.orvoskep}></img>
                 <p><strong>Email:</strong> {selectedDoctor.email}</p>
                 <p><strong>Telefonszám:</strong> {selectedDoctor.telszam}</p>
                 <p><strong>Neme:</strong> {selectedDoctor.neme}</p>

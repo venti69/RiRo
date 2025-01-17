@@ -1,4 +1,4 @@
-function szerkesztes(id, name, email) {
+function szerkesztes(id, name, email, gender, phone, address, ssn, motherName, birthName, birthDate) {
     const modalContainer = document.getElementById('modal-container');
 
     // Töröljük a modal tartalmát
@@ -42,6 +42,68 @@ function szerkesztes(id, name, email) {
     emailInput.placeholder = 'Email cím';
     modalBox.appendChild(emailInput);
 
+    // Gender input mező
+    const genderInput = document.createElement('input');
+    genderInput.className = 'form-control mb-3';
+    genderInput.type = 'text';
+    genderInput.value = gender;
+    genderInput.placeholder = 'Neme';
+    modalBox.appendChild(genderInput);
+
+    // Phone input mező
+
+    const phoneInput = document.createElement('input');
+    phoneInput.type = 'number';
+    phoneInput.value = phone;
+    phoneInput.className = 'form-control mb-3';
+    phoneInput.placeholder = 'Telefonszám';
+    modalBox.appendChild(phoneInput);
+
+    // Address input mező
+
+    const addressInput = document.createElement('input');
+    addressInput.type = 'text';
+    addressInput.value = address;
+    addressInput.className = 'form-control mb-3';
+    addressInput.placeholder = 'Cím';
+    modalBox.appendChild(addressInput);
+
+    // SSN input mező
+
+    const ssnInput = document.createElement('input');
+    ssnInput.type = 'number';
+    ssnInput.value = ssn;
+    ssnInput.className = 'form-control mb-3';
+    ssnInput.placeholder = 'Tajszám';
+    modalBox.appendChild(ssnInput);
+
+    // MotherName input mező
+
+    const motherNameInput = document.createElement('input');
+    motherNameInput.type = 'text';
+    motherNameInput.value = motherName;
+    motherNameInput.className = 'form-control mb-3';
+    motherNameInput.placeholder = 'Anyja neve';
+    modalBox.appendChild(motherNameInput);
+
+    // BirthName input mező
+
+    const birthNameInput = document.createElement('input');
+    birthNameInput.type = 'text';
+    birthNameInput.value = birthName;
+    birthNameInput.className = 'form-control mb-3';
+    birthNameInput.placeholder = 'Születés neve';
+    modalBox.appendChild(birthNameInput);
+
+    // BirthDate input mező
+
+    const birthDateInput = document.createElement('input');
+    birthDateInput.type = 'text';
+    birthDateInput.value = birthDate;
+    birthDateInput.className = 'form-control mb-3';
+    birthDateInput.placeholder = 'Születés dátuma';
+    modalBox.appendChild(birthDateInput);
+
     // Mentés gomb
     const saveButton = document.createElement('button');
     saveButton.textContent = 'Mentés';
@@ -50,19 +112,28 @@ function szerkesztes(id, name, email) {
         // Küldd el az új adatokat a szervernek
         const updatedName = nameInput.value;
         const updatedEmail = emailInput.value;
+        const updatedGender = genderInput.value;
+        const updatedPhone = phoneInput.value;
+        const updatedAddress = addressInput.value;
+        const updatedSsn = ssnInput.value;
+        const updatedMotherName = motherNameInput.value;
+        const updatedBirthName = birthNameInput.value;
+        const updatedBirthDate = birthDateInput.value;
 
-        fetch(`/users/${id}/edit`, {
-            method: 'POST',
+        fetch(`/users/edit/${id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name: updatedName, email: updatedEmail }),
+            body: JSON.stringify({ name: updatedName, email: updatedEmail, gender: updatedGender, phone: updatedPhone, address: updatedAddress, ssn: updatedSsn, motherName: updatedMotherName, birthName: updatedMotherName, birthDate: updatedBirthDate }),
         })
             .then((response) => response.json())
             .then((data) => {
-                if (data.success) {
+                // console.log(data);
+                
+                if (data.msg === "ASd") {
                     alert('Adatok sikeresen frissítve!');
-                    location.reload(); // Frissítjük az oldalt
+                    location.reload();
                 } else {
                     alert('Hiba történt!');
                 }
