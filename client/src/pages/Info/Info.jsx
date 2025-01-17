@@ -35,16 +35,19 @@ const Info = () => {
         <h4>🎨 Dizájn:</h4>
         <ul>
           <li> Demeter Richárd</li>
+          <ol>Bemutatkozás: </ol>
         </ul>
 
         <h4>💻 Programozás:</h4>
         <ul>
           <li> Nagyváti Rómeó</li>
+          <ol>Bemutatkozás: </ol>
         </ul>
 
         <h4>📌 Segédkezett:</h4>
         <ul>
           <li> Bodrogi Péter Róbert</li>
+          <ol>Bemutatkozás: </ol>
         </ul>
       </div>
 
