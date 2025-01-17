@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 
 const orvosSchema = new mongoose.Schema(
     {
+        orvoskep: {
+            type: String,
+            required: true,
+        },
+        
         nev: {
             type: String,
             required: true,

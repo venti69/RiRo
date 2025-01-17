@@ -65,10 +65,12 @@ const Idopont = () => {
             {selectedDoctor && (
               <div className="modal-body">
                 <h2>{selectedDoctor.nev}</h2>
+                {/* <p><strong></strong> {selectedDoctor.orvoskep}</p> */}
                 <p><strong>Email:</strong> {selectedDoctor.email}</p>
                 <p><strong>Telefonszám:</strong> {selectedDoctor.telszam}</p>
                 <p><strong>Neme:</strong> {selectedDoctor.neme}</p>
                 <p><strong>Kor:</strong> {selectedDoctor.kor}</p>
+
               </div>
             )}
           </div>
