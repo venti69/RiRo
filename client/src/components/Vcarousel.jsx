@@ -17,12 +17,13 @@ const NewsCarousel = () => {
                 image: "https://i.ytimg.com/vi/jreHCYeEmDI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLABKkoWPtLt9rZpIYe1UBct4dAaqA",
                 // link: "https://htmedicalcenter.hu/wp-content/uploads/2023/08/medicalpoint-mri-budapest-1024x683.jpg"
             },
-            {
-                title: "Szeged friss hírei",
-                description: "Szeged Friss híreit olvashatja, ha a linkre tovább megy. (Szeged365)",
-                image: kep2,
-                link: "https://szeged365.hu/"   
-            },  
+            [// {
+            //     // title: "Szeged friss hírei",
+            //     // description: "Szeged Friss híreit olvashatja, ha a linkre tovább megy. (Szeged365)",
+            //     // image: kep2,
+            //     // link: "https://szeged365.hu/"   
+            // }, 
+            ]
             // További hírek
         ]);
 
@@ -36,7 +37,7 @@ const NewsCarousel = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 9000,
+        // autoplaySpeed: 9000,
     };
 
     return (
