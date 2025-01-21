@@ -31,11 +31,15 @@ const Fooldal = () => {
             <h1 className='vh1'>Diabetológia Konzultáció</h1>
             <NewsCarousel />
             <div className="article_txt">
+                <div className="article_txt_bal">
+
+                
     <p style={{ textAlign: "start", marginBottom: "30px", lineHeight: "30.4px", color: "#000", fontFamily: "'PT Sans', sans-serif", fontSize: "19px" , backgroundColor: "rgba(226, 226, 226, 0.4)"}}>
-        A Szegedi Tudományegyetem Radiológiai Klinikája a Dél-Alföld legnagyobb képalkotó vizsgálatokat végző betegellátó, oktató, kutató egysége. Az orvostanhallgatók oktatásában két féléven keresztül heti előadásokkal és gyakorlatokkal végzi a képzést. A Klinika a saját kutatási projectjei mellett részt vesz az Egyetem klinikáinak és tanszékeinek kutatásában és kiterjedt hazai és nemzetközi kapcsolatokkal rendelkezik. A betegellátást Magyarország legmodernebb gépparkjával biztosítja.
+    
+    A diabetológus szakorvos felméri a cukorbetegség rizikófaktorait, elvégzi az általános belgyógyászati, állapotfelmérő vizsgálatokat, beállítja a kezelést, nyomonköveti azt. Amennyiben cukorbetegség gyanúja merül fel, illetve az I-es és II-es típusú cukorbetegség diagnosztizálása történik a diabetológus szakorvos meghatározza a terápiát, és rendszeres diabetológiai kontrollt ír elő a páciens egészségi állapotának nyomonkövetésére. A cukorbetegség mára népbetegséggé vált. Sajnos a cukorbetegség diagnosztizálása sokszor azután történik meg, amikor a betegség már valamilyen problémát, szövödményt okozott a páciens számára.
     </p>
     <h6 style={{ color: "rgb(243, 30, 0)", fontFamily: "'PT Sans', sans-serif", fontSize: "14px" }}>
-        <strong><u>Vizsgálatokra időpontot a 06-62-545-400 telefonszámon lehet kérni munkaidőben!</u></strong>
+        <strong><u>Diabetológiai konzultációra időpontot, a 06-62-545-400 telefonszámon lehet kérni munkaidőben!</u></strong>
     </h6>
     <p style={{ textAlign: "left" }}><br /></p>
     <p style={{ textAlign: "left", color: "rgb(243, 30, 0)", fontFamily: "'PT Sans', sans-serif", fontSize: "14px" }}>
@@ -44,9 +48,6 @@ const Fooldal = () => {
     </p>
     <p style={{ textAlign: "left", color: "black" , backgroundColor: "rgba(226, 226, 226, 0.4)"}}>
         <b>2023 július 1-től a szentesi Dr. Bugyi István Kórházat és a deszki Mellkasi Betegségek Szakkórházát integrálta a Szegedi Tudományegyetem. Ennek eredményeként a Radiológiai Klinika feladatai is bővültek. Ennek eredményeként, a kapacitások jobb kihasználása érdekébe szegedi betegeinknek is felajánljuk esetenként a szentesi CT vizsgálat lehetőségét. A felvételek értékelését mindkét telephelyen ugyanazon orvoscsapat végzi.</b>
-    </p>
-    <p style={{ textAlign: "left", color: "black", backgroundColor: "rgba(226, 226, 226, 0.4)" }}>
-        Térítéses betegellátásra időpontot +36-30-7270104 telefonszámon lehet egyeztetni.
     </p>
     <p style={{ textAlign: "left", color: "black", backgroundColor: "rgba(226, 226, 226, 0.4)" }}>
     </p>
@@ -59,6 +60,8 @@ const Fooldal = () => {
         Tel.: 06-62-546-847, 06-62-546-848 (nem időpont kérés!)<br />
         e-mail: <a href="mailto:office.radio@med.u-szeged.hu">office.radio@med.u-szeged.hu</a>
     </p>
+    </div>
+                <div className="article_txt_jobb"></div>
     <table style={{ width: "80%" }} cellSpacing="0" cellPadding="0">
         <tbody>
             <tr style={{ width: "50%" }}>
@@ -81,3 +84,6 @@ const Fooldal = () => {
 };
 
 export default Fooldal;
+
+
+//INNEN LOPOK!!! https://platanklinika.hu/szakteruletek/diabetologia/

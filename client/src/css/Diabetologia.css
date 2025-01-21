@@ -70,14 +70,24 @@ iframe {
 /* Konténerek */
 .article_txt {
     padding: 20px;
-    /* background-color: #fff; */
-    background-image: url(../assets/images/diab.jpg);
-    
+    display: grid;
+    grid-template-columns: 50%  50%;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     max-width: 1200px;
+    gap: 20px;
 }
+    
+.article_txt_jobb {
+    background-image: url(../assets/images/diab.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.article_txt_bal {
+    background-color:#FFFFFF;
+}
+
 
 
 /* Reszponzív design */

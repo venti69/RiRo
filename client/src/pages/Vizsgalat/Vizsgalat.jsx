@@ -29,7 +29,7 @@ const Fooldal = () => {
             <br /><br />
             <h1 className='vh1'>Diagnosztikai Vizsgálatok</h1>
             <NewsCarousel />
-            <div className="article_txt">
+            <div className="V_article_txt">
     <p style={{ textAlign: "start", marginBottom: "30px", lineHeight: "30.4px", color: "#000", fontFamily: "'PT Sans', sans-serif", fontSize: "19px" }}>
         A Szegedi Tudományegyetem Radiológiai Klinikája a Dél-Alföld legnagyobb képalkotó vizsgálatokat végző betegellátó, oktató, kutató egysége. Az orvostanhallgatók oktatásában két féléven keresztül heti előadásokkal és gyakorlatokkal végzi a képzést. A Klinika a saját kutatási projectjei mellett részt vesz az Egyetem klinikáinak és tanszékeinek kutatásában és kiterjedt hazai és nemzetközi kapcsolatokkal rendelkezik. A betegellátást Magyarország legmodernebb gépparkjával biztosítja.
     </p>
