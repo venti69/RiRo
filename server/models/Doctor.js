@@ -23,6 +23,14 @@ const orvosSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        email: {
+            type: String,
+            required: true,
+        },
+        telszam: {
+            type: String,
+            required: true,
+        },
         isEditMode: { type: Boolean, default: true },
     },
     {

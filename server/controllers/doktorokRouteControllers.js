@@ -14,16 +14,16 @@ exports.getOrvosok = async (req, res) => {
 
 exports.updateOrvosok = async (req, res) => {
     const {id} = req.params;
-    const {nev, szak} = req.body;
-    console.log(nev, szak);
+    const {nev, szak, kor, neme, email, telszam} = req.body;
+    // console.log(nev, szak, kor, neme, email, telszam);
     
-    console.log(id);
+    // console.log(id);
     
     try {
         const doctor = await Doctor.findById({_id:id});
         console.log(doctor);
         if (doctor){
-            const ujDoctor = await Doctor.findByIdAndUpdate({_id:id}, {nev: nev, szak: szak});
+            const ujDoctor = await Doctor.findByIdAndUpdate({_id:id}, {nev: nev, szak: szak, kor: kor, neme: neme, email: email, telszam: telszam});
             console.log("új" +  ujDoctor);
             res.status(200).json({ msg: "Sikeres frissítés történt!" });
         } else {
