@@ -41,7 +41,7 @@ const Info = () => {
         <h4>💻 Programozás:</h4>
         <ul>
           <li> Nagyváti Rómeó</li>
-          <ol>Bemutatkozás: </ol>
+          <ol>Bemutatkozás: „Ricsi szeret néha túlozni. Leginkább én csináltam a projekt minden részét, egy két elemben segített Ricsi, amikor kiosztottam neki egy feladatot(de azt is nehezen csiálta meg), de ez most lényegtelen. Én feleltek a programok sikeres működéséért, ha valami nem működik akkor elég sokat dolgozok rajta, hogy működjön és a további módosítások ne zavarjanak be. Adatbázisért is én vagyok a felelős, mível én tudom jól kezelni. Ricsi csak egy segédmunkás! 😆”</ol>
         </ul>
 
         <h4>📌 Segédkezett:</h4>
