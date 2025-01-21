@@ -48,12 +48,8 @@ const Fooldal = () => {
         Térítéses betegellátásra időpontot +36-30-7270104 telefonszámon lehet egyeztetni.
     </p>
     <p style={{ textAlign: "left" }}>
-        <a href="/szakk/betegellatas-menu/gyakori-kerdesek" title="Gyakori kérdések és válaszok" style={{ color: "rgb(255, 0, 0)", backgroundColor: "rgb(246, 246, 246)", textDecoration: "underline" }}>
-            <strong>Gyakori kérdések és válaszok</strong>
-        </a>
     </p>
     <p style={{ textAlign: "left" }}>
-        <a href="/szakk/radiology/radiologiai-klinika/tortenetunk" title="Történetünk" style={{ backgroundColor: "rgb(246, 246, 246)" }}>Történetünk</a>
     </p>
     <p style={{ textAlign: "left" }}>
         Igazgató: Prof. Dr. Kincses Zsigmond Tamás PhD, habil, DSc<br />

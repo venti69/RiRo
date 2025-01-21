@@ -32,10 +32,10 @@ const Info = () => {
         </p>
 
         <h2>👨‍💻 Weboldal készítői:</h2>
-        <h4>🎨 Dizájn:</h4>
+        <h4>🎨 Dizájn: </h4>
         <ul>
           <li> Demeter Richárd</li>
-          <ol>Bemutatkozás: </ol>
+          <ol>Bemutatkozás: „A kinézet nem csak a szemnek fontos, hanem a használhatóságnak is – ezt próbáltam megvalósítani az oldalon. Ha nem tetszik, az biztos, hogy nem az én hibám! 😆 Szeretek kreatívan alkotni, és ha egy weboldal nem néz ki jól, az engem jobban zavar, mint kellene.”</ol>
         </ul>
 
         <h4>💻 Programozás:</h4>
@@ -47,7 +47,7 @@ const Info = () => {
         <h4>📌 Segédkezett:</h4>
         <ul>
           <li> Bodrogi Péter Róbert</li>
-          <ol>Bemutatkozás: </ol>
+          <ol>Bemutatkozás: „Tanárként az a dolgom, hogy segítsek, ha elakadnak – de persze néha az is, hogy nézzem, hogyan próbálnak kiutat találni egy problémából. 😄 Remélem, sikerült úgy támogatnom a projektet, hogy az tényleg egy jól működő és hasznos oldal legyen.”</ol>
         </ul>
       </div>
 
