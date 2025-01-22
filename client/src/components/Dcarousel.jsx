@@ -17,13 +17,13 @@ const NewsCarousel = () => {
                 image: "https://www.vitalea.hu/img/Stock/2-es_tipusu_diabetes_mellitus.webp",
                 // link: "https://htmedicalcenter.hu/wp-content/uploads/2023/08/medicalpoint-mri-budapest-1024x683.jpg"
             },
-            [// {
-            //     // title: "Szeged friss hírei",
+            {
+                  title: "Diabetológiai Konzultáció",
             //     // description: "Szeged Friss híreit olvashatja, ha a linkre tovább megy. (Szeged365)",
-            //     // image: kep2,
+                  image: "https://www.primamedica.hu/files/cache/1380/370/0/132.webp",
             //     // link: "https://szeged365.hu/"   
-            // }, 
-            ]
+             }, 
+            
             // További hírek
         ]);
 

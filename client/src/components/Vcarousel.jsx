@@ -13,17 +13,17 @@ const NewsCarousel = () => {
         setNews([
             {
                 title: "MR Vizsgálat",
-                description: "A link átdobja magát a Szeged SZTE Hírek oldalra, ahol friss egészségügyi híreket olvashat.",
+                // description: "A link átdobja magát a Szeged SZTE Hírek oldalra, ahol friss egészségügyi híreket olvashat.",
                 image: "https://i.ytimg.com/vi/jreHCYeEmDI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLABKkoWPtLt9rZpIYe1UBct4dAaqA",
                 // link: "https://htmedicalcenter.hu/wp-content/uploads/2023/08/medicalpoint-mri-budapest-1024x683.jpg"
             },
-            [// {
-            //     // title: "Szeged friss hírei",
+            { 
+                  title: "MR Vizsgálat",
             //     // description: "Szeged Friss híreit olvashatja, ha a linkre tovább megy. (Szeged365)",
-            //     // image: kep2,
+                  image: "https://medicoverkorhaz.hu/wp-content/uploads/2020/05/koponya-mr-medicover-diagnosztika-mr-vizsgalat-mri-vizsgalat-mri-mr.jpg",
             //     // link: "https://szeged365.hu/"   
-            // }, 
-            ]
+              
+            }
             // További hírek
         ]);
 
@@ -49,7 +49,7 @@ const NewsCarousel = () => {
                     <div className="news-content">
                         <h3>{item.title}</h3>
                         <p>{item.description}</p>
-                        <a href={item.link} className="btn" target="_blank">Tovább</a>
+                        {/* <a href={item.link} className="btn" target="_blank">Tovább</a> */}
                     </div>
 
                     
