@@ -13,7 +13,7 @@ const NewsCarousel = () => {
         setNews([
             {
                 title: "Diabetológiai Konzultáció",
-                description: "A link átdobja magát a Szeged SZTE Hírek oldalra, ahol friss egészségügyi híreket olvashat.",
+                // description: "A link átdobja magát a Szeged SZTE Hírek oldalra, ahol friss egészségügyi híreket olvashat.",
                 image: "https://www.vitalea.hu/img/Stock/2-es_tipusu_diabetes_mellitus.webp",
                 // link: "https://htmedicalcenter.hu/wp-content/uploads/2023/08/medicalpoint-mri-budapest-1024x683.jpg"
             },
@@ -49,7 +49,7 @@ const NewsCarousel = () => {
                     <div className="news-content">
                         <h3>{item.title}</h3>
                         <p>{item.description}</p>
-                        <a href={item.link} className="btn" target="_blank">Tovább</a>
+                        {/* <a href={item.link} className="btn" target="_blank">Tovább</a> */}
                     </div>
 
                     
