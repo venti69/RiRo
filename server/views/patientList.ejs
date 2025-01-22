@@ -37,14 +37,14 @@
             <div class="doctors-section">
                 <h3>Felhasználók</h3>
                 <div class="doctor-list">
-                    <% users.forEach(user => { %>
+                    <% patient.forEach(patient => { %>
                     <div class="doctor-card">
-                        <h4><%= user.name %> <br>(<%= user.email %>)</h4>
+                        <h4><%= patient.name %> <br>(<%= patient.email %>)</h4>
                         <h5 style="color: aliceblue">
-                            Név: <%= user.name %>
+                            Név: <%= patient.name %>
                         </h5>
                         <p style="color: aliceblue">
-                            Email cím: <%= user.email %>
+                            Email cím: <%= patient.email %>
                         </p>
 
                         <!-- Gombok konténerben -->
@@ -53,8 +53,8 @@
                                 type="button"
                                 class="btn btn-warning edit-button"
                                 data-bs-toggle="modal"
-                                data-bs-target="#editModal<%= user.id %>"
-                                onClick="szerkesztes('<%= user._id %>','<%= user.name %>', '<%= user.email %>', '<%= user.phone %>', '<%= user.gender %>', '<%= user.address %>', '<%= user.ssn %>','<%= user.motherName %>','<%= user.birthName %>','<%= user.birthDate %>')"
+                                data-bs-target="#editModal<%= patient.id %>"
+                                onClick="szerkesztes('<%= patient._id %>','<%= patient.name %>', '<%= patient.email %>', '<%= patient.phone %>', '<%= patient.gender %>', '<%= patient.address %>', '<%= patient.ssn %>','<%= patient.motherName %>','<%= patient.birthName %>','<%= patient.birthDate %>')"
                             >
                                 Szerkesztés
                             </button>
@@ -62,13 +62,13 @@
                             <button
                             type="button"
                             class="btn btn-success details-button"
-                            onClick="megnyit('<%= user.name %>', '<%= user.email %>', '<%= user.id %>', '<%= user.phone %>', '<%= user.gender %>', '<%= user.address %>', '<%= user.ssn %>','<%= user.motherName %>','<%= user.birthName %>','<%= user.birthDate %>')"
+                            onClick="megnyit('<%= patient.name %>', '<%= patient.email %>', '<%= patient.id %>', '<%= patient.phone %>', '<%= patient.gender %>', '<%= patient.address %>', '<%= patient.ssn %>','<%= patient.motherName %>','<%= patient.birthName %>','<%= patient.birthDate %>')"
                             >
                             Részletek
                         </button>
                         <button
                             class="btn btn-danger delete-button"
-                            onClick="torol('<%= user.id%>')"
+                            onClick="torol('<%= patient.id%>')"
                         >
                             Töröl
                         </button>
@@ -77,9 +77,9 @@
                     <!-- Modal -->
                     <div
                         class="modal"
-                        id="userModal"
+                        id="patientModal"
                         tabindex="-1"
-                        aria-labelledby="userModalLabel<%= user.id %>"
+                        aria-labelledby="patientModalLabel<%= patient.id %>"
                         aria-hidden="true"
                     >
                         <div class="modal-dialog">
@@ -87,7 +87,7 @@
                                 <div class="modal-header">
                                     <h5
                                         class="modal-title"
-                                        id="userModalLabel<%= user.id %>"
+                                        id="patientModalLabel<%= patient.id %>"
                                     >
                                         Alkalmazott Részletei
                                     </h5>

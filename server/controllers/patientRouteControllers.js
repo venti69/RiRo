@@ -1,27 +1,24 @@
-    const path = require('node:path');
-    const Patient = require('../models/Patient');
+const Patient = require('../models/Patient');
 
-    exports.getPatient = async (req, res) => {
-        try {
-            const patients = await Patient.find({});
-            // console.log(doctors);
-            const viewsUt = path.resolve(__dirname, '..', 'views', 'patient.ejs');
-            res.status(200).render(viewsUt, { patients });
-        } catch (error) {
-            res.status(500).json({ msg: error });
-        }
-    };
-    exports.deletePatient = async (req, res) => {
+exports.getPatient = async (req, res) => {
+    try {
+        const patient = await Patient.find({}).populate('orvosok');
+        console.log(patient[0].orvosok);
+        
+        res.status(200).render('patientList.ejs', { patient });
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+};
+exports.updatedPatient = async (req, res) => {
+    try {
         const { id } = req.params;
-        try {
-            // Töröljük a pácienst
-            await Patient.findByIdAndDelete({ _id: id });
-            // Újra lekérjük a maradék pácienseket
-            const patients = await Patient.find({});
-            const viewsUt = path.resolve(__dirname, '..', 'views', 'patient.ejs');
-            res.status(200).render(viewsUt, { patients });
-        } catch (error) {
-            res.status(500).json({ msg: error.message });
-        }
-    };
-    
+        console.log(id);
+        
+        
+        const updatePatient = await Patient.findByIdAndUpdate({_id:id}, req.body);
+        res.status(200).json({ msg: "ASd", updatePatient });
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+}

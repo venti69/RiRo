@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const bcrypt = require('bcrypt');
-const UserModel = require('./models/User.js');
+const PatientModel = require('./models/Patient.js');
 const app = express();
-const Patient = require('./models/Patient');
+// const Patient = require('./models/Patient');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
@@ -21,7 +21,7 @@ app.post('/register', async (req, res) => {
     if (!email || !password) {
         return res.status(400).json({ msg: 'Minden mezőt kötelező kitölteni' });
     }
-    const regisztralt = await UserModel.findOne({ email });
+    const regisztralt = await PatientModel.findOne({ email });
     if (regisztralt) {
         return res
             .status(401)
@@ -30,7 +30,7 @@ app.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     req.body.password = hashedPassword;
 
-    UserModel.create({ name: name, email: email, password: hashedPassword })
+    PatientModel.create({ name: name, email: email, password: hashedPassword })
         .then((users) => res.json(users))
         .catch((err) => res.json(err));
 });
@@ -40,7 +40,7 @@ app.post('/login', async (req, res) => {
 
     try {
         // Felhasználó keresése email alapján
-        const user = await UserModel.findOne({ email });
+        const user = await PatientModel.findOne({ email });
         if (!user) {
             return res.status(403).json({ msg: 'Sikertelen bejelentkezés: Felhasználó nem található.' });
         }
@@ -101,7 +101,7 @@ app.post('/users/:id/edit', (req, res) => {
 
 
 
-app.use('/torol', require('./routes/torlUsersRoute.js'));
+app.use('/torol', require('./routes/torlPatientRoute.js'));
 app.use('/idopont', require('./routes/idopontokRoutes.js'))
 app.use('/idopontmodositas', require('./routes/idopontmodositasRoutes.js'))
 
@@ -110,12 +110,12 @@ app.use('/doctors', require('./routes/doctorsRoutes.js'));
 app.use('/doctorsfrontend', require('./routes/doctorsFrontendRoutes.js'));
 app.use('/torold', require('./routes/doctorsTorolRoute.js'));
 
-app.use('/patient', require('./routes/patientRoutes.js'));
+// app.use('/patient', require('./routes/patientRoutes.js'));
 app.use('/patientmodositas', require('./routes/patientModositasRoutes.js'));
 
 
 app.use('/adatok', require('./routes/adatokRoutes.js'));
 
 
-app.use('/users', require('./routes/usersRoutes.js'));
-app.use('/update', require('./routes/updateRoutes.js'));
+app.use('/patient', require('./routes/patientRoutes.js'));
+app.use('/update', require('./routes/updatePatientRoutes.js'));

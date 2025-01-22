@@ -1,5 +1,5 @@
 function megnyit(name, email, id, phone, gender, address, ssn, motherName, birthName, birthDate) {
-    const modalId = `#userModal`; // A modal id-ja a felhasználó ID-jától függ
+    const modalId = `#patientModal`; // A modal id-ja a felhasználó ID-jától függ
     const modalElement = document.querySelector(modalId); // Kiválasztjuk a megfelelő modált
     console.log(modalElement);
 
