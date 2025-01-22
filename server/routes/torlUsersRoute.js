@@ -1,7 +1,7 @@
 const express = require('express');
-const { deleteEmployee } = require('../controllers/torlUsersRouteControllers.js');
+const { deleteUser } = require('../controllers/torlUsersRouteControllers.js');
 
 const router = express.Router();
-router.delete('/:id', deleteEmployee);
+router.delete('/:id', deleteUser);
 
 module.exports = router;

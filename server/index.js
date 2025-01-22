@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const bcrypt = require('bcrypt');
-const EmployeeModel = require('./models/Employee');
+const UserModel = require('./models/User.js');
 const app = express();
 const Patient = require('./models/Patient');
 
@@ -21,7 +21,7 @@ app.post('/register', async (req, res) => {
     if (!email || !password) {
         return res.status(400).json({ msg: 'Minden mezőt kötelező kitölteni' });
     }
-    const regisztralt = await EmployeeModel.findOne({ email });
+    const regisztralt = await UserModel.findOne({ email });
     if (regisztralt) {
         return res
             .status(401)
@@ -30,8 +30,8 @@ app.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     req.body.password = hashedPassword;
 
-    EmployeeModel.create({ name: name, email: email, password: hashedPassword })
-        .then((employees) => res.json(employees))
+    UserModel.create({ name: name, email: email, password: hashedPassword })
+        .then((users) => res.json(users))
         .catch((err) => res.json(err));
 });
 
@@ -40,7 +40,7 @@ app.post('/login', async (req, res) => {
 
     try {
         // Felhasználó keresése email alapján
-        const user = await EmployeeModel.findOne({ email });
+        const user = await UserModel.findOne({ email });
         if (!user) {
             return res.status(403).json({ msg: 'Sikertelen bejelentkezés: Felhasználó nem található.' });
         }
@@ -91,7 +91,7 @@ app.post('/users/:id/edit', (req, res) => {
     const { name, email } = req.body;
 
     // Adatok frissítése az adatbázisban
-    EmployeeModel.updateOne({ _id: id }, { name, email })
+    UserModel.updateOne({ _id: id }, { name, email })
         .then(() => res.json({ success: true }))
         .catch((err) =>
             res.status(500).json({ success: false, error: err.message })

@@ -2,8 +2,9 @@
 
 const mongoose = require('mongoose');
 
-const EmployeeSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
     {
+        
         name: {
             type: String,
             required: true,
@@ -47,12 +48,16 @@ const EmployeeSchema = new mongoose.Schema(
         illness:[{
             type: String,
             }],
+        orvosok: [{
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'doctor',
+            }],
         isAdmin: { type: Boolean, default: false },
     },
     {
         timestamps: true,
     }
 );
-const EmployeeModel = mongoose.model('employee', EmployeeSchema);
+const UserModel = mongoose.model('users', UserSchema);
 
-module.exports = EmployeeModel;
+module.exports = UserModel;

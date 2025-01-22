@@ -23,24 +23,24 @@ function Login() {
         axios
             .post('http://localhost:3001/login', { email, password })
             .then((result) => {
-                const employee = result.data;
-                console.log(employee);
+                const user = result.data;
+                console.log(user);
 
-                if (employee.loggedIn) {
+                if (user.loggedIn) {
                     // Felhasználói adatok mentése localStorage-ba
-                    localStorage.setItem('userId', employee.userId);
-                    localStorage.setItem('isAdmin', employee.isAdmin);
+                    localStorage.setItem('userId', user.userId);
+                    localStorage.setItem('isAdmin', user.isAdmin);
 
                     // Globális státuszok frissítése
                     setIsLogged(true);
-                    setIsAdmin(employee.isAdmin);
+                    setIsAdmin(user.isAdmin);
 
                     successNotify(); // Toastify értesítés siker esetén
                     setTimeout(()=> 1500);
                     setTimeout(() => window.location.reload('/fooldal'),  navigate('/fooldal'), 1500);
                     
                 } else {
-                    errorNotify(employee.msg); // Toastify hibaüzenet az API válasz alapján
+                    errorNotify(user.msg); // Toastify hibaüzenet az API válasz alapján
                 }
             })
             .catch((err) => {

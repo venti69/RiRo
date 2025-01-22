@@ -1,5 +1,7 @@
 function szerkesztes(id, name, email, gender, phone, address, ssn, motherName, birthName, birthDate) {
     const modalContainer = document.getElementById('modal-container');
+    console.log(id, name, email, gender, phone, address, ssn, motherName, birthName, birthDate);
+    
 
     // Töröljük a modal tartalmát
     modalContainer.innerHTML = '';
@@ -125,7 +127,7 @@ function szerkesztes(id, name, email, gender, phone, address, ssn, motherName, b
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name: updatedName, email: updatedEmail, gender: updatedGender, phone: updatedPhone, address: updatedAddress, ssn: updatedSsn, motherName: updatedMotherName, birthName: updatedMotherName, birthDate: updatedBirthDate }),
+            body: JSON.stringify({ name: updatedName, email: updatedEmail, gender: updatedGender, phone: updatedPhone, address: updatedAddress, ssn: updatedSsn, motherName: updatedMotherName, birthName: updatedBirthName, birthDate: updatedBirthDate }),
         })
             .then((response) => response.json())
             .then((data) => {

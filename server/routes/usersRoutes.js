@@ -1,8 +1,8 @@
 const express = require('express');
-const { getEmployee, updateEmployee } = require('../controllers/usersRouteControllers');
+const { getUser, updatedUser } = require('../controllers/usersRouteControllers');
 
 const router = express.Router();
-router.get('/', getEmployee);
-router.put('/edit/:id', updateEmployee);
+router.get('/', getUser);
+router.put('/edit/:id', updatedUser);
 
 module.exports = router;

@@ -1,12 +1,12 @@
-const Employee = require('../models/Employee');
+const User = require('../models/User');
 
 exports.getUpdatePage = async (req, res) => {
     const { id } = req.params;
     try {
-        const employee = await Employee.findById({_id:id});
-        console.log(employee);
+        const user = await User.findById({_id:id});
+        console.log(user);
         
-        res.status(200).render('employee.ejs', { employee });
+        res.status(200).render('user.ejs', { user });
     } catch (error) {
         res.status(500).json({ msg: error.message });
     }

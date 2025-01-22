@@ -1,11 +1,11 @@
-const Employee = require('../models/Employee');
+const User = require('../models/User');
 
-exports.deleteEmployee = async (req, res) => {
+exports.deleteUser = async (req, res) => {
     const {
         id
     } = req.params;
     try {
-        await Employee.findByIdAndDelete({_id:id});
+        await User.findByIdAndDelete({_id:id});
         res.status(200).json({msg: "Sikeres törlés!"});
     } catch (error) {
         res.status(500).render('error', { msg: error.message });

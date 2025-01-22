@@ -1,20 +1,24 @@
-const Employee = require('../models/Employee');
+const User = require('../models/User');
 
-exports.getEmployee = async (req, res) => {
+exports.getUser = async (req, res) => {
     try {
-        const employees = await Employee.find({});
-        res.status(200).render('employeeList.ejs', { employees });
+        const users = await User.find({}).populate('orvosok');
+        console.log(users[0].orvosok);
+        
+        res.status(200).render('userList.ejs', { users });
     } catch (error) {
-        res.status(500).render('error', { msg: error.message });
+        res.status(500).json({ msg: error.message });
     }
 };
-exports.updateEmployee = async (req, res) => {
+exports.updatedUser = async (req, res) => {
     try {
         const { id } = req.params;
+        console.log(id);
         
-        const updatedEmployee = await Employee.findByIdAndUpdate({_id:id}, req.body);
-        res.status(200).json({ msg: "ASd" });
+        
+        const updateUser = await User.findByIdAndUpdate({_id:id}, req.body);
+        res.status(200).json({ msg: "ASd", updateUser });
     } catch (error) {
-        res.status(500).render('error', { msg: error.message });
+        res.status(500).json({ msg: error.message });
     }
 }

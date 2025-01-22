@@ -1,4 +1,4 @@
-const Employee = require('../models/Employee');
+const Employee = require('../models/User');
 
 exports.postAdatok = async (req, res) => {
     try {
