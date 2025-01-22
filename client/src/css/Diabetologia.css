@@ -1,12 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
+    font-family: "Montserrat", serif;
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
     background-color: #f8f8f8;
-    color: #333;
+    /* color: #333; */
+
 } 
+.szoveg{
+    color: #666666;
+    font-size: 17px;
+    font-family: "Montserrat", serif;
+}
+
+.szovegerrendszer{
+    font-family: "Montserrat", serif;
+    color: #666666;
+    font-size: 16px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+}
+
+
+.vercsepp{
+    text-align: center;
+}
+
+.fertozes{
+    text-align: center;
+}
+
+.errendszers{
+    text-align: center;
+}
+
+
+.errendszer{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
 
 h1.vh1 {
     font-size: 2.5rem;
@@ -73,7 +109,7 @@ iframe {
     display: grid;
     grid-template-columns: 50%  50%;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
     margin: 20px auto;
     max-width: 1200px;
     gap: 20px;
@@ -86,6 +122,17 @@ iframe {
 }
 .article_txt_bal {
     background-color:#FFFFFF;
+}
+
+.szovodmenyek{
+    color: #666666;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 

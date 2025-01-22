@@ -7,10 +7,10 @@ import Romeo from '../../assets/images/Romeo.jpg';
 import Ricsi from '../../assets/images/Ricsi.jpg';
 import Bodrogi from '../../assets/images/Bodrogi.jpg';
 import bgi from '../Home/bg/bgi.jpg';
-
-
-
-
+import vmero from '../../assets/images/vmero.png';
+import errendszer from '../../assets/images/errendszer.png';
+import vercsepp from '../../assets/images/vercsepp.png';
+import fertozes from '../../assets/images/fertozes.png';
 
 
 
@@ -34,32 +34,39 @@ const Fooldal = () => {
                 <div className="article_txt_bal">
 
                 
-    <p style={{ textAlign: "start", marginBottom: "30px", lineHeight: "30.4px", color: "#000", fontFamily: "'PT Sans', sans-serif", fontSize: "19px" , backgroundColor: "rgba(226, 226, 226, 0.4)"}}>
-    
-    A diabetológus szakorvos felméri a cukorbetegség rizikófaktorait, elvégzi az általános belgyógyászati, állapotfelmérő vizsgálatokat, beállítja a kezelést, nyomonköveti azt. Amennyiben cukorbetegség gyanúja merül fel, illetve az I-es és II-es típusú cukorbetegség diagnosztizálása történik a diabetológus szakorvos meghatározza a terápiát, és rendszeres diabetológiai kontrollt ír elő a páciens egészségi állapotának nyomonkövetésére. A cukorbetegség mára népbetegséggé vált. Sajnos a cukorbetegség diagnosztizálása sokszor azután történik meg, amikor a betegség már valamilyen problémát, szövödményt okozott a páciens számára.
-    </p>
-    <h6 style={{ color: "rgb(243, 30, 0)", fontFamily: "'PT Sans', sans-serif", fontSize: "14px" }}>
-        <strong><u>Diabetológiai konzultációra időpontot, a 06-62-545-400 telefonszámon lehet kérni munkaidőben!</u></strong>
-    </h6>
-    <p style={{ textAlign: "left" }}><br /></p>
-    <p style={{ textAlign: "left", color: "rgb(243, 30, 0)", fontFamily: "'PT Sans', sans-serif", fontSize: "14px" }}>
-        <strong>Heti rendszerességgel nyitunk meg újabb műszakokat.</strong> 
-        <b> Az időpontegyeztetés során a betegeink adatait akkor is elkérjük, hogyha nem tudunk időpontot biztosítani. Ilyen esetben újabb műszakok meghirdetésekor a várólistán lévő betegeket kiértesítjük.</b>
-    </p>
-    <p style={{ textAlign: "left", color: "black" , backgroundColor: "rgba(226, 226, 226, 0.4)"}}>
-        <b>2023 július 1-től a szentesi Dr. Bugyi István Kórházat és a deszki Mellkasi Betegségek Szakkórházát integrálta a Szegedi Tudományegyetem. Ennek eredményeként a Radiológiai Klinika feladatai is bővültek. Ennek eredményeként, a kapacitások jobb kihasználása érdekébe szegedi betegeinknek is felajánljuk esetenként a szentesi CT vizsgálat lehetőségét. A felvételek értékelését mindkét telephelyen ugyanazon orvoscsapat végzi.</b>
-    </p>
-    <p style={{ textAlign: "left", color: "black", backgroundColor: "rgba(226, 226, 226, 0.4)" }}>
-    </p>
-    <p style={{ textAlign: "left" }}>
-    </p>
-    <p style={{ textAlign: "left", color: "black", backgroundColor: "rgba(226, 226, 226, 0.4)"}}>
-        Igazgató: Prof. Dr. Kincses Zsigmond Tamás PhD, habil, DSc<br />
-        6725 Szeged<br />
-        Semmelweis u. 6<br />
-        Tel.: 06-62-546-847, 06-62-546-848 (nem időpont kérés!)<br />
-        e-mail: <a href="mailto:office.radio@med.u-szeged.hu">office.radio@med.u-szeged.hu</a>
-    </p>
+    <div className='szovodmenyek' style={{ textAlign: "start", marginBottom: "30px", lineHeight: "30.4px", color: "#6666666", fontSize: "25px", display: "grid", gridTemplateColumns: "22% 70%", paddingTop: "20px", paddingLeft: "20px"}}>
+        <div className="szovodmenyekBal">
+        <img src={vmero} alt="vércukormérő" />
+        </div>
+        <div className="szovodmenyekJobb" style={{display: 'flex', alignItems: 'center'}}>
+         Cukorbetegség lehetséges <br /> szövődményei
+        </div>
+    </div>
+
+    <div style={{ color: "#6666666", fontSize: "20px", paddingTop: "20px", paddingLeft: "10px", }}>
+        <p className='szoveg'>A cukorbetegség nem gyógyítható, viszont megfelelő diétával, <br /> testmozgással, gyógyszeres kezeléssel szinten tartható.</p>
+    </div>
+
+    <div className="errendszer">
+    <div className="errendszer-keppel">
+    <img className='errendszers' src={errendszer} alt="érrendszer"/>
+    <p className='szovegerrendszer'>Kis ereket érintő szemészeti, vese,<br /> idegrendszer szövődmények: <br /> látásromlás, idegi fájdalmak, <br /> zsibbadások</p>
+    </div>
+
+        
+    <div className="errendszer-keppel">
+    <img className='vercsepp' src={vercsepp} alt="érrendszer" />
+    <p className='szovegerrendszer'>Nagy ereket érintő <br /> szövődmények: szívinfarktus, <br /> agyvérzés, agyi infarktus, alsó <br /> végtagi szűkület, merevedési <br /> zavarok</p>
+    </div>
+
+    <div className="errendszer-keppel">
+    <img className='fertozes' src={fertozes} alt="érrendszer" />
+    <p className='szovegerrendszer'>Gyakoribb fertőzések: gombás <br /> fertőzések, baktérium okozta <br /> fertőzések</p>
+    </div>
+    </div>  
+
+
+
     </div>
                 <div className="article_txt_jobb"></div>
     <table style={{ width: "80%" }} cellSpacing="0" cellPadding="0">
@@ -84,6 +91,3 @@ const Fooldal = () => {
 };
 
 export default Fooldal;
-
-
-//INNEN LOPOK!!! https://platanklinika.hu/szakteruletek/diabetologia/
