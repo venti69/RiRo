@@ -3,7 +3,7 @@ const Patient = require('../models/Patient');
 exports.getPatient = async (req, res) => {
     try {
         const patient = await Patient.find({}).populate('orvosok');
-        console.log(patient[0].orvosok);
+        // console.log(patient);
         
         res.status(200).render('patientList.ejs', { patient });
     } catch (error) {
@@ -13,7 +13,7 @@ exports.getPatient = async (req, res) => {
 exports.updatedPatient = async (req, res) => {
     try {
         const { id } = req.params;
-        console.log(id);
+        // console.log(id);
         
         
         const updatePatient = await Patient.findByIdAndUpdate({_id:id}, req.body);

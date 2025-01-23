@@ -1,6 +1,6 @@
 function szerkesztes(id, name, email, gender, phone, address, ssn, motherName, birthName, birthDate) {
     const modalContainer = document.getElementById('modal-container');
-    // console.log(id, name, email, gender, phone, address, ssn, motherName, birthName, birthDate);
+    // console.log(birthDate);
     
 
     // Töröljük a modal tartalmát
@@ -122,7 +122,7 @@ function szerkesztes(id, name, email, gender, phone, address, ssn, motherName, b
         const updatedBirthName = birthNameInput.value;
         const updatedBirthDate = birthDateInput.value;
 
-        fetch(`/users/edit/${id}`, {
+        fetch(`/patient/edit/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

@@ -30,8 +30,12 @@ app.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     req.body.password = hashedPassword;
 
+    // const newPatient = new PatientModel({ name, email, password });
+    // console.log(newPatient);
+    
+
     PatientModel.create({ name: name, email: email, password: hashedPassword })
-        .then((users) => res.json(users))
+        .then((patients) => res.json(patients))
         .catch((err) => res.json(err));
 });
 

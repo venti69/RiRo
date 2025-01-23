@@ -42,8 +42,8 @@ const PatientSchema = new mongoose.Schema(
             default: '',
         },
         birthDate:{
-            type: Date,
-            default: new Date().now,
+            type: String,
+            default: "2025-01-23",
         },
         illness:[{
             type: String,
