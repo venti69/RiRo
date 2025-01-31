@@ -3,7 +3,7 @@ const Doctor = require('../models/Doctor');
 
 exports.getOrvosok = async (req, res) => {
     try {
-        const doctors = await Doctor.find({}).where('kor').gte(10);
+        const doctors = await Doctor.find({}).where('kor');
         // console.log(doctors);
         const viewsUt = path.resolve(__dirname, '..', 'views', 'doctors.ejs');
         res.status(200).render(viewsUt, { doctors });
@@ -21,7 +21,7 @@ exports.updateOrvosok = async (req, res) => {
     
     try {
         const doctor = await Doctor.findById({_id:id});
-        console.log(doctor);
+        console.log('Hello: ' + doctor);
         if (doctor){
             const ujDoctor = await Doctor.findByIdAndUpdate({_id:id}, {nev: nev, szak: szak, kor: kor, neme: neme, email: email, telszam: telszam});
             console.log("új" +  ujDoctor);

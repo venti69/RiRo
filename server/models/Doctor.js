@@ -31,6 +31,14 @@ const orvosSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        rendeles:[{
+            type: String,
+            default: 'Nincs rendelés',
+        }],
+        paciensek: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'patient',
+        }],
         isEditMode: { type: Boolean, default: true },
     },
     {

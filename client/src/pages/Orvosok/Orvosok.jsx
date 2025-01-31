@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
 import '../../css/images.css';
 import '../../css/Orvosok.css';
 import '../../css/Modal.css';
+import Datetime from 'react-datetime';
+// import "react-datetime/css/react-datetime.css";
 
 
 const Idopont = () => { 
@@ -10,6 +12,7 @@ const Idopont = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   // const kepek = [ "/src/assets/images/Romeo.jpg", "/src/assets/images/Ricsi.jpg",  "/src/assets/images/Bodrogi.jpg" ]
+  const datetimeRef = useRef(null);
 
   useEffect(() => {
     const dolgoz = async () => {
@@ -34,6 +37,21 @@ const Idopont = () => {
     setSelectedDoctor(null);
     setModalVisible(false);
   };
+  const jelentkezes = () =>{
+    console.log('Jelentkezés megtörtént');
+    console.log(datetimeRef.current.refs.datetime);
+    
+    // fetch('http://localhost:3001/jelentkezes', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     orvos_id: selectedDoctor.id,
+    //     idopont: selectedDoctor.idopont
+    //   }),
+    // });
+  }
 
   return (
     <div className="info-container">
@@ -73,9 +91,15 @@ const Idopont = () => {
                 <p><strong>Telefonszám:</strong> {selectedDoctor.telszam}</p>
                 <p><strong>Neme:</strong> {selectedDoctor.neme}</p>
                 <p><strong>Kor:</strong> {selectedDoctor.kor}</p>
-
+                {/* <p><strong>Rendelés:</strong> <br />{selectedDoctor.rendeles[0]}</p>
+                <p>{selectedDoctor.rendeles[1]}</p> */}
+                <div>
+                  <Datetime ref={datetimeRef} />
+                </div>
               </div>
+              
             )}
+            <button onClick={jelentkezes}>Jelentkezés</button>
           </div>
         </div>
       )}      

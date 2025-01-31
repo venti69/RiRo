@@ -123,3 +123,5 @@ app.use('/adatok', require('./routes/adatokRoutes.js'));
 
 app.use('/patient', require('./routes/patientRoutes.js'));
 app.use('/update', require('./routes/updatePatientRoutes.js'));
+
+// app.use('/kezeles', require('./routes/kezelesRoutes.js'))
