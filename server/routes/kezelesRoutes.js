@@ -1,8 +1,10 @@
 const express = require('express');
-const { kezeles } = require('../controllers/kezelesRouteControllers.js');
+const { getKezeles, createKezeles, updatedKezeles } = require('../controllers/kezelesRouteControllers');
 
 const router = express.Router();
 
-router.get('/', kezeles);
+router.get('/', getKezeles);
+router.post('/', createKezeles);
+router.put('/:id', updatedKezeles);
 
 module.exports = router;

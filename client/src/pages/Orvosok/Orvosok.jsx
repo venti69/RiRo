@@ -4,9 +4,12 @@ import '../../css/images.css';
 import '../../css/Orvosok.css';
 import '../../css/Modal.css';
 import Datetime from 'react-datetime';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import "react-datetime/css/react-datetime.css";
 
-
+const successNotify = () => toast.success("Sikeres jelentkezés!");
+const errorNotify = (message) => toast.error(message || "Sikertelen jelentkezés!");
 const Idopont = () => { 
   const [orvosok, setOrvosok] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
@@ -40,6 +43,8 @@ const Idopont = () => {
   const jelentkezes = () => {
     if (!selectedDoctor || !datetimeRef.current?.state.selectedDate) {
       console.error("Hiányzó adatok: orvos vagy időpont");
+      errorNotify();
+      
       return;
     }
   
@@ -54,9 +59,21 @@ const Idopont = () => {
         idopont: datetimeRef.current.state.selectedDate,
       }),
     })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.error(err));
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Hiba történt a szerver válaszában!');
+        
+      }
+      return response.json();
+    })
+    .then((data) => console.log(data))
+    .catch((err) => {
+      console.error(err);
+      errorNotify('Sikertelen jelentkezés: ' + err.message);
+    });
+    
+    setSelectedDoctor(null);
+    setModalVisible(false);
   };
   
 

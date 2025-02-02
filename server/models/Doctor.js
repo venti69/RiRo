@@ -38,6 +38,7 @@ const orvosSchema = new mongoose.Schema(
         paciensek: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'patient',
+            default: 'Nincs paciens',
         }],
         isEditMode: { type: Boolean, default: true },
     },
