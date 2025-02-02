@@ -3,7 +3,7 @@ const Kezeles = require('../models/Kezeles');
 
 exports.getKezeles = async (req, res) => {
     try {
-        const kezeles = await Patient.find({}).populate('kezeles');
+        const kezelesek = await Kezeles.find({}).populate('orvos paciens');
         // console.log(patient);
         
         // res.status(200).render('patientList.ejs', { patient });
@@ -11,6 +11,18 @@ exports.getKezeles = async (req, res) => {
         res.status(500).json({ msg: error.message });
     }
 };
+const ujKezeles = await Kezeles.create({
+    nev: req.body.nev,
+    paciens: req.body.paciensId,
+    orvos: req.body.orvosId,
+    idopont: req.body.idopont,
+});
+
+await Patient.findByIdAndUpdate(req.body.paciensId, { $push: { kezelések: ujKezeles._id } });
+await Doctor.findByIdAndUpdate(req.body.orvosId, { $push: { paciensek: req.body.paciensId } });
+
+res.status(201).json(ujKezeles);
+
 exports.updatedKezeles = async (req, res) => {
     try {
         const { id } = req.params;

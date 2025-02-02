@@ -37,21 +37,28 @@ const Idopont = () => {
     setSelectedDoctor(null);
     setModalVisible(false);
   };
-  const jelentkezes = () =>{
-    console.log('Jelentkezés megtörtént');
-    console.log(datetimeRef.current.refs.datetime);
-    
-    // fetch('http://localhost:3001/jelentkezes', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     orvos_id: selectedDoctor.id,
-    //     idopont: selectedDoctor.idopont
-    //   }),
-    // });
-  }
+  const jelentkezes = () => {
+    if (!selectedDoctor || !datetimeRef.current?.state.selectedDate) {
+      console.error("Hiányzó adatok: orvos vagy időpont");
+      return;
+    }
+  
+    fetch('http://localhost:3001/kezelesek', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        orvosId: selectedDoctor._id,
+        paciensId: 'paciens_azonosito',
+        idopont: datetimeRef.current.state.selectedDate,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err));
+  };
+  
 
   return (
     <div className="info-container">
