@@ -13,7 +13,17 @@ exports.getKezeles = async (req, res) => {
         res.status(500).json({ msg: error.message });
     }
 };
-
+// exports.getKezeles = async (req, res) => {
+//     try {
+//         const kezelesek = await Kezeles.find({})
+//             .populate('paciens')
+//             .populate('orvos');
+        
+//         res.status(200).render('kezeles', { kezelesek });
+//     } catch (error) {
+//         res.status(500).json({ msg: error.message });
+//     }
+// };
 exports.createKezeles = async (req, res) => {
     try {
         console.log(req.body);
