@@ -47,15 +47,19 @@ const Idopont = () => {
       
       return;
     }
+    const user = JSON.parse(localStorage.getItem('user'));
+    const userId = localStorage.getItem('userId');
+    console.log(userId);
   
-    fetch('http://localhost:3001/kezelesek', {
+    fetch('http://localhost:3001/kezeles', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        nev: user.nev,
         orvosId: selectedDoctor._id,
-        paciensId: 'paciens_azonosito',
+        paciensId: userId,
         idopont: datetimeRef.current.state.selectedDate,
       }),
     })

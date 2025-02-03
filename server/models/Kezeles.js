@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const kezelesSchema = new mongoose.Schema({
     nev: {
         type: String,
-        required: true,
+        required: false,
     },
     paciens: {
         type: mongoose.Schema.Types.ObjectId,

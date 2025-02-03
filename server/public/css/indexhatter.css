@@ -1,6 +1,6 @@
 body{
     /* background-color: red; */
     background-image: url(/BG/serverBg.jpg) !important;
+    background-size: cover; 
     background-repeat: no-repeat;
-    background-size: cover;
 }
