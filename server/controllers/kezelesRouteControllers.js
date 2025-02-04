@@ -18,8 +18,12 @@ exports.getKezeles = async (req, res) => {
         const kezelesek = await Kezeles.find({})
             .populate('paciens')
             .populate('orvos');
-        
-        res.status(200).render('kezeles', { kezelesek });
+            const emberkek = await Kezeles.find({}).populate('paciens');
+            const szures = emberkek.map(elem => elem.nev);
+            const egyediNevek = [...new Set(szures)];
+            console.log(egyediNevek);
+
+        res.status(200).render('kezeles', { kezelesek, egyediNevek });
     } catch (error) {
         res.status(500).json({ msg: error.message });
     }
