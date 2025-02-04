@@ -2,28 +2,28 @@ const Kezeles = require('../models/Kezeles');
 const Patient = require('../models/Patient');
 const Doctor = require('../models/Doctor');
 
-exports.getKezeles = async (req, res) => {
-    try {
-        // const kezelesek = await Kezeles.find({});
-        // const orvos = await Kezeles.find({}).populate('doctor');
-        const paciens = await Kezeles.find({}).populate('patient');
-        console.log(paciens);
-        res.status(200).json({paciens});
-    } catch (error) {
-        res.status(500).json({ msg: error.message });
-    }
-};
 // exports.getKezeles = async (req, res) => {
 //     try {
-//         const kezelesek = await Kezeles.find({})
-//             .populate('paciens')
-//             .populate('orvos');
-        
-//         res.status(200).render('kezeles', { kezelesek });
+//         // const kezelesek = await Kezeles.find({});
+//         // const orvos = await Kezeles.find({}).populate('doctor');
+//         const paciens = await Kezeles.find({}).populate('patient');
+//         console.log(paciens);
+//         res.status(200).json({paciens});
 //     } catch (error) {
 //         res.status(500).json({ msg: error.message });
 //     }
 // };
+exports.getKezeles = async (req, res) => {
+    try {
+        const kezelesek = await Kezeles.find({})
+            .populate('paciens')
+            .populate('orvos');
+        
+        res.status(200).render('kezeles', { kezelesek });
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+};
 exports.createKezeles = async (req, res) => {
     try {
         console.log(req.body);
