@@ -25,17 +25,21 @@
     <title>Kezelések listája</title>
 </head>
 <body>
+    <div class="kezeles-main">
     <%- include('./nav.ejs') %>
-    <h1>Kezelések</h1>
-    <ul>
+    <h1 style="text-align: center;  color: #0046ad;">Kezelések</h1>
+        <div class="kezelesek-card">
         <% kezelesek.forEach(kezeles => { %>
-            <li>
+            <div class="patient-card ">
+                <div style="font-size: 1rem; margin-bottom: 12px;">
                 <strong>Név:</strong> <%= kezeles.nev %> <br>
-                <strong>Páciens:</strong> <%= kezeles.paciens.name %> <br>
-                <strong>Orvos:</strong> <%= kezeles.orvos.nev %> <br>
-                <strong>Időpont:</strong> <%= kezeles.idopont %>
-            </li>
+                <strong >Páciens:</strong> <%= kezeles.paciens.name %> <br>
+                <strong >Orvos:</strong> <%= kezeles.orvos.nev %> <br>
+                <strong >Időpont:</strong> <%= kezeles.idopont %>
+            </div> 
+        </div>
         <% }) %>
-    </ul>
+    </div>
+    </div>
 </body>
 </html>

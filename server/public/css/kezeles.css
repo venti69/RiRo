@@ -1,0 +1,87 @@
+/* Alap konténer */
+.patient-main {
+    padding: 20px;
+    /* background-color: #f3f6f9; */
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Fejléc */
+.kezeles-section h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #0046ad;
+}
+
+/* Kártyák tároló */
+.patient-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 10px;
+}
+
+/* Páciens kártyák */
+.kezelesek-card {
+    /* background-color: #ffffff; */
+    background: linear-gradient(90deg, rgba(110, 58, 12, 0.315), rgba(57, 57, 57, 0.533));
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.patient-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Páciens adatok */
+.patient-card h4 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.kezeles-card p {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Gombok */
+.patient-card button {
+    background-color: #0046ad;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.patient-card button:hover {
+    background-color: #003580;
+}
+
+.patient-card form button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.patient-card form button:hover {
+    background-color: #c9302c;
+}
