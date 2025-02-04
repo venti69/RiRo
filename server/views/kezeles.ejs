@@ -28,15 +28,15 @@
     <div class="kezeles-main">
     <%- include('./nav.ejs') %>
     <h1 style="text-align: center;  color: #0046ad;">Kezelések</h1>
-    <div>
-        <select id="gordolo">
-            <option value="">Beteg kiválasztása</option>
-            <% egyediNevek.forEach(element => { %>
-                <option value="<%= element %>"><%= element %></option>
-            <% }) %>
-            <!-- <option value="anya">Beteg kiválasztása</option> -->
-        </select></div>
-        <div class="kezelesek-card">
+    
+    <div class="kezelesek-card">
+            <div><select id="gordolo">
+                <option value="">Beteg kiválasztása</option>
+                <% egyediNevek.forEach(element => { %>
+                    <option value="<%= element %>"><%= element %></option>
+                <% }) %>
+                <!-- <option value="anya">Beteg kiválasztása</option> -->
+            </select></div>
         <% kezelesek.forEach(kezeles => { %>
             <div class="patient-card ">
                 <div style="font-size: 1rem; margin-bottom: 12px;">
