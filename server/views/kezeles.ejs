@@ -32,10 +32,10 @@
         <% kezelesek.forEach(kezeles => { %>
             <div class="patient-card ">
                 <div style="font-size: 1rem; margin-bottom: 12px;">
-                <strong>Név:</strong> <%= kezeles.nev %> <br>
-                <strong >Páciens:</strong> <%= kezeles.paciens.name %> <br>
-                <strong >Orvos:</strong> <%= kezeles.orvos.nev %> <br>
-                <strong >Időpont:</strong> <%= kezeles.idopont %>
+                <strong>Név:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezeles.nev %></strong>  <br>
+                <strong >Páciens:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezeles.paciens.name %></strong>  <br>
+                <strong >Orvos:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezeles.orvos.nev %></strong> <br>
+                <strong >Időpont:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezeles.idopont %></strong>
             </div> 
         </div>
         <% }) %>
