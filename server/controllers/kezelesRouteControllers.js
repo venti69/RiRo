@@ -7,7 +7,7 @@ const Doctor = require('../models/Doctor');
 //         // const kezelesek = await Kezeles.find({});
 //         // const orvos = await Kezeles.find({}).populate('doctor');
 //         const paciens = await Kezeles.find({}).populate('patient');
-//         console.log(paciens);
+//         // console.log(paciens);
 //         res.status(200).json({paciens});
 //     } catch (error) {
 //         res.status(500).json({ msg: error.message });
@@ -29,7 +29,7 @@ exports.createKezeles = async (req, res) => {
         console.log(req.body);
         const doctor = await Doctor.findById({_id:req.body.orvosId});
         const paciens = await Patient.findById({_id:req.body.paciensId});
-        console.log(doctor, paciens);
+        // console.log(doctor, paciens);
         const ujKezeles = new Kezeles({
             nev: req.body.nev,
             paciens: paciens._id,
@@ -37,7 +37,7 @@ exports.createKezeles = async (req, res) => {
             idopont: req.body.idopont,
         });
         await ujKezeles.save();
-        console.log(ujKezeles);
+        // console.log(ujKezeles);
 
         // await Patient.findByIdAndUpdate(req.body.paciensId, { $push: { kezelések: ujKezeles._id } });
         // await Doctor.findByIdAndUpdate(req.body.orvosId, { $push: { paciensek: req.body.paciensId } });

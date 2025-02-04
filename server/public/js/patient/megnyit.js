@@ -4,7 +4,7 @@ function megnyit(name, age, gender, id) {
     console.log(modalElement);
 
     if (modalElement) {
-        console.log(name, age, gender, id);
+        // console.log(name, age, gender, id);
         // A modal tartalmának frissítése
         document.getElementById('modalName').textContent = name;
         document.getElementById('modalAge').textContent = age;
@@ -12,7 +12,7 @@ function megnyit(name, age, gender, id) {
 
         // Inicializáljuk a Bootstrap modalt és megnyitjuk
         const modal = new bootstrap.Modal(modalElement); // Bootstrap modal objektum
-        console.log(modal);
+        // console.log(modal);
 
         modal.show(); // Megjelenítjük a modált
     } else {
