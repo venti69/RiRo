@@ -23,7 +23,7 @@ const Home = () => {
                     Üdvözöljük a Modern Kórházi Felületünkön
                 </h1>
                 <p className={styles.text}>
-                    Digitális egészségügy, ahogy megálmodtuk.
+                <p style={{textAlign:"center"}}>Digitális egészségügy, ahogy megálmodtuk.</p>
                 </p>
                 {loggedIn ? (
                     <></>
