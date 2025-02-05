@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Montserrat", serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    /* color: #333; */
+
+} 
+.szoveg{
+    color: #666666;
+    font-size: 17px;
+    font-family: "Montserrat", serif;
+}
+
+.szovegerrendszer{
+    font-family: "Montserrat", serif;
+    color: #666666;
+    font-size: 16px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+}
+
+
+.vercsepp{
+    text-align: center;
+}
+
+.fertozes{
+    text-align: center;
+}
+
+.errendszers{
+    text-align: center;
+}
+
+
+.errendszer{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+h1.vh1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+h6 {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 20px;
+    text-align: start;
+    /* color: rgb(243, 30, 0); */
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+strong {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    /* color: rgb(255, 0, 0); */
+}
+
+/* Táblázatok */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #dddddd;
+}
+
+/* Carousel képek */
+.carousel img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Reszponzív iframe */
+iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+}
+
+
+/* Konténerek */
+.article_txt {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 50%  50%;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    margin: 20px auto;
+    max-width: 1200px;
+    gap: 20px;
+}
+    
+.article_txt_jobbeg {
+    background-image: url(../assets/images/egeszseg.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.article_txt_baleg {
+    background-color:#10496f;
+}
+
+.szovodmenyek{
+    color: #666666;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* Reszponzív design */
+@media (max-width: 768px) {
+    h1.vh1 {
+        font-size: 2rem;
+    }
+
+    .article_txt {
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    iframe {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1.vh1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}
