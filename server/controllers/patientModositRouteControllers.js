@@ -9,7 +9,7 @@ exports.UpdatePaciens = async (req, res) => {
         gender
     } = req.body;
 
-    console.log(name, age, gender);
+    // console.log(name, age, gender);
     
     try {
         const updatePatient = await Patient.findByIdAndUpdate({_id:id},{
@@ -17,7 +17,7 @@ exports.UpdatePaciens = async (req, res) => {
             age,
             gender
         });
-        console.log(updatePatient); 
+        // console.log(updatePatient); 
         
         res.status(201).json({ msg: 'Sikeres módosítás' });
     } catch (error) {

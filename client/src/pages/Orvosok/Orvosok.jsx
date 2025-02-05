@@ -49,7 +49,7 @@ const Orvosok = () => {
     }
     const user = JSON.parse(localStorage.getItem('user'));
     const userId = localStorage.getItem('userId');
-    console.log(user);
+    // console.log(user);
   
     fetch('http://localhost:3001/kezeles', {
       method: 'POST',

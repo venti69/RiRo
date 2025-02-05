@@ -21,7 +21,7 @@ exports.getKezeles = async (req, res) => {
             const emberkek = await Kezeles.find({}).populate('paciens');
             const szures = emberkek.map(elem => elem.nev);
             const egyediNevek = [...new Set(szures)];
-            console.log(egyediNevek);
+            // console.log(egyediNevek);
 
         res.status(200).render('kezeles', { kezelesek, egyediNevek });
     } catch (error) {
@@ -30,7 +30,7 @@ exports.getKezeles = async (req, res) => {
 };
 exports.createKezeles = async (req, res) => {
     try {
-        console.log(req.body);
+        // console.log(req.body);
         const doctor = await Doctor.findById({_id:req.body.orvosId});
         const paciens = await Patient.findById({_id:req.body.paciensId});
         // console.log(doctor, paciens);
@@ -41,7 +41,7 @@ exports.createKezeles = async (req, res) => {
             idopont: req.body.idopont,
         });
         await ujKezeles.save();
-        console.log(ujKezeles);
+        // console.log(ujKezeles);
 
         // await Patient.findByIdAndUpdate(req.body.paciensId, { $push: { kezelések: ujKezeles._id } });
         // await Doctor.findByIdAndUpdate(req.body.orvosId, { $push: { paciensek: req.body.paciensId } });

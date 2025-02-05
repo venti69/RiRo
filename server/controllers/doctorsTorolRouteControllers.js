@@ -2,7 +2,7 @@ const Doctor = require('../models/Doctor');
 
 exports.deleteDoctor = async (req, res) => {
     const {id} = req.params;
-    console.log(id);
+    // console.log(id);
     
     try {
         await Doctor.findByIdAndDelete({_id:id});
