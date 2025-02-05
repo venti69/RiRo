@@ -40,19 +40,19 @@ const Fooldal = () => {
     </div>
 
     <div style={{ color: '#7ba8c9', fontSize: "20px", paddingTop: "20px", paddingLeft: "10px", }}>
-        <p className='szoveg' style={{color: '#7ba8c9'}}>A modern technológia forradalmasítja az orvosi diagnosztikát, kezelést és betegellátást. Az adatalapú döntéshozatal és az innovatív eszközök hatékonyabbá teszik az egészségügyi rendszereket.</p>
+        <p className='szoveg' style={{color: '#7ba8c9'}}>A modern technológia forradalmasítja az orvosi diagnosztikát, <br /> kezelést és betegellátást. Az adatalapú döntéshozatal és az <br /> innovatív eszközök hatékonyabbá teszik az egészségügyi <br /> rendszereket.</p>
     </div>
 
     <div className="errendszer">
     <div className="errendszer-keppel">
     {/* <img className='errendszers' src={errendszer} alt="érrendszer"/> */}
-    <p className='szovegerrendszer' style={{color: '#7ba8c9'}}>Intelligens rendszerek: a mesterséges intelligencia és a gépi tanulás segíti az orvosokat a pontosabb diagnózis felállításában, a betegségek korai felismerésében és a személyre szabott terápiák kidolgozásában.</p>
+    <p className='szovegerrendszer' style={{color: '#7ba8c9'}}>Intelligens rendszerek: a mesterséges intelligencia <br /> és a gépi  tanulás segíti az <br /> orvosokat a pontosabb <br /> diagnózis felállításában, a betegségek korai felismerésében <br /> és a személyre szabott terápiák kidolgozásában.</p>
     </div>
 
         
     <div className="errendszer-keppel">
     {/* <img className='vercsepp' src={vercsepp} alt="érrendszer" /> */}
-    <p className='szovegerrendszer' style={{color: '#7ba8c9'}}>Távorvoslás és monitorozás: a digitális eszközök lehetővé teszik a folyamatos betegfelügyeletet, akár otthoni környezetben is, csökkentve a kórházi terheltséget és javítva a páciensek életminőségét.</p>
+    <p className='szovegerrendszer' style={{color: '#7ba8c9'}}>Távorvoslás és monitorozás: a digitális eszközök lehetővé <br /> teszik a folyamatos betegfelügyeletet, akár otthoni környezetben is, <br /> csökkentve a kórházi terheltséget és javítva a páciensek életminőségét.</p>
     </div>
     </div>  
 
