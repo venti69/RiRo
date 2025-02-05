@@ -117,13 +117,26 @@ const Adatok = () => {
                             />
                         </div>
                         <div className="input-group">
-                            <label htmlFor="ssn">Taj-szám</label>
-                            <input
-                                type="number"
-                                placeholder="Add meg a Taj-számod"
-                                onChange={(e) => setSsn(e.target.value)}
-                            />
+                        <label htmlFor="ssn">Taj-szám</label>
+                        <input
+                            type="text"
+                            placeholder="123-456-789"
+                            value={ssn}
+                            onChange={(e) => {
+                            let value = e.target.value.replace(/\D/g, "");
+                            if (value.length > 9) value = value.slice(0, 9); 
+                            let formattedValue = value.replace(/(\d{3})(\d{3})(\d{0,3})/, "$1-$2-$3").replace(/-$/, "");
+                            setSsn(formattedValue);
+                            }}
+                            style={{
+                            border: ssn && !/^\d{3}-\d{3}-\d{3}$/.test(ssn) ? "2px solid red" : "",
+                            }}
+                        />
+                        {ssn && !/^\d{3}-\d{3}-\d{3}$/.test(ssn) && (
+                            <p style={{ color: "red", fontSize: "14px" }}>Érvénytelen TAJ-szám formátum!</p>
+                        )}
                         </div>
+
                         <div className="input-group">
                             <label htmlFor="motherName">Anyja neve</label>
                             <input
