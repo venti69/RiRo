@@ -29,6 +29,7 @@ function Login() {
                 if (user.loggedIn) {
                     // Felhasználói adatok mentése localStorage-ba
                     localStorage.setItem('userId', user.userId);
+                    localStorage.setItem('user', JSON.stringify(user.user));
                     localStorage.setItem('isAdmin', user.isAdmin);
 
                     // Globális státuszok frissítése

@@ -41,7 +41,7 @@ exports.createKezeles = async (req, res) => {
             idopont: req.body.idopont,
         });
         await ujKezeles.save();
-        // console.log(ujKezeles);
+        console.log(ujKezeles);
 
         // await Patient.findByIdAndUpdate(req.body.paciensId, { $push: { kezelések: ujKezeles._id } });
         // await Doctor.findByIdAndUpdate(req.body.orvosId, { $push: { paciensek: req.body.paciensId } });

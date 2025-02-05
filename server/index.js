@@ -53,6 +53,7 @@ app.post('/login', async (req, res) => {
             loggedIn: true,
             isAdmin: user.isAdmin,
             userId: user._id, // Felhasználó azonosítója
+            user,
             msg: 'Sikeres bejelentkezés',
         });
     } catch (err) {
@@ -93,20 +94,20 @@ app.post('/users/:id/edit', (req, res) => {
         );
 });
 
-app.use('/torol', require('./routes/torlPatientRoute.js'));
-app.use('/idopont', require('./routes/idopontokRoutes.js'))
-app.use('/idopontmodositas', require('./routes/idopontmodositasRoutes.js'))
+// app.use('/idopont', require('./routes/idopontokRoutes.js'))
+// app.use('/idopontmodositas', require('./routes/idopontmodositasRoutes.js'))
 
 app.use('/doctors', require('./routes/doctorsRoutes.js'));
 app.use('/doctorsfrontend', require('./routes/doctorsFrontendRoutes.js'));
 app.use('/torold', require('./routes/doctorsTorolRoute.js'));
 
 // app.use('/patient', require('./routes/patientRoutes.js'));
-app.use('/patientmodositas', require('./routes/patientModositasRoutes.js'));
 
 app.use('/adatok', require('./routes/adatokRoutes.js'));
 
 app.use('/patient', require('./routes/patientRoutes.js'));
 app.use('/update', require('./routes/updatePatientRoutes.js'));
+app.use('/patientmodositas', require('./routes/patientModositasRoutes.js'));
+app.use('/torol', require('./routes/torlPatientRoute.js'));
 
 app.use('/kezeles', require('./routes/kezelesRoutes.js'))

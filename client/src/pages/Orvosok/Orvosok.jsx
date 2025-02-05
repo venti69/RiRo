@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const successNotify = () => toast.success("Sikeres jelentkezés!");
 const errorNotify = (message) => toast.error(message || "Sikertelen jelentkezés!");
-const Idopont = () => { 
+const Orvosok = () => { 
   const [orvosok, setOrvosok] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
@@ -49,7 +49,7 @@ const Idopont = () => {
     }
     const user = JSON.parse(localStorage.getItem('user'));
     const userId = localStorage.getItem('userId');
-    console.log(userId);
+    console.log(user);
   
     fetch('http://localhost:3001/kezeles', {
       method: 'POST',
@@ -57,7 +57,7 @@ const Idopont = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        nev: user.nev,
+        nev: user.name,
         orvosId: selectedDoctor._id,
         paciensId: userId,
         idopont: datetimeRef.current.state.selectedDate,
@@ -135,4 +135,4 @@ const Idopont = () => {
   );
 };
 
-export default Idopont;
+export default Orvosok;
