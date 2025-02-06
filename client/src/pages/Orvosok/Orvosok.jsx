@@ -6,56 +6,52 @@ import '../../css/Modal.css';
 import Datetime from 'react-datetime';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import "react-datetime/css/react-datetime.css";
 
 const successNotify = () => toast.success("Sikeres jelentkezés!");
 const errorNotify = (message) => toast.error(message || "Sikertelen jelentkezés!");
+
 const Orvosok = () => { 
   const [orvosok, setOrvosok] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
-  // const kepek = [ "/src/assets/images/Romeo.jpg", "/src/assets/images/Ricsi.jpg",  "/src/assets/images/Bodrogi.jpg" ]
   const datetimeRef = useRef(null);
 
   useEffect(() => {
-    const dolgoz = async () => {
-      const response = await fetch('http://localhost:3001/doctorsfrontend');
-      const valasz = await response.json();
-      if (response.ok) {
-        setOrvosok(valasz.doctors);
+    const fetchDoctors = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/doctorsfrontend');
+        const valasz = await response.json();
+        if (response.ok) {
+          setOrvosok(valasz.doctors);
+        }
+      } catch (error) {
+        console.error("Hiba történt az adatok lekérésekor", error);
       }
     };
-
-    dolgoz();
+    fetchDoctors();
   }, []);
 
-  // Modal megnyitása adott orvossal
   const openModal = (doctor) => {
     setSelectedDoctor(doctor);
     setModalVisible(true);
   };
 
-  // Modal bezárása
   const closeModal = () => {
     setSelectedDoctor(null);
     setModalVisible(false);
   };
+
   const jelentkezes = () => {
     if (!selectedDoctor || !datetimeRef.current?.state.selectedDate) {
-      console.error("Hiányzó adatok: orvos vagy időpont");
       errorNotify();
-      
       return;
     }
     const user = JSON.parse(localStorage.getItem('user'));
     const userId = localStorage.getItem('userId');
-    // console.log(user);
-  
+
     fetch('http://localhost:3001/kezeles', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         nev: user.name,
         orvosId: selectedDoctor._id,
@@ -64,22 +60,14 @@ const Orvosok = () => {
       }),
     })
     .then((response) => {
-      if (!response.ok) {
-        throw new Error('Hiba történt a szerver válaszában!');
-        
-      }
+      if (!response.ok) throw new Error('Hiba történt!');
       return response.json();
     })
-    .then((data) => console.log(data))
-    .catch((err) => {
-      console.error(err);
-      errorNotify('Sikertelen jelentkezés: ' + err.message);
-    });
-    
-    setSelectedDoctor(null);
-    setModalVisible(false);
+    .then(() => successNotify())
+    .catch((err) => errorNotify(err.message));
+
+    closeModal();
   };
-  
 
   return (
     <div className="info-container">
@@ -90,7 +78,7 @@ const Orvosok = () => {
         {orvosok.map((doctor, index) => (
           <div key={doctor.id || index} className="doctor-card">
             <div className="doctor-card-header">
-             <p className="doctor-image"><img src={doctor.orvoskep} alt="Orvos kép" style={{borderRadius: "50%", height:"110px", width:"100px"}} /></p> 
+              <img className="doctor-image" src={doctor.orvoskep} alt="Orvos kép" />
               <h3>{doctor.nev}</h3>
             </div>
             <div className="doctor-card-body">
@@ -101,36 +89,26 @@ const Orvosok = () => {
         ))}
       </div>
 
-      {/* Modal */}
       {modalVisible && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <button className="close-button" onClick={closeModal}>
-              &times;
-            </button>
+            <button className="close-button" onClick={closeModal}>&times;</button>
             {selectedDoctor && (
               <div className="modal-body">
                 <h2>{selectedDoctor.nev}</h2>
-                {/* <p><strong></strong> {selectedDoctor.orvoskep}</p> */}
-                <div className="modal-kep" style={{ height:"220px", width:"200px", margin:"auto" }}>
-                <img src={selectedDoctor.orvoskep} style={{borderRadius: "50%", height:"100%", width:"100%", objectFit:"cover", objectPosition: "0px 0px"}}></img>
-                </div>
+                <img className="modal-image" src={selectedDoctor.orvoskep} alt="Orvos" />
                 <p><strong>Email:</strong> {selectedDoctor.email}</p>
                 <p><strong>Telefonszám:</strong> {selectedDoctor.telszam}</p>
                 <p><strong>Neme:</strong> {selectedDoctor.neme}</p>
                 <p><strong>Kor:</strong> {selectedDoctor.kor}</p>
-                {/* <p><strong>Rendelés:</strong> <br />{selectedDoctor.rendeles[0]}</p>
-                <p>{selectedDoctor.rendeles[1]}</p> */}
-                <div>
-                  <Datetime ref={datetimeRef} />
-                </div>
+                <Datetime ref={datetimeRef} />
+                <button onClick={jelentkezes}>Jelentkezés</button>
               </div>
-              
             )}
-            <button onClick={jelentkezes}>Jelentkezés</button>
           </div>
         </div>
-      )}      
+      )} 
+      <ToastContainer />
     </div>
   );
 };

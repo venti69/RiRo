@@ -23,16 +23,20 @@
 /* Szolgáltatások szekció */
 .services-section {
     padding: 20px;
-    /* background-image: url('../Home/bg/bgi.jpg'); */
-    /* background-size: cover; */
     text-align: center;
-    /* background-repeat: no-repeat; */
 }
 
 .services-section h2 {
     font-size: 2.5rem;
     margin-bottom: 40px;
     color: #333;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Added gap between items */
 }
 
 .service-card {
@@ -42,6 +46,8 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     cursor: pointer;
+    flex: 1 1 300px; /* Flexbox settings for responsive layout */
+    max-width: 300px; /* Limit the width */
 }
 
 .service-card:hover {
@@ -51,6 +57,9 @@
 .service-card img {
     margin-bottom: 20px;
     border-radius: 50%;
+    width: 100%; /* Make image responsive */
+    max-width: 150px; /* Limit image size */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .service-card h5 {
@@ -67,7 +76,6 @@
 /* Call-to-Action */
 .cta-section {
     background: linear-gradient(90deg, rgba(10, 10, 10, 0.586), rgba(136, 136, 136, 0.533));
-
     color: white;
     text-align: center;
     padding: 40px 20px;
@@ -91,6 +99,52 @@
 }
 
 .cta-link:hover {
-    /* background: #007BFF; */
+    background: #007BFF;
 }
 
+/* Responsivitás (Media Queries) */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem; /* Smaller font on mobile */
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .services-section h2 {
+        font-size: 2rem;
+    }
+
+    .service-card h5 {
+        font-size: 1.25rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+    }
+
+    .cta-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .cta-link {
+        font-size: 0.9rem;
+        padding: 8px 20px; /* Smaller padding on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 80px 20px; /* Reduce padding on small screens */
+    }
+
+    .service-card {
+        flex: 1 1 100%; /* Stack cards on mobile */
+        max-width: 100%;
+    }
+
+    .service-card img {
+        max-width: 120px; /* Smaller images on mobile */
+    }
+}

@@ -30,34 +30,22 @@ const Fooldal = () => {
             {/* Szolgáltatások szekció */}
             <section className="services-section">
                 <h2>Szolgáltatásaink</h2>
-                <div className="row g-4">
-                    <div className="col-md-4">
-                        <a href="/vizsgalat">
-                            <div className="service-card">
-                                <img src={Romeo} alt="Diagnosztika" />
-                                <h5>Diagnosztikai Vizsgálatok</h5>
-                                <p>Pontos és gyors diagnosztikai megoldásokat kínálunk.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div className="col-md-4">
-                        <a href="/diabetologia">
-                            <div className="service-card">
-                                <img src={Ricsi} alt="Konzultáció" />
-                                <h5>Diabetológiai Konzultáció</h5>
-                                <p>Tapasztalt és együttérző szakorvosok állnak rendelkezésére.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div className="col-md-4">
-                        <a href="/egeszseg">
-                            <div className="service-card">
-                                <img src={Bodrogi} alt="Digitális Egészségügy" />
-                                <h5>Digitális Egészségügy</h5>
-                                <p>Hozzáférhető orvosi adatok, gyors időpontfoglalás, online rendszerek.</p>
-                            </div>
-                        </a>
-                    </div>
+                <div className="services-container">
+                    <a href="/vizsgalat" className="service-card">
+                        <img src={Romeo} alt="Diagnosztika" className="service-image" />
+                        <h5>Diagnosztikai Vizsgálatok</h5>
+                        <p>Pontos és gyors diagnosztikai megoldásokat kínálunk.</p>
+                    </a>
+                    <a href="/diabetologia" className="service-card">
+                        <img src={Ricsi} alt="Konzultáció" className="service-image" />
+                        <h5>Diabetológiai Konzultáció</h5>
+                        <p>Tapasztalt és együttérző szakorvosok állnak rendelkezésére.</p>
+                    </a>
+                    <a href="/egeszseg" className="service-card">
+                        <img src={Bodrogi} alt="Digitális Egészségügy" className="service-image" />
+                        <h5>Digitális Egészségügy</h5>
+                        <p>Hozzáférhető orvosi adatok, gyors időpontfoglalás, online rendszerek.</p>
+                    </a>
                 </div>
             </section>
 

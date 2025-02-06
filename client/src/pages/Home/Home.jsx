@@ -3,49 +3,35 @@ import styles from './Home.module.css';
 import { useContext, useState, useEffect } from 'react';
 import BelepContext from '../../Helpers/LoginContext';
 
-
 const Home = () => {
     const [loggedIn, setLoggedIn] = useState(false);
     const { getIsLogged, setIsLogged } = useContext(BelepContext);
 
     useEffect(() => {
         setLoggedIn(getIsLogged());
-    }, []);
+    }, [getIsLogged]);
 
     const kilep = () => {
         setIsLogged(false);
         window.location.replace('/');
     };
+
     return (
         <div className={styles.container}>
             <div className={styles.card}>
-                <h1 className={styles.title}>
-                    Üdvözöljük a Modern Kórházi Felületünkön
-                </h1>
+                <h1 className={styles.title}>Üdvözöljük a Modern Kórházi Felületünkön</h1>
                 <p className={styles.text}>
-                <p style={{textAlign:"center"}}>Digitális egészségügy, ahogy megálmodtuk.</p>
+                    <span className={styles.centerText}>Digitális egészségügy, ahogy megálmodtuk.</span>
                 </p>
-                {loggedIn ? (
-                    <></>
-                ) : (
-                    <>
-                        <div className={styles.buttons}>
-                            <Link
-                                to="/login"
-                                className={styles.primaryButton}
-                            >
-                                <span className={styles.icon}>🔑</span> Már tag?
-                                Belépés
-                            </Link>
-                            <Link
-                                to="/register"
-                                className={styles.secondaryButton}
-                            >
-                                <span className={styles.icon}>📝</span> Új
-                                felhasználó? Regisztráció
-                            </Link>
-                        </div>
-                    </>
+                {!loggedIn && (
+                    <div className={styles.buttons}>
+                        <Link to="/login" className={styles.primaryButton}>
+                            <span className={styles.icon}>🔑</span> Már tag? Belépés
+                        </Link>
+                        <Link to="/register" className={styles.secondaryButton}>
+                            <span className={styles.icon}>📝</span> Új felhasználó? Regisztráció
+                        </Link>
+                    </div>
                 )}
             </div>
         </div>

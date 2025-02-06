@@ -5,7 +5,6 @@ import 'leaflet/dist/leaflet.css';
 import '../../css/Info.css';
 
 const Info = () => {
-  // Szegedi kórház koordinátái
   const hospitalPosition = [46.259277, 20.155028];
 
   return (
@@ -19,11 +18,11 @@ const Info = () => {
 
         <h3>🔹 Előnyök és funkciók:</h3>
         <ul>
-          <li>✅ <strong>Gyors és egyszerű időpontfoglalás</strong> – Néhány kattintással lefoglalhatod a szükséges vizsgálatokat vagy konzultációkat, anélkül hogy telefonálnod kellene vagy sorban állnál.</li>
-          <li>✅ <strong>Átlátható szolgáltatások</strong> – Könnyedén megtalálhatod a számodra szükséges egészségügyi ellátást, legyen szó diagnosztikai vizsgálatokról vagy szakorvosi konzultációkról.</li>
-          <li>✅ <strong>Digitális egészségügy</strong> – Online adatrögzítés lehetősége, így a kórtörténeted és a fontos egészségügyi információk mindig kéznél lesznek.</li>
-          <li>✅ <strong>Időhatékonyság</strong> – Az online rendszer segít a gyors és hatékony betegellátásban, csökkentve a várakozási időt.</li>
-          <li>✅ <strong>Biztonságos és megbízható</strong> – A betegadatokat bizalmasan kezeljük, és a legmodernebb biztonsági protokollokat alkalmazzuk.</li>
+          <li>✅ <strong>Gyors és egyszerű időpontfoglalás</strong></li>
+          <li>✅ <strong>Átlátható szolgáltatások</strong></li>
+          <li>✅ <strong>Digitális egészségügy</strong></li>
+          <li>✅ <strong>Időhatékonyság</strong></li>
+          <li>✅ <strong>Biztonságos és megbízható</strong></li>
         </ul>
 
         <h3>🌍 Hogyan használhatja?</h3>
@@ -32,28 +31,24 @@ const Info = () => {
         </p>
 
         <h2>👨‍💻 Weboldal készítői:</h2>
-        <h4>🎨 Dizájn: </h4>
-        <ul>
-          <li> Demeter Richárd</li>
-          <ol>Bemutatkozás: „A kinézet nem csak a szemnek fontos, hanem a használhatóságnak is – ezt próbáltam megvalósítani az oldalon. Ha nem tetszik, az biztos, hogy nem az én hibám! 😆 Szeretek kreatívan alkotni, és ha egy weboldal nem néz ki jól, az engem jobban zavar, mint kellene.”</ol>
-        </ul>
-
-        <h4>💻 Programozás:</h4>
-        <ul>
-          <li> Nagyváti Rómeó</li>
-          <ol>Bemutatkozás: „Ricsi szeret néha túlozni. Leginkább én csináltam a projekt minden részét, egy két elemben segített Ricsi, amikor kiosztottam neki egy feladatot(de azt is nehezen csiálta meg), de ez most lényegtelen. Én feleltek a programok sikeres működéséért, ha valami nem müködött és vagy nem működik akkor elég sokat dolgoztam/dolgozok rajta, hogy működjön és a további módosítások ne zavarjanak be. Adatbázisért is én vagyok a felelős, mível én tudom jól kezelni. Ricsi csak egy segédmunkás! 😆”</ol>
-        </ul>
-
-        <h4>📌 Segédkezett:</h4>
-        <ul>
-          <li> Bodrogi Péter Róbert</li>
-          <ol>Bemutatkozás: „Tanárként az a dolgom, hogy segítsek, ha elakadnak – de persze néha az is, hogy nézzem, hogyan próbálnak kiutat találni egy problémából. 😄 Remélem, sikerült úgy támogatnom a projektet, hogy az tényleg egy jól működő és hasznos oldal legyen.”</ol>
-        </ul>
+        <div className="team-section">
+          <div className="team-member">
+            <h4>🎨 Dizájn: Demeter Richárd</h4>
+            <p>„A kinézet nem csak a szemnek fontos, hanem a használhatóságnak is.”</p>
+          </div>
+          <div className="team-member">
+            <h4>💻 Programozás: Nagyváti Rómeó</h4>
+            <p>„Én felelek a programok sikeres működéséért, és minden problémát igyekszem megoldani.”</p>
+          </div>
+          <div className="team-member">
+            <h4>📌 Segédkezett: Bodrogi Péter Róbert</h4>
+            <p>„Tanárként az a dolgom, hogy segítsek, ha elakadnak.”</p>
+          </div>
+        </div>
       </div>
 
       <div className="map-section">
-        {/* <h3>📍 Hol található a kórház?</h3> */}
-        <MapContainer center={hospitalPosition} zoom={14} style={{ width: '100%', height: '500px' }}>
+        <MapContainer center={hospitalPosition} zoom={14} style={{ width: '100%', height: '300px' }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'

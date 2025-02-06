@@ -1,14 +1,17 @@
 :root {
-    --card-gradient: rgba(255, 255, 255, 0.85); 
+    --card-gradient: rgba(255, 255, 255, 0.85);
     --primary-color: #696b6ca5;
     --secondary-color: #684a1e91;
     --button-shadow: rgba(0, 0, 0, 0.3);
 }
-body{
+
+body {
     background-image: url(./bg/bgi.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-
+    background-position: center;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -16,7 +19,6 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: var(--background-gradient);
     color: #ffffff;
     text-align: center;
     padding: 20px;
@@ -24,7 +26,7 @@ body{
     position: relative;
 }
 
-/* Modern, dinamikus háttér animáció */
+/* Háttér animáció */
 .container::before {
     content: '';
     position: absolute;
@@ -40,35 +42,41 @@ body{
 }
 
 @keyframes moveBackground {
-    0% {
-        transform: translate(-25%, -25%);
-    }
-    50% {
-        transform: translate(-20%, -20%);
-    }
-    100% {
-        transform: translate(-25%, -25%);
-    }
+    0% { transform: translate(-25%, -25%); }
+    50% { transform: translate(-20%, -20%); }
+    100% { transform: translate(-25%, -25%); }
 }
 
+/* Kártya stílus */
 .card {
-    /* background: var(--card-gradient); */
+    background: var(--card-gradient);
     border-radius: 20px;
     padding: 40px;
     max-width: 500px;
-    width: 100%;
+    width: 90%;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1.2s ease-in-out;
+    animation: fadeIn 1.2s ease-in-out, float 3s infinite ease-in-out;
     position: relative;
     z-index: 2;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Lebegő hatás */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
 .title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 20px;
-    /* background: linear-gradient(90deg, #5d9cec, #f56a79); */
     background: linear-gradient(90deg, rgba(110, 57, 12, 0.586), rgba(50, 49, 49, 0.683));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -77,16 +85,18 @@ body{
 .text {
     font-size: 1.2rem;
     margin-bottom: 20px;
-    color: #333333;
+    color: #333;
 }
 
 .buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 20px;
     margin-top: 20px;
+    justify-content: center;
 }
 
+/* Gombok */
 .primaryButton, .secondaryButton {
     display: flex;
     align-items: center;
@@ -103,7 +113,6 @@ body{
     text-decoration: none;
     box-shadow: 0 8px 15px var(--button-shadow);
     color: #ffffff;
-    
 }
 
 .primaryButton {
@@ -126,18 +135,22 @@ body{
     box-shadow: 0 12px 20px var(--button-shadow);
 }
 
-.icon {
-    font-size: 1.3rem;
-    color: inherit;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+/* Mobil reszponzivitás */
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.8rem;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .text {
+        font-size: 1rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .primaryButton, .secondaryButton {
+        width: 100%;
     }
 }
