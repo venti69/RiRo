@@ -1,13 +1,13 @@
 function megnyit(name, email, id, phone, gender, address, ssn, motherName, birthName, birthDate) {
     const modalId = `#patientModal`; // A modal id-ja a felhasználó ID-jától függ
     const modalElement = document.querySelector(modalId); // Kiválasztjuk a megfelelő modált
-    console.log(modalElement);
+    // console.log(modalElement);
 
     if (modalElement) {
         const ev = new Date(birthDate).getFullYear();
         const honap = new Date(birthDate).getMonth() +1;
         const nap = new Date(birthDate).getDate();
-        console.log(ev, honap, nap);
+        // console.log(ev, honap, nap);
         // A modal tartalmának frissítése
         document.getElementById('modalName').textContent = name;
         document.getElementById('modalEmail').textContent = email;
@@ -22,7 +22,7 @@ function megnyit(name, email, id, phone, gender, address, ssn, motherName, birth
 
         // Inicializáljuk a Bootstrap modalt és megnyitjuk
         const modal = new bootstrap.Modal(modalElement); // Bootstrap modal objektum
-        console.log(modal);
+        // console.log(modal);
 
         modal.show(); // Megjelenítjük a modált
     } else {

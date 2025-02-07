@@ -30,7 +30,7 @@ const PatientSchema = new mongoose.Schema(
             default: '',
         },
         ssn:{
-            type: Number,
+            type: String,
             default: 0,
         },
         motherName:{

@@ -2,17 +2,36 @@ const Employee = require('../models/Patient');
 
 exports.postAdatok = async (req, res) => {
     try {
-        const {id} = req.params;        
-    const {phone, gender, address, ssn, motherName, birthName, birthDate} = req.body;
-    // console.log(req.body);
-    await Employee.findByIdAndUpdate({_id:id}, {phone, gender, address, ssn, motherName, birthName, birthDate});
+        const { id } = req.params;
+        const { phone, gender, address, ssn, motherName, birthName, birthDate } = req.body;
+
+        // Létrehozunk egy objektumot a frissítéshez, de csak azokat a mezőket adjuk hozzá, amelyek tartalmaznak adatot
+        const updateFields = {};
+
+        if (phone) updateFields.phone = phone;
+        if (gender) updateFields.gender = gender;
+        if (address) updateFields.address = address;
+        if (ssn) updateFields.ssn = ssn;
+        if (motherName) updateFields.motherName = motherName;
+        if (birthName) updateFields.birthName = birthName;
+        if (birthDate) updateFields.birthDate = birthDate;
+
+        // Ha nincs semmilyen adat a frissítéshez, akkor visszatérünk hibával
+        if (Object.keys(updateFields).length === 0) {
+            return res.status(400).json({ msg: "Nem adtál meg adatot a frissítéshez." });
+        }
+
+        // Végrehajtjuk az adatbázis frissítést
+        await Employee.findByIdAndUpdate({ _id: id }, updateFields);
 
         res.status(200).json({ msg: "Sikeres frissítés történt!" });
-        
+
     } catch (error) {
-        res.status(500).json({ msg: error });
+        console.error('Hiba történt a frissítés során:', error);
+        res.status(500).json({ msg: "Hiba történt a frissítés során.", error: error.message });
     }
 };
+
 
 /* // User model lekérése.
 const User = require('../models/User');

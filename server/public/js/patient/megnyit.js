@@ -1,7 +1,7 @@
 function megnyit(name, age, gender, id) {
     const modalId = `#employeeModal`; // A modal id-ja a felhasználó ID-jától függ
     const modalElement = document.querySelector(modalId); // Kiválasztjuk a megfelelő modált
-    console.log(modalElement);
+    // console.log(modalElement);
 
     if (modalElement) {
         // console.log(name, age, gender, id);
