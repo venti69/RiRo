@@ -1,6 +1,7 @@
-body{
-    /* background-color: red; */
-    background-image: url(/BG/serverBg.jpg) !important;
-    background-size: cover; 
+body {
+    background-image: url('/BG/serverBg.jpg') !important;
+    background-size: cover; /* Képet méretre igazítja */
     background-repeat: no-repeat;
+    background-position: center center; /* Középre igazítás */
+    height: 100vh; /* Az egész képernyőt lefedi */
 }

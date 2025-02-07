@@ -2,14 +2,14 @@ import { useContext, useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import '../css/Navbar.css';
 import BelepContext from '../Helpers/LoginContext.jsx';
-
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [loggedIn, setLoggedIn] = useState(false);
     const [admin, setAdmin] = useState(false);
-    const { getIsLogged, setIsLogged, getIsAdmin, setIsAdmin } =
-    useContext(BelepContext);
+    const [menuOpen, setMenuOpen] = useState(false); // Mobilmenü állapota
+    const { getIsLogged, setIsLogged, getIsAdmin, setIsAdmin } = useContext(BelepContext);
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -24,41 +24,51 @@ const Navbar = () => {
         setAdmin(false);
         navigate('/');
     };
-    
+
     return (
         <nav className="navbar">
             <div className="brand">RiRo-Kórház</div>
-            <div className="nav-links">
-                <NavLink to="/fooldal">Főoldal</NavLink>
+            
+            {/* Hamburger ikon mobilhoz */}
+            <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+                {menuOpen ? <FaTimes /> : <FaBars />}
+            </div>
+
+            {/* Menü linkek */}
+            <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+                <NavLink to="/fooldal" onClick={() => setMenuOpen(false)}>Főoldal</NavLink>
                 {loggedIn ? (
                     <>
-                        <NavLink to="/info">Információ</NavLink>
-                        {/* <NavLink to="/idopont">Időpontfoglalás</NavLink> */}
-                        <NavLink to="/orvosok">Orvosok</NavLink>
-                        <NavLink to="/adatok">Adatok</NavLink>
-                    <button onClick={kilep} className="kilepes" style={{
-                        backgroundColor: isHovered ? "#696b6ca5" : "transparent", // Hover szín
-                        fontWeight: "bold",
-                        border: "none",
-                        color: isHovered ? "black": "white",
-                        borderRadius: "5px",
-                        cursor: "pointer",
-                        transition: "background-color 0.3s ease",}} onMouseEnter={() => setIsHovered(true)}
-                         // Hover állapot kezdete
-
-                        onMouseLeave={() => setIsHovered(false)}>Kilépés</button>
-                        </>
+                        <NavLink to="/info" onClick={() => setMenuOpen(false)}>Információ</NavLink>
+                        <NavLink to="/orvosok" onClick={() => setMenuOpen(false)}>Orvosok</NavLink>
+                        <NavLink to="/adatok" onClick={() => setMenuOpen(false)}>Adatok</NavLink>
+                        <button 
+                            onClick={kilep} 
+                            className="kilepes" 
+                            style={{
+                                backgroundColor: isHovered ? "#696b6ca5" : "transparent",
+                                fontWeight: "bold",
+                                border: "none",
+                                color: isHovered ? "black" : "white",
+                                borderRadius: "5px",
+                                cursor: "pointer",
+                                transition: "background-color 0.3s ease",
+                            }} 
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                        >
+                            Kilépés
+                        </button>
+                    </>
                 ) : (
                     <>
-                        <NavLink to="/register">Regisztráció</NavLink>
-                        <NavLink to="/login">Bejelentkezés</NavLink>
-
+                        <NavLink to="/register" onClick={() => setMenuOpen(false)}>Regisztráció</NavLink>
+                        <NavLink to="/login" onClick={() => setMenuOpen(false)}>Bejelentkezés</NavLink>
                     </>
                 )}
                 {admin && (
-                    <NavLink to="http://localhost:3001/server">Szerver</NavLink>
+                    <NavLink to="http://localhost:3001/server" onClick={() => setMenuOpen(false)}>Szerver</NavLink>
                 )}
-
             </div>
         </nav>
     );

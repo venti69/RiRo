@@ -3,7 +3,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #00ffb3;
     background: linear-gradient(90deg, rgba(10, 10, 10, 0.586), rgba(136, 136, 136, 0.533)); 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: fixed;
@@ -12,33 +11,77 @@
     width: 100%;
 }
 
-.navbar .nav-links {
+/* Navigációs linkek alapértelmezett nézetben */
+.nav-links {
     display: flex;
     gap: 15px;  
 }
 
+/* Linkek stílusa */
 .navbar a {
     text-decoration: none;
-    color: white; /* Fehér szöveg */
+    color: white;
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 4px;
     transition: background-color 0.3s;
 }
 
-.navbar a:hover{
+.navbar a:hover {
     background-color: #696b6ca5; 
     color: black;
     text-decoration: none;
 }
 
 .navbar a.active {
-    background-color: #684a1e91; /* Aktív link színe */
-    color: black; /* Fekete szöveg */
+    background-color: #684a1e91;
+    color: black;
 }
 
+/* Brand stílusa */
 .navbar .brand {
     font-size: 1.5em;
     color: #fff;
     font-weight: bold;
+}
+
+/* Hamburger menü ikon (alapértelmezetten rejtve) */
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Mobilnézet (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    /* Alapértelmezetten elrejtjük a menüt mobilon */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.9);
+        text-align: center;
+        padding: 10px 0;
+        transition: 0.3s ease-in-out;
+    }
+
+    /* Ha a menü nyitva van */
+    .nav-links.open {
+        display: flex;
+    }
+
+    /* Mobil linkek stílusa */
+    .nav-links a {
+        padding: 10px;
+        display: block;
+        width: 100%;
+    }
 }
