@@ -60,6 +60,7 @@
     width: 140%; /* Make image responsive */
     max-width: 150px; /* Limit image size */
     height: 150px; /* Maintain aspect ratio */
+    
 }
 
 .service-card h5 {
