@@ -1,4 +1,4 @@
-function szerkesztes(id, name, age, gender) {
+function szerkesztes(id, name, email, phone, gender, address, ssn, motherName, birthName, birthDate) {
     const modalContainer = document.getElementById('modal-container');
 
     // Töröljük a modal tartalmát
@@ -34,21 +34,68 @@ function szerkesztes(id, name, age, gender) {
     nameInput.placeholder = 'Név';
     modalBox.appendChild(nameInput);
 
-    // Életkor input mező
-    const ageInput = document.createElement('input');
-    ageInput.type = 'age';
-    ageInput.value = age;
-    ageInput.className = 'form-control mb-3';
-    ageInput.placeholder = 'Életkora';
-    modalBox.appendChild(ageInput);
+    // Email input mező
+    const emailInput = document.createElement('input');
+    emailInput.type = 'email';
+    emailInput.value = email;
+    emailInput.className = 'form-control mb-3';
+    emailInput.placeholder = 'Email';
+    modalBox.appendChild(emailInput);
+
+    // Telefonszám input mező
+    const phoneInput = document.createElement('input');
+    phoneInput.type = 'text';
+    phoneInput.value = phone;
+    phoneInput.className = 'form-control mb-3';
+    phoneInput.placeholder = 'Telefonszám';
+    modalBox.appendChild(phoneInput);
 
     // Neme input mező
     const genderInput = document.createElement('input');
-    genderInput.type = 'gender';
+    genderInput.type = 'text';
     genderInput.value = gender;
     genderInput.className = 'form-control mb-3';
     genderInput.placeholder = 'Neme';
     modalBox.appendChild(genderInput);
+
+    // Lakcím input mező
+    const addressInput = document.createElement('input');
+    addressInput.type = 'text';
+    addressInput.value = address;
+    addressInput.className = 'form-control mb-3';
+    addressInput.placeholder = 'Lakcím';
+    modalBox.appendChild(addressInput);
+
+    // TAJ szám input mező
+    const ssnInput = document.createElement('input');
+    ssnInput.type = 'text';
+    ssnInput.value = ssn;
+    ssnInput.className = 'form-control mb-3';
+    ssnInput.placeholder = 'TAJ szám';
+    modalBox.appendChild(ssnInput);
+
+    // Anyja neve input mező
+    const motherNameInput = document.createElement('input');
+    motherNameInput.type = 'text';
+    motherNameInput.value = motherName;
+    motherNameInput.className = 'form-control mb-3';
+    motherNameInput.placeholder = 'Anyja neve';
+    modalBox.appendChild(motherNameInput);
+
+    // Születés neve input mező
+    const birthNameInput = document.createElement('input');
+    birthNameInput.type = 'text';
+    birthNameInput.value = birthName;
+    birthNameInput.className = 'form-control mb-3';
+    birthNameInput.placeholder = 'Születés neve';
+    modalBox.appendChild(birthNameInput);
+
+    // Születés dátum input mező
+    const birthDateInput = document.createElement('input');
+    birthDateInput.type = 'date';
+    birthDateInput.value = birthDate;
+    birthDateInput.className = 'form-control mb-3';
+    modalBox.appendChild(birthDateInput);
 
     // Mentés gomb
     const saveButton = document.createElement('button');
@@ -57,15 +104,31 @@ function szerkesztes(id, name, age, gender) {
     saveButton.addEventListener('click', () => {
         // Küldd el az új adatokat a szervernek
         const updatedName = nameInput.value;
-        const updatedAge = ageInput.value;
+        const updatedEmail = emailInput.value;
+        const updatedPhone = phoneInput.value;
         const updatedGender = genderInput.value;
+        const updatedAddress = addressInput.value;
+        const updatedSsn = ssnInput.value;
+        const updatedMotherName = motherNameInput.value;
+        const updatedBirthName = birthNameInput.value;
+        const updatedBirthDate = birthDateInput.value;
 
         fetch(`/patientmodositas/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name: updatedName,age: updatedAge, gender: updatedGender }),
+            body: JSON.stringify({
+                name: updatedName,
+                email: updatedEmail,
+                phone: updatedPhone,
+                gender: updatedGender,
+                address: updatedAddress,
+                ssn: updatedSsn,
+                motherName: updatedMotherName,
+                birthName: updatedBirthName,
+                birthDate: updatedBirthDate
+            }),
         })
             .then((response) => response.json())
             .then((data) => {

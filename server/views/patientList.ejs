@@ -54,10 +54,11 @@
                                 class="btn btn-warning edit-button"
                                 data-bs-toggle="modal"
                                 data-bs-target="#editModal<%= patient.id %>"
-                                onClick="szerkesztes('<%= patient._id %>','<%= patient.name %>', '<%= patient.email %>', '<%= patient.phone %>', '<%= patient.gender %>', '<%= patient.address %>', '<%= patient.ssn %>','<%= patient.motherName %>','<%= patient.birthName %>','<%= patient.birthDate %>')"
+                                onClick="szerkesztes('<%= patient._id %>', '<%= patient.name %>', '<%= patient.email %>', '<%= patient.phone %>', '<%= patient.gender %>', '<%= patient.address %>', '<%= patient.ssn %>', '<%= patient.motherName %>', '<%= patient.birthName %>', '<%= patient.birthDate %>')"
                             >
                                 Szerkesztés
                             </button>
+
                             <!-- Gomb a Részletek megnyitásához -->
                             <button
                             type="button"

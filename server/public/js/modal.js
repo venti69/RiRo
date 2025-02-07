@@ -2,6 +2,11 @@ function szerkesztes(id, name, email, gender, phone, address, ssn, motherName, b
     const modalContainer = document.getElementById('modal-container');
     // console.log(birthDate);
     
+    if (isNaN(phone)) {
+        let temp = phone;
+        phone = gender;
+        gender = temp;
+    }
 
     // Töröljük a modal tartalmát
     modalContainer.innerHTML = '';
@@ -53,13 +58,13 @@ function szerkesztes(id, name, email, gender, phone, address, ssn, motherName, b
     modalBox.appendChild(genderInput);
 
     // Phone input mező
-
     const phoneInput = document.createElement('input');
-    phoneInput.type = 'number';
+    phoneInput.type = 'text';
     phoneInput.value = phone;
     phoneInput.className = 'form-control mb-3';
     phoneInput.placeholder = 'Telefonszám';
     modalBox.appendChild(phoneInput);
+
 
     // Address input mező
 
@@ -73,7 +78,7 @@ function szerkesztes(id, name, email, gender, phone, address, ssn, motherName, b
     // SSN input mező
 
     const ssnInput = document.createElement('input');
-    ssnInput.type = 'number';
+    ssnInput.type = 'text';
     ssnInput.value = ssn;
     ssnInput.className = 'form-control mb-3';
     ssnInput.placeholder = 'Tajszám';
