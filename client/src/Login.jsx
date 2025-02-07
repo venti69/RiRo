@@ -5,7 +5,7 @@ import axios from 'axios';
 import BelepContext from './Helpers/LoginContext';
 import '../src/css/Login.css';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Toastify stílusok
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -14,7 +14,6 @@ function Login() {
 
     const { setIsLogged, setIsAdmin } = useContext(BelepContext);
 
-    // Toastify értesítések
     const successNotify = () => toast.success("Sikeres bejelentkezés!");
     const errorNotify = (message) => toast.error(message || "Bejelentkezési hiba!");
 
@@ -27,21 +26,19 @@ function Login() {
                 console.log(user);
 
                 if (user.loggedIn) {
-                    // Felhasználói adatok mentése localStorage-ba
                     localStorage.setItem('userId', user.userId);
                     localStorage.setItem('user', JSON.stringify(user.user));
                     localStorage.setItem('isAdmin', user.isAdmin);
 
-                    // Globális státuszok frissítése
                     setIsLogged(true);
                     setIsAdmin(user.isAdmin);
 
-                    successNotify(); // Toastify értesítés siker esetén
+                    successNotify();
                     setTimeout(()=> 1500);
                     setTimeout(() => window.location.reload('/fooldal'),  navigate('/fooldal'), 1500);
                     
                 } else {
-                    errorNotify(user.msg); // Toastify hibaüzenet az API válasz alapján
+                    errorNotify(user.msg);
                 }
             })
             .catch((err) => {
@@ -77,7 +74,7 @@ function Login() {
                         Bejelentkezés
                     </button>
                 </form>
-                <ToastContainer /> {/* Toastify konténer a visszajelzésekhez */}
+                <ToastContainer />
                 <p className="register-text">
                     Nincs még fiókod?{' '}
                     <Link to="/register" className="register-link">

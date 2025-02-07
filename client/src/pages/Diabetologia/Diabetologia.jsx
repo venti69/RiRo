@@ -12,10 +12,9 @@ import fertozes from '../../assets/images/fertozes.png';
 
 const Fooldal = () => {
     window.onload = function () {
-        // Ellenőrizzük, hogy az oldal már újratöltődött-e ebben a munkamenetben
         if (!sessionStorage.getItem('hasReloaded')) {
-            sessionStorage.setItem('hasReloaded', 'true'); // Beállítjuk, hogy újratöltött
-            window.location.reload(); // Oldal újratöltése
+            sessionStorage.setItem('hasReloaded', 'true');
+            window.location.reload();
         }
     };
         const slides = [
@@ -68,15 +67,6 @@ const Fooldal = () => {
     <table style={{ width: "80%" }} cellSpacing="0" cellPadding="0">
         <tbody>
             <tr style={{ width: "50%" }}>
-                    {/* <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2759.2725613817242!2d20.144926615487925!3d46.24480908903745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474489942a0a50f7%3A0x9956e4bf3c32b3dc!2sDepartment%20of%20Radiology%2C%20University%20of%20Szeged!5e0!3m2!1sen!2shu!4v1576948020182!5m2!1sen!2shu"
-                        width="400"
-                        height="300"
-                        frameBorder="0"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        title="Radiológiai Klinika"
-                    /> */}
             </tr>
         </tbody>
     </table>

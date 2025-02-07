@@ -12,9 +12,9 @@ const Adatok = () => {
     const [message, setMessage] = useState('');
 
     const kiegeszit = async (e) => {
-        e.preventDefault(); // Megakadályozza az oldal újratöltését
+        e.preventDefault();
 
-        const userId = localStorage.getItem('userId'); // Feltételezzük, hogy a felhasználó azonosítója a localStorage-ben van
+        const userId = localStorage.getItem('userId');
         if (!userId) {
             setMessage('Felhasználói azonosító nem található.');
             return;
@@ -49,22 +49,21 @@ const Adatok = () => {
     };
 
     const handleDateChange = (e) => {
-        const rawDate = e.target.value; // Formátum: yyyy-MM-dd
+        const rawDate = e.target.value;
         if (isValidDate(rawDate)) {
-            const formattedDate = formatDate(rawDate); // Átalakítás: yyyy. mm. dd.
+            const formattedDate = formatDate(rawDate);
             setBirthDate(formattedDate);
         } else {
-            setBirthDate(''); // Ha érvénytelen, töröljük az értéket
+            setBirthDate('');
         }
     };
 
-    // Érvényes dátum ellenőrzése
     const isValidDate = (date) => {
-        const dateRegex = /^\d{4}-\d{2}-\d{2}$/; // Ellenőrizzük, hogy yyyy-MM-dd formátum
+        const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
         if (!dateRegex.test(date)) return false;
 
         const [year, month, day] = date.split('-').map(Number);
-        const testDate = new Date(year, month - 1, day); // Létrehozunk egy JS dátumot
+        const testDate = new Date(year, month - 1, day);
         return (
             testDate.getFullYear() === year &&
             testDate.getMonth() === month - 1 &&
@@ -72,7 +71,6 @@ const Adatok = () => {
         );
     };
 
-    // Dátum formázása
     const formatDate = (date) => {
         const [year, month, day] = date.split('-');
         return `${year}. ${month}. ${day}.`;
@@ -146,16 +144,16 @@ const Adatok = () => {
                             />
                         </div>
                         <div className="input-group">
-  <label htmlFor="birthdate">Születési dátum</label>
-  <input
-    type="date"
-    id="birthdate"
-    name="birthdate"
-    required
-    max="2025-01-10" // Ma legyen a maximum
-    className="date-input"
-  />
-</div>
+                            <label htmlFor="birthdate">Születési dátum</label>
+                            <input
+                                type="date"
+                                id="birthdate"
+                                name="birthdate"
+                                required
+                                max="2025-02-07"
+                                className="date-input"
+                            />
+                            </div>
                         <button type="submit" className="btn-primary">
                             Adatok mentése
                         </button>

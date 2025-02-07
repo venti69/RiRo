@@ -8,7 +8,7 @@ const Navbar = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [loggedIn, setLoggedIn] = useState(false);
     const [admin, setAdmin] = useState(false);
-    const [menuOpen, setMenuOpen] = useState(false); // Mobilmenü állapota
+    const [menuOpen, setMenuOpen] = useState(false);
     const { getIsLogged, setIsLogged, getIsAdmin, setIsAdmin } = useContext(BelepContext);
     const navigate = useNavigate();
     
@@ -29,12 +29,10 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="brand">RiRo-Kórház</div>
             
-            {/* Hamburger ikon mobilhoz */}
             <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
                 {menuOpen ? <FaTimes /> : <FaBars />}
             </div>
 
-            {/* Menü linkek */}
             <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
                 <NavLink to="/fooldal" onClick={() => setMenuOpen(false)}>Főoldal</NavLink>
                 {loggedIn ? (
