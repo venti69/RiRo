@@ -11,12 +11,18 @@
     <title>Admin felület</title>
 </head>
 <body>
-    <%- include('./nav.ejs') %>
-    <div class="container">
-        <div style="margin: 100px auto; text-align: center;">
-        <h1>Üdvözlünk az admin felületünkön</h1>
-        <h3>Itt láthatod az adatokat.</h3></div>
+    <div id="loader">
+        <div class="spinner"></div>
     </div>
     
+    <%- include('./nav.ejs') %>
+    
+    <div class="container">
+        <div style="margin: 100px auto; text-align: center;">
+            <h1>Üdvözlünk az admin felületünkön</h1>
+            <h3>Itt láthatod az adatokat.</h3>
+        </div>
+    </div>
 </body>
+<script src="/js/index/index.js"></script>
 </html>
