@@ -77,9 +77,9 @@ const Orvosok = () => {
       <div className="doctors-list">
         {orvosok.map((doctor, index) => (
           <div key={doctor.id || index} className="doctor-card">
-            <div className="doctor-card-header">
+            <div className="doctor-card-header" style={{backgroundImage: `url(${doctor.orvoskep})`, backgroundSize: '110% 150%', backgroundPositionY: "-10px", backgroundRepeat: "no-repeat"}}>
               <img className="doctor-image" src={doctor.orvoskep} alt="Orvos kép" />
-              <h3>{doctor.nev}</h3>
+              <h3 className='h3doktor'>{doctor.nev}</h3>
             </div>
             <div className="doctor-card-body">
               <p><strong>Szakma: </strong> {doctor.szak} </p>
