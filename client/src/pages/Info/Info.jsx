@@ -38,7 +38,7 @@ const Info = () => {
           </div>
           <div className="team-member">
             <h4>💻 Programozás: Nagyváti Rómeó</h4>
-            <p>„Én felelek a programok sikeres működéséért, és minden problémát igyekszem megoldani.”</p>
+            <p>„Ricsi szeret néha túlozni. Leginkább én csináltam a projekt minden részét, egy két elemben segített Ricsi, amikor kiosztottam neki egy feladatot(de azt is nehezen csiálta meg), de ez most lényegtelen. Én feleltek a programok sikeres működéséért, ha valami nem működik akkor elég sokat dolgozok rajta, hogy működjön és a további módosítások ne zavarjanak be. Adatbázisért is én vagyok a felelős, mível én tudom jól kezelni. Ricsi csak egy segédmunkás! 😆”</p>
           </div>
           <div className="team-member">
             <h4>📌 Segédkezett: Bodrogi Péter Róbert</h4>
