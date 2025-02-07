@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
     let navigate = useNavigate();
-    // const { admin, setAdmin } = useContext(LoginContext);
-    // const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
     const loggedIn = localStorage.getItem('isLoggedIn');
     

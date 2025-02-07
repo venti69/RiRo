@@ -13,21 +13,16 @@ const NewsCarousel = () => {
         setNews([
             {
                 title: "Diabetológiai Konzultáció",
-                // description: "A link átdobja magát a Szeged SZTE Hírek oldalra, ahol friss egészségügyi híreket olvashat.",
                 image: "https://www.vitalea.hu/img/Stock/2-es_tipusu_diabetes_mellitus.webp",
-                // link: "https://htmedicalcenter.hu/wp-content/uploads/2023/08/medicalpoint-mri-budapest-1024x683.jpg"
             },
             {
                   title: "Diabetológiai Konzultáció",
-            //     // description: "Szeged Friss híreit olvashatja, ha a linkre tovább megy. (Szeged365)",
                   image: "https://www.primamedica.hu/files/cache/1380/370/0/132.webp",
-            //     // link: "https://szeged365.hu/"   
              }, 
             
-            // További hírek
         ]);
 
-    }, []); // empty dependency array means it runs only once, on mount
+    }, []);
     
 
     const settings = {
@@ -37,7 +32,6 @@ const NewsCarousel = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        // autoplaySpeed: 9000,
     };
 
     return (
@@ -49,7 +43,6 @@ const NewsCarousel = () => {
                     <div className="news-content">
                         <h3>{item.title}</h3>
                         <p>{item.description}</p>
-                        {/* <a href={item.link} className="btn" target="_blank">Tovább</a> */}
                     </div>
 
                     
@@ -57,7 +50,6 @@ const NewsCarousel = () => {
                 </div>
             ))}
         </Slider>
-        {/* <img src={kep} alt="" /> */}
         </>
     );
 };

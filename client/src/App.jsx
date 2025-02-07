@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import Home from './pages/Home/Home';
 import Navbar from './components/Navbar';
-// import Logout from './Logout';
 import Fooldal from './pages/Fooldal/Fooldal';
 import Info from './pages/Info/Info';
 import Idopont from './pages/Idopont/Idopont';
@@ -35,10 +34,6 @@ function App() {
                     path="/login"
                     element={<Login />}
                 />
-                {/* <Route
-                    path="/logout"
-                    element={<Logout />}
-                /> */}
                 <Route
                     path="/info"
                     element={<Info />}

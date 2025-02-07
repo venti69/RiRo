@@ -26,7 +26,6 @@ body {
     position: relative;
 }
 
-/* Háttér animáció */
 .container::before {
     content: '';
     position: absolute;
@@ -47,7 +46,6 @@ body {
     100% { transform: translate(-25%, -25%); }
 }
 
-/* Kártya stílus */
 .card {
     background: var(--card-gradient);
     border-radius: 20px;
@@ -65,7 +63,6 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Lebegő hatás */
 @keyframes float {
     0% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
@@ -96,7 +93,6 @@ body {
     justify-content: center;
 }
 
-/* Gombok */
 .primaryButton, .secondaryButton {
     display: flex;
     align-items: center;
@@ -135,7 +131,6 @@ body {
     box-shadow: 0 12px 20px var(--button-shadow);
 }
 
-/* Mobil reszponzivitás */
 @media (max-width: 600px) {
     .title {
         font-size: 1.8rem;

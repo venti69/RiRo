@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../src/css/Signup.css';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Ezt is hozzá kell adni a Toastify stílusok miatt.
+import 'react-toastify/dist/ReactToastify.css';
 
 function Signup() {
     const [name, setName] = useState('');
@@ -11,9 +11,7 @@ function Signup() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     
-    // Sikeres regisztráció üzenet
     const successNotify = () => toast.success("Sikeres regisztráció!");
-    // Hibás regisztráció üzenet
     const errorNotify = (message) => toast.error(message || "Minden mező kitöltése kötelező!");
 
     const handleSubmit = (e) => {
@@ -32,10 +30,10 @@ function Signup() {
                 const result = await response.json();
 
                 if (response.ok) {
-                    successNotify(); // Toastify értesítés sikeres regisztráció esetén
-                    setTimeout(() => navigate('/login'), 1500); // 2 másodperc késleltetés navigáció előtt
+                    successNotify();
+                    setTimeout(() => navigate('/login'), 1500);
                 } else {
-                    errorNotify(result.msg); // Hibaüzenet Toastify értesítés
+                    errorNotify(result.msg);
                 }
             } catch (error) {
                 errorNotify("Hálózati hiba történt, próbáld újra később!");

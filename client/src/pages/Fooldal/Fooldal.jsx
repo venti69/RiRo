@@ -11,17 +11,15 @@ const Fooldal = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate page load
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 100); // Pl. 1 másodperc után eltűnik
+        }, 100);
 
-        return () => clearTimeout(timer); // Tisztítja az időzítőt
+        return () => clearTimeout(timer);
     }, []);
 
     return (
         <div style={{ overflowX: 'hidden', minHeight: "100vh", fontFamily: "Arial, sans-serif" }}>
-            {/* Betöltési animáció */}
             {loading && (
                 <div id="loader" className="loader-container">
                     <div className="loader">
@@ -35,7 +33,6 @@ const Fooldal = () => {
                 <>
                     <NewsCarousel />
 
-                    {/* Hero szekció */}
                     <section className="hero-section">
                         <h1>Üdvözlünk a RiRo Kórházban</h1>
                         <p>
@@ -43,7 +40,6 @@ const Fooldal = () => {
                         </p>
                     </section>
 
-                    {/* Szolgáltatások szekció */}
                     <section className="services-section">
                         <h2>Szolgáltatásaink</h2>
                         <div className="services-container">
@@ -65,7 +61,6 @@ const Fooldal = () => {
                         </div>
                     </section>
 
-                    {/* Call-to-Action */}
                     <section className="cta-section">
                         <h3>Tegye meg az első lépést az egészsége érdekében!</h3>
                         <Link to="/Info" className="cta-link">Kapcsolatfelvétel</Link>

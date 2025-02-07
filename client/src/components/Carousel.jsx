@@ -23,10 +23,9 @@ const NewsCarousel = () => {
                 image: kep2,
                 link: "https://szeged365.hu/"
             },
-            // További hírek
         ]);
 
-    }, []); // empty dependency array means it runs only once, on mount
+    }, []);
     
 
     const settings = {
@@ -54,7 +53,6 @@ const NewsCarousel = () => {
                 </div>
             ))}
         </Slider>
-        {/* <img src={kep} alt="" /> */}
         </>
     );
 };
