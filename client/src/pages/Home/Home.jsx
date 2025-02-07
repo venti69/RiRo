@@ -21,7 +21,7 @@ const Home = () => {
             <div className={styles.card}>
                 <h1 className={styles.title}>Üdvözöljük a Modern Kórházi Felületünkön</h1>
                 <p className={styles.text}>
-                    <span className={styles.centerText}>Digitális egészségügy, ahogy megálmodtuk.</span>
+                    <span className={styles.centerText}> <p style={{textAlign:"center"}}> Digitális egészségügy, ahogy megálmodtuk.</p></span>
                 </p>
                 {!loggedIn && (
                     <div className={styles.buttons}>
