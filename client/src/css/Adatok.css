@@ -58,6 +58,12 @@
     transform: scale(1.02);
   }
   
+.signup-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+
+}
+
   @media (max-width: 768px) {
     .form-container {
       margin: 20px;

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../../css/Adatok.css';
+import { useNavigate } from 'react-router-dom';
 
 const Adatok = () => {
     const [phone, setPhone] = useState('');
@@ -12,6 +13,9 @@ const Adatok = () => {
     const [message, setMessage] = useState('');
 
     const kiegeszit = async (e) => {
+        const [kezelesek, setKezelesek] = useState([]);
+        const [filteredKezelesek, setFilteredKezelesek] = useState([]);
+        const navigate = useNavigate();
         e.preventDefault();
 
         // Ha van TAJ-szám, érvényesítjük
@@ -70,6 +74,26 @@ const Adatok = () => {
         } catch (error) {
             setMessage(`Hálózati hiba: ${error.message}`);
         }
+        useEffect(() => {
+            // Kezelések lekérése a szerverről
+            const fetchKezelesek = async () => {
+                try {
+                    const response = await fetch('http://localhost:3001/kezeles'); // Cseréld ki a megfelelő API végpontra
+                    if (!response.ok) throw new Error('Hiba a kezelések lekérdezésénél');
+                    
+                    const data = await response.json();
+                    setKezelesek(data);
+    
+                    // Csak azokat a kezeléseket mutatjuk, amelyek a bejelentkezett userhez tartoznak
+                    const userKezelesek = data.filter(kezeles => kezeles.paciens.id === userId);
+                    setFilteredKezelesek(userKezelesek);
+                } catch (error) {
+                    console.error('Hiba:', error);
+                }
+            };
+    
+            fetchKezelesek();
+        }, [userId]);
     };
 
     return (
@@ -188,6 +212,28 @@ const Adatok = () => {
                     </button>
                 </form>
                 {message && <p>{message}</p>}
+            </div>
+            <div>
+            <h1>Kezelések</h1>
+
+{filteredKezelesek.length > 0 ? (
+    // Ha van kezelése, megjelenítjük őket
+    filteredKezelesek.map((kezeles) => (
+        <div key={kezeles.id} className="kezeles-card">
+            <h3>{kezeles.nev}</h3>
+            <p><strong>Orvos:</strong> {kezeles.orvos.nev}</p>
+            <p><strong>Időpont:</strong> {kezeles.idopont}</p>
+        </div>
+    ))
+) : (
+    // Ha nincs kezelés, megjelenítünk egy gombot az orvosok oldalára
+    <div>
+        <p>Nincs még kezelésed.</p>
+        <button onClick={() => navigate('/orvosok')}>
+            Orvosok megtekintése
+        </button>
+    </div>
+)}
             </div>
         </div>
     );
