@@ -35,7 +35,7 @@ const Fooldal = () => {
         {/* <img src={vmero} alt="vércukormérő" /> */}
         </div>
         <div className="szovodmenyekJobb" style={{display: 'flex', alignItems: 'center', color: '#7ba8c9'}}>
-        A digitális egészségügy <br />  szerepe
+        A digitális egészségügy <br /> szerepe
         </div>
     </div>
 

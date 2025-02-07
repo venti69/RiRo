@@ -46,8 +46,8 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     cursor: pointer;
-    flex: 1 1 300px; /* Flexbox settings for responsive layout */
-    max-width: 300px; /* Limit the width */
+    flex: 1 1 300px;    
+    max-width: 300px; 
 }
 
 .service-card:hover {
@@ -57,9 +57,9 @@
 .service-card img {
     margin-bottom: 20px;
     border-radius: 50%;
-    width: 100%; /* Make image responsive */
+    width: 140%; /* Make image responsive */
     max-width: 150px; /* Limit image size */
-    height: auto; /* Maintain aspect ratio */
+    height: 150px; /* Maintain aspect ratio */
 }
 
 .service-card h5 {
