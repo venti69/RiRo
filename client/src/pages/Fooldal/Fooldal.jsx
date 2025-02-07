@@ -13,7 +13,7 @@ const Fooldal = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 100);
+        }, 200);
 
         return () => clearTimeout(timer);
     }, []);

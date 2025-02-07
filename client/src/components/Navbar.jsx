@@ -27,7 +27,7 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <div className="brand">RiRo-Kórház</div>
+            <div className="brand"><NavLink to="/fooldal">RiRo-Kórház</NavLink></div>
             
             <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
                 {menuOpen ? <FaTimes /> : <FaBars />}
