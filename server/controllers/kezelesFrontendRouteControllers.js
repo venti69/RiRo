@@ -8,7 +8,7 @@ exports.getKezeles = async (req, res) => {
             const emberkek = await Kezeles.find({}).populate('paciens');
             const szures = emberkek.map(elem => elem.nev);
             const egyediNevek = [...new Set(szures)];
-            console.log(kezelesek);
+            // console.log(kezelesek);
 
         res.status(200).json({ kezelesek, egyediNevek, emberkek });
     } catch (error) {

@@ -19,7 +19,7 @@ exports.getKezeles = async (req, res) => {
             const emberkek = await Kezeles.find({}).populate('paciens');
             const szures = emberkek.map(elem => elem.nev);
             const egyediNevek = [...new Set(szures)];
-            console.log(emberkek);
+            // console.log(emberkek);
 
         res.status(200).render('kezeles', { kezelesek, egyediNevek, emberkek });
     } catch (error) {

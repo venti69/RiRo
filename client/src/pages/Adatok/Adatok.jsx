@@ -84,8 +84,8 @@ const Adatok = () => {
                         if (!response.ok) throw new Error('Hiba a kezelések lekérdezésénél');
                         
                         const data = await response.json();
-                        console.log(data.kezelesek);
-                        console.log(userId);
+                        // console.log(data.kezelesek);
+                        // console.log(userId);
                         setKezelesek(data);
                         
                         // Csak azokat a kezeléseket mutatjuk, amelyek a bejelentkezett userhez tartoznak
