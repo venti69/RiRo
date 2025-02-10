@@ -217,7 +217,12 @@ const Adatok = () => {
                 {message && <p>{message}</p>}
             </div>
             <div>
+
+            <div className="kezelesek-container">
+            <div className="kezelesek-card"> 
             <h1>Kezelések</h1>
+            </div>
+            </div>
 
 {filteredKezelesek.length > 0 ? (
     // Ha van kezelése, megjelenítjük őket
@@ -227,6 +232,7 @@ const Adatok = () => {
             <p><strong>Orvos:</strong> {kezeles.orvos.nev}</p>
             <p><strong>Időpont:</strong> {kezeles.idopont}</p><br />
         </div>
+
     ))
 ) : (
     // Ha nincs kezelés, megjelenítünk egy gombot az orvosok oldalára
@@ -236,6 +242,7 @@ const Adatok = () => {
             Orvosok megtekintése
         </button>
     </div>
+    
 )}
 
             </div>

@@ -74,6 +74,22 @@
   animation: fadeIn 0.8s ease-out;
 }
 
+.kezelesek-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+.kezelesek-card {
+  text-align: center;
+  /* margin-left: 699px; */
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  animation: fadeIn 0.8s ease-out;
+}
+
   @media (max-width: 768px) {
     .form-container {
       margin: 20px;
