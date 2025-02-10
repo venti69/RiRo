@@ -84,11 +84,12 @@ const Adatok = () => {
                         if (!response.ok) throw new Error('Hiba a kezelések lekérdezésénél');
                         
                         const data = await response.json();
-                        console.log(data);
+                        console.log(data.kezelesek);
+                        console.log(userId);
                         setKezelesek(data);
-        
+                        
                         // Csak azokat a kezeléseket mutatjuk, amelyek a bejelentkezett userhez tartoznak
-                        const userKezelesek = data.kezelesek.filter(kezeles => kezeles.paciens.id === userId);
+                        const userKezelesek = data.kezelesek.filter(kezeles => kezeles.paciens === userId);
                         setFilteredKezelesek(userKezelesek);
                     } catch (error) {
                         console.error('Hiba:', error);
@@ -100,8 +101,7 @@ const Adatok = () => {
 
     return (
         <div className="signup-container">
-            <div className="adatok-card">
-
+            <div className="signup-card">
                 <h2 className="signup-title">Adatok felvétele</h2>
                 <form onSubmit={kiegeszit}>
                     <div className="input-group">
@@ -223,9 +223,9 @@ const Adatok = () => {
     // Ha van kezelése, megjelenítjük őket
     filteredKezelesek.map((kezeles) => (
         <div key={kezeles.id} className="kezeles-card">
-            <h3>{kezeles.nev}</h3>
+            {/* <h3>{kezeles.nev}</h3> */}
             <p><strong>Orvos:</strong> {kezeles.orvos.nev}</p>
-            <p><strong>Időpont:</strong> {kezeles.idopont}</p>
+            <p><strong>Időpont:</strong> {kezeles.idopont}</p><br />
         </div>
     ))
 ) : (
