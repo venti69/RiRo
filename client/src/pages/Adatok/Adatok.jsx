@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import '../../css/Adatok.css';
+import './Adatok.css';
 import { useNavigate } from 'react-router-dom';
 
 const Adatok = () => {
@@ -100,7 +100,8 @@ const Adatok = () => {
 
     return (
         <div className="signup-container">
-            <div className="signup-card">
+            <div className="adatok-card">
+
                 <h2 className="signup-title">Adatok felvétele</h2>
                 <form onSubmit={kiegeszit}>
                     <div className="input-group">

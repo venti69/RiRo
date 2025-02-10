@@ -45,7 +45,7 @@ function Signup() {
 
     return (
         <div className="signup-container">
-            <div className="signup-card">
+            <div className="signup-card" style={{textAlign: "center"}}>
                 <h2 className="signup-title">Regisztráció</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">

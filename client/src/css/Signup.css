@@ -12,12 +12,13 @@
   
   /* Központi kártya */
   .signup-card {
+    text-align: center !important;
+    margin-left: 699px;
     background: #ffffff;
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 400px;
-    text-align: center;
     animation: fadeIn 0.8s ease-out;
   }
   
