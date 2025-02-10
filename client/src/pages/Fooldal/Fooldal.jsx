@@ -47,6 +47,7 @@ const Fooldal = () => {
                                 <img src={Romeo} alt="Diagnosztika" className="service-image" />
                                 <h5>Diagnosztikai Vizsgálatok</h5>
                                 <p>Pontos és gyors diagnosztikai megoldásokat kínálunk.</p>
+                                <p style={{fontSize: "10px"}}> &copy; RicsiBuzi</p>
                             </a>
                             <a href="/diabetologia" className="service-card">
                                 <img src={Ricsi} alt="Konzultáció" className="service-image" />

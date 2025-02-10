@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../../css/Adatok.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,10 +12,12 @@ const Adatok = () => {
     const [birthDate, setBirthDate] = useState('');
     const [message, setMessage] = useState('');
 
+    const [kezelesek, setKezelesek] = useState([]);
+    const [filteredKezelesek, setFilteredKezelesek] = useState([]);
+
+    const navigate = useNavigate();
+    const userId = localStorage.getItem('userId');
     const kiegeszit = async (e) => {
-        const [kezelesek, setKezelesek] = useState([]);
-        const [filteredKezelesek, setFilteredKezelesek] = useState([]);
-        const navigate = useNavigate();
         e.preventDefault();
 
         // Ha van TAJ-szám, érvényesítjük
@@ -42,7 +44,6 @@ const Adatok = () => {
             return;
         }
 
-        const userId = localStorage.getItem('userId');
         if (!userId) {
             setMessage('Felhasználói azonosító nem található.');
             return;
@@ -74,27 +75,28 @@ const Adatok = () => {
         } catch (error) {
             setMessage(`Hálózati hiba: ${error.message}`);
         }
-        useEffect(() => {
-            // Kezelések lekérése a szerverről
-            const fetchKezelesek = async () => {
-                try {
-                    const response = await fetch('http://localhost:3001/kezeles'); // Cseréld ki a megfelelő API végpontra
-                    if (!response.ok) throw new Error('Hiba a kezelések lekérdezésénél');
-                    
-                    const data = await response.json();
-                    setKezelesek(data);
-    
-                    // Csak azokat a kezeléseket mutatjuk, amelyek a bejelentkezett userhez tartoznak
-                    const userKezelesek = data.filter(kezeles => kezeles.paciens.id === userId);
-                    setFilteredKezelesek(userKezelesek);
-                } catch (error) {
-                    console.error('Hiba:', error);
-                }
-            };
-    
-            fetchKezelesek();
-        }, [userId]);
-    };
+        };
+            useEffect(() => {
+                // Kezelések lekérése a szerverről
+                const fetchKezelesek = async () => {
+                    try {
+                        const response = await fetch('http://localhost:3001/kezelesFrontend'); // Cseréld ki a megfelelő API végpontra
+                        if (!response.ok) throw new Error('Hiba a kezelések lekérdezésénél');
+                        
+                        const data = await response.json();
+                        console.log(data);
+                        setKezelesek(data);
+        
+                        // Csak azokat a kezeléseket mutatjuk, amelyek a bejelentkezett userhez tartoznak
+                        const userKezelesek = data.kezelesek.filter(kezeles => kezeles.paciens.id === userId);
+                        setFilteredKezelesek(userKezelesek);
+                    } catch (error) {
+                        console.error('Hiba:', error);
+                    }
+                };
+        
+                fetchKezelesek();
+            }, [userId]);
 
     return (
         <div className="signup-container">
@@ -234,6 +236,7 @@ const Adatok = () => {
         </button>
     </div>
 )}
+
             </div>
         </div>
     );

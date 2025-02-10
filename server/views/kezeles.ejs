@@ -37,16 +37,18 @@
                 <% }) %>
                 <!-- <option value="anya">Beteg kiválasztása</option> -->
             </select></div>
-        <% kezelesek.forEach(kezeles => { %>
-            <div class="patient-card ">
-                <div style="font-size: 1rem; margin-bottom: 12px;">
-                <strong>Név:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezeles.nev %></strong>  <br>
-                <strong >Páciens:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezeles.paciens.name %></strong>  <br>
-                <strong >Orvos:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezeles.orvos.nev %></strong> <br>
-                <strong >Időpont:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezeles.idopont %></strong>
-            </div> 
-        </div>
-        <% }) %>
+            <% for( let i = 0; i < kezelesek.length; i++ ) { %>
+                <div class="patient-card ">
+                    <div style="font-size: 1rem; margin-bottom: 12px;">
+                    <strong>Név:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezelesek[i].nev %></strong>  <br>
+                    <strong >Páciens:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= emberkek[i].nev %></strong>  <br>
+                    <strong >Orvos:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezelesek[i].orvos.nev %></strong> <br>
+                    <strong >Időpont:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezelesek[i].idopont %></strong>
+                </div> 
+                </div>
+            <% } %>
+        <!-- <#% kezelesek.map(kezeles => { %>
+        <#% }) %> -->
     </div>
     </div>
     <script src="/js/kezeles/kezeles.js"></script>

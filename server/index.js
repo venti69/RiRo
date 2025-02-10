@@ -111,3 +111,4 @@ app.use('/patientmodositas', require('./routes/patientModositasRoutes.js'));
 app.use('/torol', require('./routes/torlPatientRoute.js'));
 
 app.use('/kezeles', require('./routes/kezelesRoutes.js'))
+app.use('/kezelesFrontend', require('./routes/kezelesFrontendRoutes'));

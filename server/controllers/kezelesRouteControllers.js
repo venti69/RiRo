@@ -15,15 +15,13 @@ const Doctor = require('../models/Doctor');
 // };
 exports.getKezeles = async (req, res) => {
     try {
-        const kezelesek = await Kezeles.find({})
-            .populate('paciens')
-            .populate('orvos');
+        const kezelesek = await Kezeles.find({}).populate('orvos');
             const emberkek = await Kezeles.find({}).populate('paciens');
             const szures = emberkek.map(elem => elem.nev);
             const egyediNevek = [...new Set(szures)];
-            // console.log(egyediNevek);
+            console.log(emberkek);
 
-        res.status(200).render('kezeles', { kezelesek, egyediNevek });
+        res.status(200).render('kezeles', { kezelesek, egyediNevek, emberkek });
     } catch (error) {
         res.status(500).json({ msg: error.message });
     }
