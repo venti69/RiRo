@@ -216,15 +216,16 @@ const Adatok = () => {
                 </form>
                 {message && <p>{message}</p>}
             </div>
-            <div>
 
+
+            <div className="kezelesDoboz" >
             <div className="KezelesTarto">            
             <div className="kezelesek-container">
             </div>
             <div className="kezelesek-card"> 
             <h1>Kezelések</h1>
             </div>
-            </div>   
+            </div>      
 
 {filteredKezelesek.length > 0 ? (
     // Ha van kezelése, megjelenítjük őket
@@ -234,8 +235,8 @@ const Adatok = () => {
             <p><strong>Orvos:</strong> {kezeles.orvos.nev}</p>
             <p><strong>Időpont:</strong> {kezeles.idopont}</p><br />
         </div>
+))
 
-    ))
 ) : (
     // Ha nincs kezelés, megjelenítünk egy gombot az orvosok oldalára
     <div>
