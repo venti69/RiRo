@@ -28,9 +28,8 @@ const Fooldal = () => {
                     A Szegedi Tudományegyetem Radiológiai Klinikája a Dél-Alföld legnagyobb képalkotó vizsgálatokat végző betegellátó, oktató, kutató egysége. Az orvostanhallgatók oktatásában két féléven keresztül heti előadásokkal és gyakorlatokkal végzi a képzést. A Klinika a saját kutatási projectjei mellett részt vesz az Egyetem klinikáinak és tanszékeinek kutatásában és kiterjedt hazai és nemzetközi kapcsolatokkal rendelkezik. A betegellátást Magyarország legmodernebb gépparkjával biztosítja.
                 </p>
                 <h6 style={{ color: "rgb(243, 30, 0)", fontFamily: "'PT Sans', sans-serif", fontSize: "14px" }}>
-                    <strong><u>Vizsgálatokra időpontot a 06-62-545-400 telefonszámon lehet kérni munkaidőben!</u></strong>
+                    <strong>Vizsgálatokra időpontot a 06-62-545-400 telefonszámon lehet kérni munkaidőben!</strong>
                 </h6>
-                <p style={{ textAlign: "left" }}><br /></p>
                 <p style={{ textAlign: "left", color: "rgb(243, 30, 0)", fontFamily: "'PT Sans', sans-serif", fontSize: "14px" }}>
                     <strong>Heti rendszerességgel nyitunk meg újabb műszakokat.</strong> 
                     <b> Az időpontegyeztetés során a betegeink adatait akkor is elkérjük, hogyha nem tudunk időpontot biztosítani. Ilyen esetben újabb műszakok meghirdetésekor a várólistán lévő betegeket kiértesítjük.</b>

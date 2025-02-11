@@ -53,11 +53,15 @@ const Fooldal = () => {
                                 <img src={Ricsi} alt="Konzultáció" className="service-image" />
                                 <h5>Diabetológiai Konzultáció</h5>
                                 <p>Tapasztalt és együttérző szakorvosok állnak rendelkezésére.</p>
+                                <p style={{fontSize: "10px"}}> &copy; RómeóBuzi</p>
+
                             </a>
                             <a href="/egeszseg" className="service-card">
                                 <img src={Bodrogi} alt="Digitális Egészségügy" className="service-image" />
                                 <h5>Digitális Egészségügy</h5>
-                                <p>Hozzáférhető orvosi adatok, gyors időpontfoglalás, online rendszerek.</p>
+                                <p>Hozzáférhető orvosi adatok, gyors időpontfoglalás, online rendszerek. Digitális Egészségügy.</p>
+                                <p style={{fontSize: "10px"}}> &copy; Mind a kettő Buzi</p>
+
                             </a>
                         </div>
                     </section>
