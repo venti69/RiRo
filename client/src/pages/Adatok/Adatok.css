@@ -191,6 +191,21 @@ margin-top: 10px;
 background: #ddd;
 }
 
+@media (max-width: 1208px) {
+.signup-container {
+  grid-template-columns: 1fr;
+}
+.kezelesek-container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.KezelesTarto {
+  width: 90%;
+  margin: auto !important;
+}
+}
+
 @media (max-width: 768px) {
 .signup-container {
   grid-template-columns: 1fr;
@@ -198,5 +213,12 @@ background: #ddd;
 .kezelesek-container {
   flex-direction: column;
   align-items: center;
+}
+
+.kartyak {
+  padding-left: 119px ;
+  grid-template-columns: 1fr;
+  width: 90%;
+  margin: auto !important;
 }
 }
