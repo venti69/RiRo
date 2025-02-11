@@ -59,3 +59,4 @@ exports.updatedKezeles = async (req, res) => {
         res.status(500).json({ msg: error.message });
     }
 };
+
