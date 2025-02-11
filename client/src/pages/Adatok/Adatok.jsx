@@ -232,8 +232,8 @@ const Adatok = () => {
     filteredKezelesek.map((kezeles) => (
         <div key={kezeles.id} className="kezeles-card">
             {/* <h3>{kezeles.nev}</h3> */}
-            <p><strong>Orvos:</strong> {kezeles.orvos.nev}</p>
-            <p><strong>Időpont:</strong> {kezeles.idopont}</p><br />
+            <p><strong className='kicsiszoveg' style={{color: "#666666"}}>Orvos:</strong> {kezeles.orvos.nev}</p>
+            <p><strong className='kicsiszoveg' style={{color: "#666666"}}>Időpont:</strong> {kezeles.idopont}</p><br />
         </div>
 ))
 
