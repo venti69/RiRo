@@ -59,6 +59,7 @@
 }
 
 .signup-container{
+  background-attachment: fixed;
 display: grid;
 grid-template-columns: repeat(2,1fr);
 }
@@ -67,16 +68,27 @@ grid-template-columns: repeat(2,1fr);
 text-align: center;
 background: #ffffff;
 padding: 40px;
-border-radius: 15px;
+border-radius: 25px;
 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-width: 400px;
-animation: fadeIn 0.8s ease-out;
+width: 600px;
+margin: 5em auto;
+animation: fadeIn 0.8s ease-out
 }
 
 .KezelesTarto{
+  background-color: #ffffff;
+  width: 900px;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  gap: 1em;
+  align-items: center;
+}
+
+.kartyak {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
 }
 
 .kezelesek-container{
@@ -89,8 +101,8 @@ margin-top: 20px;
 
 .signup-title{
   
-  margin-bottom: 10px;  
-  background: linear-gradient(135deg, #6c63ff, #9a75ff);
+  margin: 15px auto;  
+  background: #2575fc;
   color: white;
   padding: 20px;
   border-radius: 15px;
@@ -101,10 +113,11 @@ margin-top: 20px;
 
 }
 .kezelesek-card {
+
 margin-bottom: 10px;  
-background: linear-gradient(135deg, #6c63ff, #9a75ff);
+background: #2575fc;
 color: white;
-padding: 20px;
+padding: 10px;
 border-radius: 15px;
 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 width: 333px;
@@ -126,6 +139,8 @@ margin-bottom: 10px;
 }
 
 .kezelesDoboz{
+  display: grid;
+  grid-template-columns: repeat(2,1fr); 
   text-align: center;
   /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); */
   background-color:#ffffff;
