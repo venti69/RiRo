@@ -47,20 +47,18 @@ const Fooldal = () => {
                                 <img src={Romeo} alt="Diagnosztika" className="service-image" />
                                 <h5>Diagnosztikai Vizsgálatok</h5>
                                 <p>Pontos és gyors diagnosztikai megoldásokat kínálunk.</p>
-                                <p style={{fontSize: "10px"}}> &copy; RicsiBuzi</p>
                             </a>
                             <a href="/diabetologia" className="service-card">
                                 <img src={Ricsi} alt="Konzultáció" className="service-image" />
                                 <h5>Diabetológiai Konzultáció</h5>
                                 <p>Tapasztalt és együttérző szakorvosok állnak rendelkezésére.</p>
-                                <p style={{fontSize: "10px"}}> &copy; RómeóBuzi</p>
+
 
                             </a>
                             <a href="/egeszseg" className="service-card">
                                 <img src={Bodrogi} alt="Digitális Egészségügy" className="service-image" />
                                 <h5>Digitális Egészségügy</h5>
                                 <p>Hozzáférhető orvosi adatok, gyors időpontfoglalás, online rendszerek. Digitális Egészségügy.</p>
-                                <p style={{fontSize: "10px"}}> &copy; Mind a kettő Buzi</p>
 
                             </a>
                         </div>
