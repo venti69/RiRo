@@ -218,11 +218,13 @@ const Adatok = () => {
             </div>
             <div>
 
+            <div className="KezelesTarto">            
             <div className="kezelesek-container">
+            </div>
             <div className="kezelesek-card"> 
             <h1>Kezelések</h1>
             </div>
-            </div>
+            </div>   
 
 {filteredKezelesek.length > 0 ? (
     // Ha van kezelése, megjelenítjük őket

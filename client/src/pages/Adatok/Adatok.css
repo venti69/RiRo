@@ -1,107 +1,157 @@
-  .form-container {
-    max-width: 500px;
-    margin: 80px auto;
-    padding: 20px 30px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
-  }
-  
-  .form-title {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .input-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-  }
-  
-  .input-group label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .input-group input,
-  .input-group select {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: border-color 0.3s;
-  }
-  
-  .input-group input:focus,
-  .input-group select:focus {
-    border-color: #6c63ff;
-    outline: none;
-  }
-  
-  .submit-btn {
-    width: 100%;
-    padding: 12px;
-    font-size: 1.2rem;
-    color: #fff;
-    background: linear-gradient(to right, #6c63ff, #9a75ff);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-  }
-  
-  .submit-btn:hover {
-    background: linear-gradient(to right, #5a56e0, #8a65e0);
-    transform: scale(1.02);
-  }
-  
-.signup-container{
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-
-}
-.adatok-card {
-  text-align: center;
-  /* margin-left: 699px; */
-  background: #ffffff;
-  padding: 40px;
+.form-container {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 20px 30px;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  width: 400px;
-  animation: fadeIn 0.8s ease-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.form-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #6c63ff;
+  outline: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: linear-gradient(to right, #6c63ff, #9a75ff);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to right, #5a56e0, #8a65e0);
+  transform: scale(1.02);
+}
+
+.signup-container{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+}
+
+.adatok-card {
+text-align: center;
+background: #ffffff;
+padding: 40px;
+border-radius: 15px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+width: 400px;
+animation: fadeIn 0.8s ease-out;
+}
+
+.KezelesTarto{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
 }
 
 .kezelesek-container{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+margin-top: 20px;
 }
+
 .kezelesek-card {
-  text-align: center;
-  /* margin-left: 699px; */
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  width: 400px;
-  animation: fadeIn 0.8s ease-out;
+background: linear-gradient(135deg, #6c63ff, #9a75ff);
+color: white;
+padding: 20px;
+border-radius: 15px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+width: 333px;
+text-align: center;
+transition: transform 0.3s ease-in-out;
 }
 
-  @media (max-width: 768px) {
-    .form-container {
-      margin: 20px;
-      padding: 15px;
-    }
-  
-    .form-title {
-      font-size: 1.5rem;
-    }
-  
-    .submit-btn {
-      font-size: 1rem;
-    }
-  }
-  
+.kezelesek-card:hover {
+transform: scale(1.05);
+}
+
+.kezelesek-card h1 {
+font-size: 1.8rem;
+margin-bottom: 10px;
+}
+
+.kezeles-card {
+background: #fff;
+padding: 15px;
+border-radius: 10px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+text-align: left;
+width: 330px;
+transition: all 0.3s ease;
+}
+
+.kezeles-card:hover {
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.kezeles-card p {
+font-size: 1rem;
+margin: 5px 0;
+}
+
+.kezeles-card strong {
+color: #6c63ff;
+}
+
+.kezelesek-card button {
+background: #fff;
+color: #6c63ff;
+border: none;
+padding: 10px 15px;
+border-radius: 8px;
+font-size: 1rem;
+cursor: pointer;
+transition: 0.3s;
+margin-top: 10px;
+}
+
+.kezelesek-card button:hover {
+background: #ddd;
+}
+
+@media (max-width: 768px) {
+.signup-container {
+  grid-template-columns: 1fr;
+}
+.kezelesek-container {
+  flex-direction: column;
+  align-items: center;
+}
+}
