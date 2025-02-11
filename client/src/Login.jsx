@@ -28,7 +28,7 @@ function Login() {
                 if (user.loggedIn) {
                     localStorage.setItem('userId', user.userId);
                     localStorage.setItem('user', JSON.stringify(user.user));
-                    localStorage.setItem('isAdmin', user.isAdmin);
+                    // localStorage.setItem('isAdmin', user.isAdmin);
 
                     setIsLogged(true);
                     setIsAdmin(user.isAdmin);

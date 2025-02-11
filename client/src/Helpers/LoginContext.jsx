@@ -7,9 +7,9 @@ function Belep(props) {
     if (!localStorage.getItem('isLoggedIn')) {
         localStorage.setItem('isLoggedIn', JSON.stringify(false));
     }
-    if (!localStorage.getItem('isAdmin')) {
-        localStorage.setItem('isAdmin', JSON.stringify(false));
-    }
+    // if (!localStorage.getItem('isAdmin')) {
+    //     localStorage.setItem('isAdmin', JSON.stringify(false));
+    // }
 
     // Funkció a bejelentkezett állapot mentéséhez
     const setIsLogged = (ertek) => {
