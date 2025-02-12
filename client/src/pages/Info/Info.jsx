@@ -24,14 +24,27 @@ const Info = () => {
           <li>✔  <strong>Időhatékonyság</strong></li>
           <li>✔ <strong>Biztonságos és megbízható</strong></li>
         </ul>
-
-        <div className="team-section">
-        <div className="contact-section">
-        <h2>📞 Kapcsolat</h2>
-        <p>📍 Cím: 6721 Szeged, Osztrovszky utca 5.</p>
-        <p>☎️ Telefon: <strong> +36 30 455 455</strong></p>
-        <p>📧 Email: <strong style={{color: "#007CFF"}}><a href="mailto:RiRokorhaz@gmail.com">RiRokorhaz@gmail.com</a></strong> </p>
       </div>
+
+      {/* Kapcsolat és GYIK egymás mellett */}
+      <div className="info-content">
+        <div className="contact-section">
+          <h2>📞 Kapcsolat</h2>
+          <p>📍 Cím: 6721 Szeged, Osztrovszky utca 5.</p>
+          <p>☎️ Telefon: <strong> +36 30 455 455</strong></p>
+          <p>📧 Email: <strong style={{color: "#007CFF"}}><a href="mailto:RiRokorhaz@gmail.com">RiRokorhaz@gmail.com</a></strong> </p>
+        </div>
+
+        <div className="gyik-section">
+          <h2>❓ Gyakran Ismételt Kérdések (GYIK)</h2>
+          <details>
+            <summary>🔹 Hogyan foglalhatok időpontot?</summary>
+            <p>Időpontot foglalhat online a weboldalon keresztül, telefonon vagy személyesen a recepción.</p>
+          </details>
+          <details>
+            <summary>🔹 Mikor van nyitva a kórház?</summary>
+            <p>A sürgősségi osztály 0-24 órában elérhető, a szakrendelések időpontjai pedig a weboldalon találhatók.</p>
+          </details>
         </div>
       </div>
 
@@ -46,8 +59,9 @@ const Info = () => {
           </Marker>
         </MapContainer>
       </div>
+      
       <footer className="footer">
-       © A képeket: "<b>https://u-szeged.hu/...rangsorain.jpg</b>" és "<b>https://investinszeged.hu/...rendezveny.jpg</b>" kölcsönöztük
+        © A képeket: "<b>https://u-szeged.hu/...rangsorain.jpg</b>" és "<b>https://investinszeged.hu/...rendezveny.jpg</b>" kölcsönöztük
       </footer>
     </div>
   );
