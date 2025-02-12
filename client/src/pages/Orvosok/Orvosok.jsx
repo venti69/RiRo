@@ -82,7 +82,7 @@ const Orvosok = () => {
               <h3 className='h3doktor'>{doctor.nev}</h3>
             </div>
             <div className="doctor-card-body">
-              <p><strong>Szakma: </strong> {doctor.szak} </p>
+              <p className='szakma'><strong>Szakma: </strong> {doctor.szak} </p>
               <button onClick={() => openModal(doctor)}>Részletek</button>
             </div>
           </div>

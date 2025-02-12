@@ -26,6 +26,10 @@
   text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+.szakma{
+  padding-left: 110px;
+}
+
 /* Doktor lista */
 .doctors-list {
   display: grid;
@@ -38,7 +42,7 @@
 
 /* Kártyák */
 .doctor-card {
-  width: 600px;
+  width: 450px;
   max-width: 800px; 
   /* background: #ffffff; */
   border-radius: 15px;
