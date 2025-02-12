@@ -76,6 +76,33 @@ const Adatok = () => {
             setMessage(`Hálózati hiba: ${error.message}`);
         }
         };
+        const torlesKezeles = async (id) => {
+            if (!id) {
+                console.error("Hiba: A kezelés ID nincs megadva!");
+                return;
+            }
+        
+            const confirmDelete = window.confirm("Biztosan törölni szeretné ezt a kezelést?");
+            if (!confirmDelete) {
+                return; // Ha a felhasználó mégsem akarja törölni, kilépünk a függvényből
+            }
+        
+            try {
+                const response = await fetch(`http://localhost:3001/kezelesTorles/${id}`, {
+                    method: 'DELETE',
+                });
+        
+                if (response.ok) {
+                    console.log("Sikeres törlés", response);
+                    location.reload();
+                } else {
+                    console.error("Hiba a törlés során:", response.statusText);
+                }
+            } catch (error) {
+                console.error("Hálózati hiba a törlés során:", error);
+            }
+        };
+        
             useEffect(() => {
                 // Kezelések lekérése a szerverről
                 const fetchKezelesek = async () => {
@@ -220,35 +247,28 @@ const Adatok = () => {
 
             {/* <div className="kezelesDoboz" ></div> */}
             <div className="KezelesTarto">            
-            <div className="kezelesek-container">
-            <div className="kezelesek-card"> 
-            <h1>Kezelések</h1>
-            
-            
-            </div>      
-            </div>
-            <div className="kartyak">
-
-{filteredKezelesek.length > 0 ? (
-    // Ha van kezelése, megjelenítjük őket
-    filteredKezelesek.map((kezeles) => (
-        <div key={kezeles.id} className="kezeles-card">
-            {/* <h3>{kezeles.nev}</h3> */}
-            <p><strong className='kicsiszoveg' style={{color: "#666666"}}>Orvos:</strong> {kezeles.orvos.nev}</p>
-            <p><strong className='kicsiszoveg' style={{color: "#666666"}}>Időpont:</strong> {kezeles.idopont}</p><br />
-        </div>
-))
-
-) : (
-    // Ha nincs kezelés, megjelenítünk egy gombot az orvosok oldalára
-    <div>
-        <p>Nincs még kezelésed.</p>
-        <button onClick={() => navigate('/orvosok')}>
-            Orvosok megtekintése
-        </button>
-    </div>
-    
-)}
+                <div className="kezelesek-container">
+                    <div className="kezelesek-card"> 
+                        <h1>Kezelések</h1>
+                    </div>      
+                </div>
+                <div className="kartyak">
+                    {filteredKezelesek.length > 0 ? (
+                        filteredKezelesek.map((kezeles) => (
+                            <div key={kezeles.id} className="kezeles-card">
+                                <p><strong className='kicsiszoveg' style={{color: "#666666"}}>Orvos:</strong> {kezeles.orvos.nev}</p>
+                                <p><strong className='kicsiszoveg' style={{color: "#666666"}}>Időpont:</strong> {kezeles.idopont}</p><br />
+                                <button onClick={() => torlesKezeles(kezeles._id)}>Időpont lemondás</button>
+                            </div>
+                        ))
+                    ) : (
+                        <div>
+                            <p>Nincs még kezelésed.</p>
+                            <button onClick={() => navigate('/orvosok')}>
+                                Orvosok megtekintése
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
