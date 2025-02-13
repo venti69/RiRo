@@ -12,6 +12,7 @@ import Adatok from './pages/Adatok/Adatok';
 import Egeszseg from './pages/Egeszseg/Egeszseg';
 import Vizsgalat from './pages/Vizsgalat/Vizsgalat';
 import Diabetologia from './pages/Diabetologia/Diabetologia';
+import Gyik from './pages/Gyik/Gyik';
 
 function App() {
     return (
@@ -62,6 +63,8 @@ function App() {
                 path='/diabetologia'
                 element={<Diabetologia/>}
                 />
+                <Route path='/gyik'
+                element={<Gyik/>}/>
             </Routes>
         </BrowserRouter>
     );
