@@ -40,6 +40,7 @@ const Navbar = () => {
                         <NavLink to="/info" onClick={() => setMenuOpen(false)}>Információ</NavLink>
                         <NavLink to="/orvosok" onClick={() => setMenuOpen(false)}>Orvosok</NavLink>
                         <NavLink to="/adatok" onClick={() => setMenuOpen(false)}>Adatok</NavLink>
+                        <NavLink to="/gyik" onClick={() => setMenuOpen(false)}>GYIK</NavLink>
                         <button 
                             onClick={kilep} 
                             className="kilepes" 

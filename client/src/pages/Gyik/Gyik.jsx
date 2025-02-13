@@ -10,14 +10,51 @@ const Info = () => {
   return (
     <div className="info-container">
         <div className="gyik-section">
-          <h2>❓ Kérdései vannak? Előtte látogassa meg a Gyakori Kérdések oldalt, hogy megtalálja a válaszát!</h2>
+          <h2> Kérdései vannak? Előtte látogassa meg a Gyakori Kérdések oldalt, hogy megtalálja a válaszát!</h2>
+
           <details>
-            <summary>🔹Gyakori kérdések.</summary>
-            {/* <p>Időpontot foglalhat online a weboldalon keresztül, telefonon vagy személyesen a recepción.</p> */}
+            <summary> Hogyan tudok időpontot foglalni?</summary>
+            <p>Időpontot foglalhat online a weboldalon keresztül, telefonon vagy személyesen a recepción.</p>
           </details>
+
           <details>
-            <summary>🔹 Mikor van nyitva a kórház?</summary>
+            <summary> Mikor van nyitva a kórház?</summary>
             <p>A sürgősségi osztály 0-24 órában elérhető, a szakrendelések időpontjai pedig a weboldalon találhatók.</p>
+          </details>
+
+          <details>
+            <summary> Szükséges előzetes bejelentkezés a szakrendelésekre?</summary>
+            <p>Igen, a legtöbb szakrendelésre előzetes bejelentkezés szükséges. Időpontfoglalás lehetséges online vagy telefonon.</p>
+          </details>
+
+          <details>
+            <summary> Hogyan kérhetek orvosi igazolást vagy leletet?</summary>
+            <p>Orvosi igazolásokat és leleteket a kezelőorvos vagy a betegfelvételi iroda állít ki. Kérjük, vegye fel velük a kapcsolatot.</p>
+          </details>
+
+          <details>
+            <summary> Van lehetőség online konzultációra?</summary>
+            <p>Igen, egyes szakterületeken elérhető online konzultáció. Erről bővebb információt a weboldalon talál.</p>
+          </details>
+
+          <details>
+            <summary> Milyen biztosításokat fogad el a kórház?</summary>
+            <p>A kórház az OEP által finanszírozott kezeléseket és több magán egészségbiztosítást is elfogad. Részletes információk a recepción kérhetők.</p>
+          </details>
+
+          <details>
+            <summary> Mit kell hoznom a kórházi felvételhez?</summary>
+            <p>A személyi igazolvány, TAJ-kártya és a beutaló szükséges. További dokumentumok az adott ellátástól függően lehetnek szükségesek.</p>
+          </details>
+
+          <details>
+            <summary> Hol található a legközelebbi parkoló?</summary>
+            <p>A kórház saját parkolóval rendelkezik, de a környéken több nyilvános parkolóhely is található.</p>
+          </details>
+
+          <details>
+            <summary> Látogatási idő és szabályok?</summary>
+            <p>A látogatási idő hétköznap 14:00-18:00, hétvégén 10:00-18:00 között van. Kérjük, hogy a betegek érdekében tartsák be a látogatási rendet.</p>
           </details>
         </div>
     </div>
