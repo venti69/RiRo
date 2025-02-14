@@ -33,8 +33,8 @@ const Info = () => {
           <div className="telefonszamok" style={{display: "flex", flexDirection: "column", gap: "0.1em"}}>
           <p>📍 Cím: 6721 Szeged, Osztrovszky utca 5.</p>
           <p>☎️ Telefon: <strong> +36 30 4555 455 </strong></p>
-           <p> ☎️zöld szám: +36 62 452 254 </p>
-           <p>☎️piros szám: +36 62 254 452 </p>
+           <p> ☎️ Zöld szám: <strong> +36 62 452 254 </strong></p>
+           <p>☎️ Piros szám: <strong> +36 62 254 452 </strong> </p>
            </div>
           <p>📧 Email: <strong style={{color: "#007CFF"}}><a href="mailto:RiRokorhaz@gmail.com">RiRokorhaz@gmail.com</a></strong> </p>
         </div>
