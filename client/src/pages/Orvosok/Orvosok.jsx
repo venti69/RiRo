@@ -42,10 +42,25 @@ const Orvosok = () => {
   };
 
   const jelentkezes = () => {
+    // console.log(datetimeRef.current);
+    
     if (!selectedDoctor || !datetimeRef.current?.state.selectedDate) {
       errorNotify();
       return;
+    };
+    // if (){
+
+    // }
+
+    const selectedDate = datetimeRef.current.state.selectedDate;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (selectedDate < today) {
+      errorNotify("Nem lehet múltbeli időpontra jelentkezni!");
+      return;
     }
+
     const user = JSON.parse(localStorage.getItem('user'));
     const userId = localStorage.getItem('userId');
 
@@ -56,11 +71,11 @@ const Orvosok = () => {
         nev: user.name,
         orvosId: selectedDoctor._id,
         paciensId: userId,
-        idopont: datetimeRef.current.state.selectedDate,
+        idopont: selectedDate,
       }),
     })
     .then((response) => {
-      if (!response.ok) throw new Error('Hiba történt!');
+      if (!response.ok) throw new Error('Az orvos ebben az időpontban nem elérhető!');
       return response.json();
     })
     .then(() => successNotify())
@@ -101,6 +116,7 @@ const Orvosok = () => {
                 <p><strong>Telefonszám:</strong> {selectedDoctor.telszam}</p>
                 <p><strong>Neme:</strong> {selectedDoctor.neme}</p>
                 <p><strong>Kor:</strong> {selectedDoctor.kor}</p>
+                <p><strong>Rendelések:</strong> <br />{selectedDoctor.rendeles}</p>
                 <Datetime ref={datetimeRef} />
                 <button onClick={jelentkezes}>Jelentkezés</button>
               </div>

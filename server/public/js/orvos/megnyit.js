@@ -12,6 +12,7 @@ function megnyit(name, email, id) {
         document.getElementById('modalNeme').textContent = neme;
         document.getElementById('modalEmail').textContent = email;
         document.getElementById('modalTelszam').textContent = telszam;
+        document.getElementById('modalTelszam').textContent = rendeles;
 
         // Inicializáljuk a Bootstrap modalt és megnyitjuk
         const modal = new bootstrap.Modal(modalElement); // Bootstrap modal objektum

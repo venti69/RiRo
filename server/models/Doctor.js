@@ -31,10 +31,10 @@ const orvosSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        rendeles:[{
+        idopont:{
             type: String,
-            default: 'Nincs rendelés',
-        }],
+            required: true,
+        },
         paciensek: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'patient',

@@ -249,7 +249,7 @@ const Adatok = () => {
             <div className="KezelesTarto">            
                 <div className="kezelesek-container">
                     <div className="kezelesek-card"> 
-                        <h1>Kezelések</h1>
+                        <h1>Kezeléseim</h1>
                     </div>      
                 </div>
                 <div className="kartyak">
@@ -257,13 +257,23 @@ const Adatok = () => {
                         filteredKezelesek.map((kezeles) => (
                             <div key={kezeles.id} className="kezeles-card">
                                 <p><strong className='kicsiszoveg' style={{color: "#666666"}}>Orvos:</strong> {kezeles.orvos.nev}</p>
-                                <p><strong className='kicsiszoveg' style={{color: "#666666"}}>Időpont:</strong> {kezeles.idopont}</p><br />
+                                <p>
+                                    <strong className='kicsiszoveg' style={{color: "#666666"}}>Időpont:</strong>{" "}
+                                    {new Date(kezeles.idopont).toLocaleString("hu-HU", {
+                                        year: "numeric",
+                                        month: "2-digit",
+                                        day: "2-digit",
+                                        hour: "2-digit",
+                                        minute: "2-digit",
+                                    }).replace(",", "")}
+                                </p>
+
                                 <button onClick={() => torlesKezeles(kezeles._id)}>Időpont lemondás</button>
                             </div>
                         ))
                     ) : (
                         <div>
-                            <p>Nincs még kezelésed.</p>
+                            <p>Nem történt még jelentkezés.</p>
                             <button onClick={() => navigate('/orvosok')}>
                                 Orvosok megtekintése
                             </button>

@@ -1,71 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-        />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/CSS/stilus.css">
+    <link rel="icon" type="image/x-icon" href="/BG/favicon.ico">
+    <title>Doctors</title>
+</head>
+<body>
+    <%- include('./nav.ejs') %>
 
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-            crossorigin="anonymous"
-        />
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"
-        ></script>
-        <!-- <link rel="stylesheet" href="/CSS/indexhatter.css"> -->
-        <link rel="stylesheet" href="/CSS/stilus.css">
-        <link rel="icon" type="image/x-icon" href="/BG/favicon.ico">
+    <!-- New Doctor Modal -->
+    <div class="modal fade" id="addDoctorModal" tabindex="-1" aria-labelledby="addDoctorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addDoctorModalLabel">Új Orvos Felvétele</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newDoctorForm">
+                        <div class="mb-3">
+                            <label for="nev" class="form-label">Név</label>
+                            <input type="text" class="form-control" id="nev" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="szak" class="form-label">Szakirány</label>
+                            <input type="text" class="form-control" id="szak" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="kor" class="form-label">Kor</label>
+                            <input type="number" class="form-control" id="kor" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="neme" class="form-label">Neme</label>
+                            <select class="form-select" id="neme" required>
+                                <option value="férfi">Férfi</option>
+                                <option value="nő">Nő</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telszam" class="form-label">Telefonszám</label>
+                            <input type="text" class="form-control" id="telszam" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="idopont" class="form-label">Időpont</label>
+                            <input type="text" class="form-control" id="idopont" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
+                    <button type="button" class="btn btn-primary" onclick="hozzaadOrvos()">Hozzáadás</button>
 
-        <title>Doctors</title>
-    </head>
-    <body>
-        <%- include('./nav.ejs') %>
-        <div
-        class="modal"
-        id="modal-container"
-        aria-hidden="true"
-    ></div>
-        <div class="main-doc-container">
-            <div class="doctors-section">
-                <h3>Orvosok</h3>
-                <div class="doctor-list">
-                    <% doctors.forEach((doctor) => { %>
-                    <div class="doctor-card">
-                        <h4>
-                            <%= doctor.isEditMode ? '' :
-                            'Orvos felvétele' %>
-                        </h4>
-                        <h5 style="color: aliceblue;">Név: <%= doctor.nev %></h5>
-                        <p style="color: aliceblue;">Szakirány: <%= doctor.szak %></p>
-                        <button
-                                type="button"
-                                class="btn btn-warning edit-button"
-                                data-bs-toggle="modal"
-                                data-bs-target="#editModal<%= doctor.id %>"
-                                onClick="szerkesztes('<%= doctor.id %>','<%= doctor.nev %>', '<%= doctor.szak %>', '<%= doctor.kor %>', '<%= doctor.neme %>', '<%= doctor.email %>', '<%= doctor.telszam %>')"
-                            >
-                                Szerkesztés
-                            </button>
-                            <button
-                            class="btn btn-danger delete-button"
-                            onClick="torol('<%= doctor._id%>')"
-                        >
-                            Töröl
-                        </button>
-                    </div>
-                    <% }) %>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="main-doc-container">
+        <div class="doctors-section">
+            <h3>Orvosok <br><button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addDoctorModal">Új orvos</button></h3>
+            <div class="doctor-list">
+                <% doctors.forEach((doctor) => { %>
+                    <div class="doctor-card">
+                        <h4><%= doctor.nev %></h4>
+                        <h5 style="color: aliceblue;">Szakirány: <%= doctor.szak %></h5>
+                        <p style="color: aliceblue;">Kor: <%= doctor.kor %></p>
+                        <button
+                            type="button"
+                            class="btn btn-warning edit-button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editModal<%= doctor.id %>"
+                            onClick="szerkesztes('<%= doctor.id %>','<%= doctor.nev %>', '<%= doctor.szak %>', '<%= doctor.kor %>', '<%= doctor.neme %>', '<%= doctor.email %>', '<%= doctor.telszam %>', '<%= doctor.idopont %>')"
+                        >
+                            Szerkesztés
+                        </button>
+                        <button class="btn btn-danger delete-button" onClick="torol('<%= doctor._id%>')">Töröl</button>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/orvos/ujorvos.js"></script>
+    <script src="/js/orvos/orvosModal.js"></script>
+    <script src="/js/orvos/torol.js"></script>
+    <script src="/js/orvos/megnyit.js"></script>
+    <script>
         
-        <script src="/js/orvos/orvosModal.js"></script>
-        <script src="/js/orvos/torol.js"></script>
-        <script src="/js/orvos/megnyit.js"></script>
-    </body>
+    </script>
+</body>
 </html>

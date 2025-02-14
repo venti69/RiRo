@@ -1,4 +1,4 @@
-function szerkesztes(id, nev, szak, kor, neme, email, telszam) {
+function szerkesztes(id, nev, szak, kor, neme, email, telszam, rendeles) {
     console.log(id, nev, szak, kor, neme, email, telszam);
     const modalContainer = document.getElementById('modal-container');
 
@@ -75,6 +75,14 @@ function szerkesztes(id, nev, szak, kor, neme, email, telszam) {
     telszamInput.placeholder = 'Telefonszám';
     modalBox.appendChild(telszamInput);
 
+    // Rendeles input mező
+    const rendelesInput = document.createElement('input');
+    rendelesInput.type = 'text';
+    rendelesInput.value = rendeles;
+    rendelesInput.className = 'form-control mb-3';
+    rendelesInput.placeholder = 'Rendeles';
+    modalBox.appendChild(rendelesInput);
+
     // Mentés gomb
     const saveButton = document.createElement('button');
     saveButton.textContent = 'Mentés';
@@ -87,13 +95,14 @@ function szerkesztes(id, nev, szak, kor, neme, email, telszam) {
         const updatedNeme = nemeInput.value;
         const updatedEmail = emailInput.value;
         const updatedTelszam = telszamInput.value;
+        const updatedRendeles = rendelesInput.value;
 
         fetch(`/doctors/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ nev: updatedNev, szak: updatedSzak, kor: updatedKor, neme: updatedNeme, email: updatedEmail, telszam: updatedTelszam }),
+            body: JSON.stringify({ nev: updatedNev, szak: updatedSzak, kor: updatedKor, neme: updatedNeme, email: updatedEmail, telszam: updatedTelszam, rendeles: updatedRendeles}),
         })
             .then((response) => response.json())
             .then((data) => {

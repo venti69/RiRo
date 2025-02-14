@@ -11,10 +11,29 @@ exports.getOrvosok = async (req, res) => {
         res.status(500).json({ msg: error });
     }
 };
+exports.addOrvos = async (req, res) => {
+    const { nev, szak, kor, neme, email, telszam, idopont } = req.body;
+    try {
+        const newDoctor = new Doctor({
+            nev,
+            szak,
+            kor,
+            neme,
+            email,
+            telszam,
+            idopont,
+            orvoskep: "default.jpg" // or set a default image
+        });
 
+        await newDoctor.save();
+        res.status(200).json({ success: true, msg: "Orvos sikeresen hozzáadva!" });
+    } catch (error) {
+        res.status(500).json({ success: false, msg: error.message });
+    }
+};
 exports.updateOrvosok = async (req, res) => {
     const {id} = req.params;
-    const {nev, szak, kor, neme, email, telszam} = req.body;
+    const {nev, szak, kor, neme, email, telszam, rendeles} = req.body;
     // console.log(nev, szak, kor, neme, email, telszam);
     
     // console.log(id);
@@ -23,7 +42,7 @@ exports.updateOrvosok = async (req, res) => {
         const doctor = await Doctor.findById({_id:id});
         // console.log('Hello: ' + doctor);
         if (doctor){
-            const ujDoctor = await Doctor.findByIdAndUpdate({_id:id}, {nev: nev, szak: szak, kor: kor, neme: neme, email: email, telszam: telszam});
+            const ujDoctor = await Doctor.findByIdAndUpdate({_id:id}, {nev: nev, szak: szak, kor: kor, neme: neme, email: email, telszam: telszam, rendeles: rendeles});
             // console.log("új" +  ujDoctor);
             res.status(200).json({ msg: "Sikeres frissítés történt!" });
         } else {
