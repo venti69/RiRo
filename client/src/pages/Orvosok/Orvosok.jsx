@@ -116,7 +116,7 @@ const Orvosok = () => {
                 <p><strong>Telefonszám:</strong> {selectedDoctor.telszam}</p>
                 <p><strong>Neme:</strong> {selectedDoctor.neme}</p>
                 <p><strong>Kor:</strong> {selectedDoctor.kor}</p>
-                <p><strong>Rendelések:</strong> <br />{selectedDoctor.rendeles}</p>
+                <p><strong>Rendelések:</strong> <br />{selectedDoctor.idopont}</p>
                 <Datetime ref={datetimeRef} />
                 <button onClick={jelentkezes}>Jelentkezés</button>
               </div>

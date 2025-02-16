@@ -33,7 +33,7 @@ const orvosSchema = new mongoose.Schema(
         },
         idopont:{
             type: String,
-            required: true,
+            default: 'Nincs rendelés',
         },
         paciensek: [{
             type: mongoose.Schema.Types.ObjectId,

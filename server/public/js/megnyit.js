@@ -1,7 +1,7 @@
-function megnyit(name, email, id, phone, gender, address, ssn, motherName, birthName, birthDate) {
+function megnyit(name, email, id, phone, gender, address, ssn, motherName, birthName, birthDate, isAdmin) {
     const modalId = `#patientModal`; // A modal id-ja a felhasználó ID-jától függ
     const modalElement = document.querySelector(modalId); // Kiválasztjuk a megfelelő modált
-    // console.log(modalElement);
+    // console.log(isAdmin);
 
     if (modalElement) {
         const ev = new Date(birthDate).getFullYear();
@@ -18,6 +18,7 @@ function megnyit(name, email, id, phone, gender, address, ssn, motherName, birth
         document.getElementById('modalMotherName').textContent = motherName;
         document.getElementById('modalBirthName').textContent = birthName;
         document.getElementById('modalBirthDate').textContent = `${ev}-${honap < 10 ? '0' : ''}${honap}-${nap < 10 ? '0' : ''}${nap}`;
+        document.getElementById('modalIsAdmin').textContent = isAdmin;
 
 
         // Inicializáljuk a Bootstrap modalt és megnyitjuk

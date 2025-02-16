@@ -27,6 +27,11 @@
 <body>
     <div class="kezeles-main">
     <%- include('./nav.ejs') %>
+    <div
+            class="modal"
+            id="modal-container"
+            aria-hidden="true"
+        ></div>
     <h1 style="text-align: center;  color: #0046ad;">Kezelések</h1>
     
     <div class="kezelesek-card">
@@ -40,11 +45,16 @@
             <% for( let i = 0; i < kezelesek.length; i++ ) { %>
                 <div class="patient-card ">
                     <div style="font-size: 1rem; margin-bottom: 12px;">
-                    <strong>Név:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezelesek[i].nev %></strong>  <br>
-                    <strong >Páciens:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= emberkek[i].nev %></strong>  <br>
-                    <strong >Orvos:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezelesek[i].orvos.nev %></strong> <br>
-                    <strong >Időpont:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezelesek[i].idopont %></strong>
+                    <!-- <strong>Név:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezelesek[i].nev %></strong>  <br> -->
+                    <strong >Páciens neve:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= emberkek[i].nev %></strong>  <br>
+                    <strong >Orvos neve:</strong> <strong style="color: rgba(240, 248, 255, 0.747);"><%= kezelesek[i].orvos.nev %></strong> <br>
+                    <strong>Időpont:</strong> 
+                    <strong style="color: rgba(240, 248, 255, 0.747);"> <%= new Date(kezelesek[i].idopont).toLocaleString('hu-HU', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).replace(',', '') %></strong>
                 </div> 
+                <button 
+                type="button" class="btn btn-warning edit-button" data-bs-toggle="modal" data-bs-target="#editModal<%= kezelesek.id %>" onclick="szerkesztes('<%= kezelesek[i]._id %>', '<%= emberkek[i].nev %>', '<%= kezelesek[i].orvos.nev %>', '<%= kezelesek[i].idopont %>')">Szerkesztés</button>
+                <button onclick="megnyit('<%= kezelesek[i]._id %>', '<%= emberkek[i].nev %>', '<%= kezelesek[i].orvos.nev %>', '<%= kezelesek[i].idopont %>')">Részletek</button>
+                <button style="background-color: #d9534f;" onclick="torol('<%= kezelesek[i]._id %>')">Törlés</button>
                 </div>
             <% } %>
         <!-- <#% kezelesek.map(kezeles => { %>
@@ -52,5 +62,8 @@
     </div>
     </div>
     <script src="/js/kezeles/kezeles.js"></script>
+    <script src="/js/kezeles/megnyit.js"></script>
+    <script src="/js/kezeles/modal.js"></script>
+    <script src="/js/kezeles/torol.js"></script>
 </body>
 </html>

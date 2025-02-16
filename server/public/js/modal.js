@@ -1,6 +1,6 @@
-function szerkesztes(id, name, email, gender, phone, address, ssn, motherName, birthName, birthDate) {
+function szerkesztes(id, name, email, gender, phone, address, ssn, motherName, birthName, birthDate, isAdmin) {
     const modalContainer = document.getElementById('modal-container');
-    // console.log(birthDate);
+    // console.log(name, email, gender, phone, address, ssn, motherName, birthName, birthDate, isAdmin);
     
     if (isNaN(phone)) {
         let temp = phone;
@@ -111,6 +111,15 @@ function szerkesztes(id, name, email, gender, phone, address, ssn, motherName, b
     birthDateInput.placeholder = 'Születés dátuma';
     modalBox.appendChild(birthDateInput);
 
+    // isAdmin input mező
+
+    const isAdminInput = document.createElement('input');
+    isAdminInput.type = 'text';
+    isAdminInput.value = isAdmin;
+    isAdminInput.className = 'form-control mb-3';
+    isAdminInput.placeholder = 'true/false';
+    modalBox.appendChild(isAdminInput);
+
     // Mentés gomb
     const saveButton = document.createElement('button');
     saveButton.textContent = 'Mentés';
@@ -126,13 +135,14 @@ function szerkesztes(id, name, email, gender, phone, address, ssn, motherName, b
         const updatedMotherName = motherNameInput.value;
         const updatedBirthName = birthNameInput.value;
         const updatedBirthDate = birthDateInput.value;
+        const updatedIsAdmin = isAdminInput.value;
 
         fetch(`/patient/edit/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name: updatedName, email: updatedEmail, gender: updatedGender, phone: updatedPhone, address: updatedAddress, ssn: updatedSsn, motherName: updatedMotherName, birthName: updatedBirthName, birthDate: updatedBirthDate }),
+            body: JSON.stringify({ name: updatedName, email: updatedEmail, gender: updatedGender, phone: updatedPhone, address: updatedAddress, ssn: updatedSsn, motherName: updatedMotherName, birthName: updatedBirthName, birthDate: updatedBirthDate, isAdmin : updatedIsAdmin }),
         })
             .then((response) => response.json())
             .then((data) => {

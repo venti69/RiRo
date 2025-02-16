@@ -112,4 +112,5 @@ app.use('/torol', require('./routes/torlPatientRoute.js'));
 
 app.use('/kezeles', require('./routes/kezelesRoutes.js'))
 app.use('/kezelesFrontend', require('./routes/kezelesFrontendRoutes'));
+app.use('/torolk', require('./routes/kezelesRoutes.js'));
 app.use('/kezelesTorles', require('./routes/kezelesTorlesRoutes.js'));

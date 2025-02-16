@@ -1,5 +1,5 @@
 function szerkesztes(id, nev, szak, kor, neme, email, telszam, rendeles) {
-    console.log(id, nev, szak, kor, neme, email, telszam);
+    // console.log(id, nev, szak, kor, neme, email, telszam);
     const modalContainer = document.getElementById('modal-container');
 
     // Töröljük a modal tartalmát

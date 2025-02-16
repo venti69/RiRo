@@ -54,7 +54,7 @@
                                 class="btn btn-warning edit-button"
                                 data-bs-toggle="modal"
                                 data-bs-target="#editModal<%= patient.id %>"
-                                onClick="szerkesztes('<%= patient._id %>', '<%= patient.name %>', '<%= patient.email %>', '<%= patient.phone %>', '<%= patient.gender %>', '<%= patient.address %>', '<%= patient.ssn %>', '<%= patient.motherName %>', '<%= patient.birthName %>', '<%= patient.birthDate %>')"
+                                onClick="szerkesztes('<%= patient._id %>', '<%= patient.name %>', '<%= patient.email %>', '<%= patient.phone %>', '<%= patient.gender %>', '<%= patient.address %>', '<%= patient.ssn %>', '<%= patient.motherName %>', '<%= patient.birthName %>', '<%= patient.birthDate %>', '<%= patient.isAdmin %>')"
                             >
                                 Szerkesztés
                             </button>
@@ -63,7 +63,7 @@
                             <button
                             type="button"
                             class="btn btn-success details-button"
-                            onClick="megnyit('<%= patient.name %>', '<%= patient.email %>', '<%= patient.id %>', '<%= patient.phone %>', '<%= patient.gender %>', '<%= patient.address %>', '<%= patient.ssn %>','<%= patient.motherName %>','<%= patient.birthName %>','<%= patient.birthDate %>')"
+                            onClick="megnyit('<%= patient.name %>', '<%= patient.email %>', '<%= patient.id %>', '<%= patient.phone %>', '<%= patient.gender %>', '<%= patient.address %>', '<%= patient.ssn %>','<%= patient.motherName %>','<%= patient.birthName %>','<%= patient.birthDate %>','<%= patient.isAdmin %>')"
                             >
                             Részletek
                         </button>
@@ -135,6 +135,10 @@
                                     <p>
                                         <strong>Születés dátum:</strong>
                                         <span id="modalBirthDate"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Van e admin-ja?:</strong>
+                                        <span id="modalIsAdmin"></span>
                                     </p>
                                 </div>
                                 <div class="modal-footer">
