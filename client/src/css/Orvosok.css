@@ -92,9 +92,9 @@ body {
 }
 
 /* Reszponzív nézetek */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
   .doctors-list {
-      grid-template-columns: repeat(2, 1fr); /* 3 oszlop, kisebb kijelzőkhöz */
+      grid-template-columns: repeat(1, 1fr); /* 3 oszlop, kisebb kijelzőkhöz */
   }
 }
 
@@ -107,6 +107,8 @@ body {
 @media screen and (max-width: 480px) {
   .doctors-list {
       grid-template-columns: 1fr; /* 1 oszlop mobilokhoz */
+      /* width: 90%; */
+      /* margin: auto; */
   }
 }
 
