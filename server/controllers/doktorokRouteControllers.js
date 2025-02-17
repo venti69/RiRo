@@ -22,7 +22,7 @@ exports.addOrvos = async (req, res) => {
             email,
             telszam,
             idopont,
-            orvoskep: "default.jpg" // or set a default image
+            orvoskep: "default.jpg"
         });
 
         await newDoctor.save();
@@ -33,8 +33,8 @@ exports.addOrvos = async (req, res) => {
 };
 exports.updateOrvosok = async (req, res) => {
     const {id} = req.params;
-    const {nev, szak, kor, neme, email, telszam, rendeles} = req.body;
-    // console.log(nev, szak, kor, neme, email, telszam);
+    const {nev, szak, kor, neme, email, telszam, idopont} = req.body;
+    // console.log(idopont);
     
     // console.log(id);
     
@@ -42,7 +42,7 @@ exports.updateOrvosok = async (req, res) => {
         const doctor = await Doctor.findById({_id:id});
         // console.log('Hello: ' + doctor);
         if (doctor){
-            const ujDoctor = await Doctor.findByIdAndUpdate({_id:id}, {nev: nev, szak: szak, kor: kor, neme: neme, email: email, telszam: telszam, rendeles: rendeles});
+            const ujDoctor = await Doctor.findByIdAndUpdate({_id:id}, {nev: nev, szak: szak, kor: kor, neme: neme, email: email, telszam: telszam, idopont: idopont});
             // console.log("új" +  ujDoctor);
             res.status(200).json({ msg: "Sikeres frissítés történt!" });
         } else {

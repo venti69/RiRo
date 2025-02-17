@@ -1,5 +1,5 @@
-function szerkesztes(id, nev, szak, kor, neme, email, telszam, rendeles) {
-    // console.log(id, nev, szak, kor, neme, email, telszam);
+function szerkesztes(id, nev, szak, kor, neme, email, telszam, idopont) {
+    // console.log(idopont);
     const modalContainer = document.getElementById('modal-container');
 
     // Töröljük a modal tartalmát
@@ -75,13 +75,13 @@ function szerkesztes(id, nev, szak, kor, neme, email, telszam, rendeles) {
     telszamInput.placeholder = 'Telefonszám';
     modalBox.appendChild(telszamInput);
 
-    // Rendeles input mező
-    const rendelesInput = document.createElement('input');
-    rendelesInput.type = 'text';
-    rendelesInput.value = rendeles;
-    rendelesInput.className = 'form-control mb-3';
-    rendelesInput.placeholder = 'Rendeles';
-    modalBox.appendChild(rendelesInput);
+    // Idopont input mező
+    const idopontInput = document.createElement('input');
+    idopontInput.type = 'text';
+    idopontInput.value = idopont;
+    idopontInput.className = 'form-control mb-3';
+    idopontInput.placeholder = 'Rendeles';
+    modalBox.appendChild(idopontInput);
 
     // Mentés gomb
     const saveButton = document.createElement('button');
@@ -95,18 +95,18 @@ function szerkesztes(id, nev, szak, kor, neme, email, telszam, rendeles) {
         const updatedNeme = nemeInput.value;
         const updatedEmail = emailInput.value;
         const updatedTelszam = telszamInput.value;
-        const updatedRendeles = rendelesInput.value;
+        const updatedIdopont = idopontInput.value;
 
         fetch(`/doctors/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ nev: updatedNev, szak: updatedSzak, kor: updatedKor, neme: updatedNeme, email: updatedEmail, telszam: updatedTelszam, rendeles: updatedRendeles}),
+            body: JSON.stringify({ nev: updatedNev, szak: updatedSzak, kor: updatedKor, neme: updatedNeme, email: updatedEmail, telszam: updatedTelszam, idopont: updatedIdopont}),
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 
                 if (data) {
                     alert('Adatok sikeresen frissítve!');
