@@ -13,7 +13,6 @@
 .h3doktor{
   margin-top: 435px;
   background-color: #555555 ;
-
 }
 
 /* Fejléc */
@@ -95,11 +94,11 @@ body {
 /* Reszponzív nézetek */
 @media screen and (max-width: 1200px) {
   .doctors-list {
-      grid-template-columns: repeat(3, 1fr); /* 3 oszlop, kisebb kijelzőkhöz */
+      grid-template-columns: repeat(2, 1fr); /* 3 oszlop, kisebb kijelzőkhöz */
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .doctors-list {
       grid-template-columns: repeat(2, 1fr); /* 2 oszlop, tabletekhez */
   }
@@ -108,5 +107,40 @@ body {
 @media screen and (max-width: 480px) {
   .doctors-list {
       grid-template-columns: 1fr; /* 1 oszlop mobilokhoz */
+  }
+}
+
+/* --- ÚJ STÍLUSOK --- */
+
+/* Képek méretezése */
+.doctor-card-header img {
+  width: 100%; /* A kép töltse ki a konténert */
+  height: auto;
+  border-radius: 15px 15px 0 0;
+  object-fit: cover;
+}
+
+/* Szövegek ne csússzanak ki */
+.doctor-card-body {
+  padding: 15px;
+  text-align: center;
+  word-wrap: break-word;
+  font-size: 1rem;
+}
+
+.doctor-card-body h3 {
+  font-size: 1.3rem;
+  white-space: normal;
+}
+
+.doctor-card-body p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Kisebb kijelzőkön legyen 1 oszlop */
+@media screen and (max-width: 768px) {
+  .doctors-list {
+    grid-template-columns: 1fr;
   }
 }
