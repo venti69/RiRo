@@ -44,10 +44,10 @@ exports.createKezeles = async (req, res) => {
                 paciens: paciens._id,
                 orvos: doctor._id,
                 idopont: req.body.idopont,
-            });
-            await ujKezeles.save()
+                });
+            await ujKezeles.save();
 
-            console.log(ujKezeles);
+            // console.log(ujKezeles);
             
             return res.status(201).json({ ujKezeles });
         } 
@@ -70,7 +70,7 @@ exports.updatedKezeles = async (req, res) => {
     }
 };
 exports.deletedKezeles = async (req, res) => {
-    // const {id} = req.params;
+    const {id} = req.params;
     // console.log(id);
     
     try {
