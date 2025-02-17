@@ -257,6 +257,7 @@ const Adatok = () => {
                         filteredKezelesek.map((kezeles) => (
                             <div key={kezeles.id} className="kezeles-card">
                                 <p><strong className='kicsiszoveg' style={{color: "#666666"}}>Orvos:</strong> {kezeles.orvos.nev}</p>
+                                <p><strong className='kicsiszoveg' style={{color: "#666666"}}>Szakterület:</strong> {kezeles.orvos.szak}</p>
                                 <p>
                                     <strong className='kicsiszoveg' style={{color: "#666666"}}>Időpont:</strong>{" "}
                                     {new Date(kezeles.idopont).toLocaleString("hu-HU", {

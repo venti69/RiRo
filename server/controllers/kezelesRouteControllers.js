@@ -45,16 +45,17 @@ exports.createKezeles = async (req, res) => {
                 orvos: doctor._id,
                 idopont: req.body.idopont,
             });
+            await ujKezeles.save()
 
             console.log(ujKezeles);
             
-            return res.status(201).json({ ujKezeles });  // RETURN KELL IDE!!!
+            return res.status(201).json({ ujKezeles });
         } 
         
-        return res.status(500).json({ msg: "Az orvos ebben az időpontban nem elérhető!" }); // RETURN KELL IDE IS!!!
+        return res.status(500).json({ msg: "Az orvos ebben az időpontban nem elérhető!" });
 
     } catch (error) {
-        return res.status(500).json({ msg: error.message }); // És IDE IS RETURN!
+        return res.status(500).json({ msg: error.message });
     }
 };
 
