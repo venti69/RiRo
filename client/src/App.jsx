@@ -13,7 +13,7 @@ import Egeszseg from './pages/Egeszseg/Egeszseg';
 import Vizsgalat from './pages/Vizsgalat/Vizsgalat';
 import Diabetologia from './pages/Diabetologia/Diabetologia';
 import Gyik from './pages/Gyik/Gyik';
-import Arak from './pages/Arak/Arak';
+import Arak from './pages/Swiper/Arak';
 
 function App() {
     return (
