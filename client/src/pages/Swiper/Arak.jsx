@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-import { FaCalendarAlt } from "react-icons/fa";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 const promotions = [
