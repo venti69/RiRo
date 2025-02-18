@@ -13,7 +13,7 @@ const Info = () => {
       <div className="text-section">
         <h2>Miért érdemes használni a RiRo Kórház weboldalát?</h2>
         <p>
-          A <strong>RiRo Kórház weboldala</strong> egy modern és felhasználóbarát platform, amelynek célja, hogy a páciensek gyorsan és egyszerűen hozzáférjenek az egészségügyi szolgáltatásokhoz. 
+          A <strong>RiRo Kórház weboldala</strong> egy modern <strong>államilag támogatott</strong> és felhasználóbarát platform, amelynek célja, hogy a páciensek gyorsan és egyszerűen hozzáférjenek az egészségügyi szolgáltatásokhoz. 
         </p>
 
         <h3>🔹 Előnyök és funkciók:</h3>
