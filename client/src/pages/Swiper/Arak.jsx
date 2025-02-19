@@ -26,6 +26,9 @@ const PromotionSlider = () => {
   .promo-slider {
     padding: 20px 0;
   }
+.modal-content{
+    width: 80%;
+}
   
   .promo-card {
     background: white;
@@ -83,6 +86,13 @@ const PromotionSlider = () => {
   .book-btn svg, .details-btn svg {
     margin-right: 8px;
   }
+      .exam-process {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: left;
+  }
   `;
   
   document.head.insertAdjacentHTML("beforeend", `<style>${styles}</style>`);
@@ -109,56 +119,72 @@ const PromotionSlider = () => {
       description: "Röntgenfelvétel testtájanként - 1 irány",
       location: " Szeged, Osztrovszky utca 5",
       price: "7 990 Ft",
-      szak: "Urulógus"
+      szak: "Urulógus",
+      leiras: "Vizsgálat leírása: ",
+      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában 5-15 percet vesz igénybe, attól függően, hogy hány felvételre van szükség és milyen testrészről van szó. A tényleges röntgenkép elkészítése csupán néhány másodpercig tart. A páciensnek el kell távolítania minden fémtárgyat (ékszerek, övek, melltartók merevítői), mert ezek zavarhatják a felvételt. Az asszisztens segít a megfelelő testhelyzetbe állni vagy feküdni, és egyes vizsgálatoknál szükség lehet arra, hogy pár másodpercig egy bizonyos pózban mozdulatlanul maradj. A röntgengép rövid ideig kis dózisú sugárzást bocsát ki, amely képet alkot a testrészedről. A felvételt a radiológus kiértékeli, és az eredményeket általában néhány órán vagy napon belül megkapja a kezelőorvos. Általában nem szükséges speciális előkészület, de egyes esetekben az orvos kérheti, hogy ne egyél vagy igyál pár órával a vizsgálat előtt (pl. gyomor- vagy bélröntgen esetén). A röntgensugárzás dózisa nagyon alacsony, így nem jelent veszélyt a páciens számára, de terhesség esetén mindenképpen jelezni kell az orvosnak!"
     },
     {
       title: "Röntgen Vizsgálatok",
       description: "Röntgenfelvétel testtájanként - 1 irány",
       location: " Szeged, Osztrovszky utca 5",
       price: "7 990 Ft",
-      szak: "Urulógus"
+      szak: "Gyermekorvos",
+      leiras: "Vizsgálat leírása: ",
+      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
     },
     {
       title: "Röntgen Vizsgálatok",
       description: "Röntgenfelvétel testtájanként - 1 irány",
       location: " Szeged, Osztrovszky utca 5",
       price: "7 990 Ft",
-      szak: "Urulógus"
+      szak: "Urulógus",
+      leiras: "Vizsgálat leírása: ",
+      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
     },
     {
       title: "Röntgen Vizsgálatok",
       description: "Röntgenfelvétel testtájanként - 1 irány",
       location: " Szeged, Osztrovszky utca 5",
       price: "7 990 Ft",
-      szak: "Urulógus"
+      szak: "Urulógus",
+      leiras: "Vizsgálat leírása: ",
+      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
     },
     {
       title: "Röntgen Vizsgálatok",
       description: "Röntgenfelvétel testtájanként - 1 irány",
       location: " Szeged, Osztrovszky utca 5",
       price: "7 990 Ft",
-      szak: "Urulógus"
+      szak: "Urulógus",
+      leiras: "Vizsgálat leírása: ",
+      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
     },
     {
       title: "Röntgen Vizsgálatok",
       description: "Röntgenfelvétel testtájanként - 1 irány",
       location: " Szeged, Osztrovszky utca 5",
       price: "7 990 Ft",
-      szak: "Urulógus"
+      szak: "Urulógus",
+      leiras: "Vizsgálat leírása: ",
+      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
     },
     {
       title: "Várandósgondozás",
       description: "Babamozi",
       location: " Szeged, Osztrovszky utca 5",
       price: "27 990 Ft",
-      szak: "Oszteopata"
+      szak: "Oszteopata",
+      leiras: "Vizsgálat leírása: ",
+      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
     },
     {
       title: "Ultrahang-diagnosztika",
       description: "Emlők és axillák ultrahang vizsgálata",
       location: "Szeged, Osztrovszky utca 5",
       price: "27 990 Ft",
-      szak: "Ultrahang diagnosztika"
+      szak: "Ultrahang diagnosztika",
+      leiras: "Vizsgálat leírása: ",
+      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
     }
   ];
 
@@ -207,20 +233,31 @@ const PromotionSlider = () => {
             <p><strong>{selectedPromo.description}</strong></p>
             <p>{selectedPromo.location}</p>
             <p className="price">{selectedPromo.price}</p>
-
+            <div className="exam-process" style={{color: "#007bff", fontWeight: "bold"}}> {selectedPromo.leiras}
+            <p style={{color: "black"}}>{selectedPromo.vizsgalatszoveg}</p>
+              
+            </div>
             {/* ORVOSOK MEGJELENÍTÉSE */}
             
             <h3>Elérhető kezelőorvosok:</h3>
-            <p></p>
-            {doctors
+            <p style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  // alignItems: "center",
+                  // textAlign: "center",
+                  // margin: "0 auto"
+                  }}>
+            {doctors 
               .filter((doctor) => doctor.szak === selectedPromo.szak)
               .map((doctor, index) => (
                 <div key={index} className="doctor-card" style={{
                   display: "flex",
-                  flexDirection: "column",
+                  flexDirection: "coloumn",
+                  gap: "10px",
                   alignItems: "center",
                   textAlign: "center",
-                  margin: "0 auto"}}>
+                  margin: "0 auto"
+                  }}>
                   <img src={doctor.orvoskep} alt={doctor.nev} className="doctor-img" />
                   <div>
                     <p><strong>{doctor.nev}</strong></p>
@@ -229,7 +266,7 @@ const PromotionSlider = () => {
                   </div>
                 </div>
               ))}
-
+            </p>
             <button className="close-btn" onClick={closeModal}>Bezárás</button>
           </div>
         </div>
