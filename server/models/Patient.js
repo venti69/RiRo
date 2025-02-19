@@ -1,10 +1,8 @@
-
-
 const mongoose = require('mongoose');
+const Kezeles = require('./Kezeles'); // Kezelések importálása
 
 const PatientSchema = new mongoose.Schema(
     {
-        
         name: {
             type: String,
             required: true,
@@ -17,47 +15,57 @@ const PatientSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        phone:{
+        phone: {
             type: String,
             default: '',
         },
-        gender:{
+        gender: {
             type: String,
             default: '',
         },
-        address:{
+        address: {
             type: String,
             default: '',
         },
-        ssn:{
+        ssn: {
             type: String,
             default: 0,
         },
-        motherName:{
+        motherName: {
             type: String,
             default: '',
         },
-        birthName:{
+        birthName: {
             type: String,
             default: '',
         },
-        birthDate:{
+        birthDate: {
             type: String,
             default: "2025-01-23",
         },
-        illness:[{
+        illness: [{
             type: String,
-            }],
+        }],
         orvosok: [{
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'doctor',
-            }],
-        isAdmin: { type: Boolean, default: false },
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'doctor',
+        }],
+        isAdmin: { 
+            type: Boolean, 
+            default: false 
+        },
     },
     {
         timestamps: true,
     }
 );
+
+PatientSchema.pre('findOneAndDelete', async function (next) {
+    const patientId = this.getQuery()._id;
+    await Kezeles.deleteMany({ paciens: patientId });
+    next();
+});
+
 const PatientModel = mongoose.model('patient', PatientSchema);
 
 module.exports = PatientModel;
