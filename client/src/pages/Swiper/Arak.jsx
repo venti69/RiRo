@@ -107,21 +107,56 @@ const PromotionSlider = () => {
     {
       title: "Röntgen Vizsgálatok",
       description: "Röntgenfelvétel testtájanként - 1 irány",
-      location: "TritonLife Medical Center XIII. kerület",
+      location: " Szeged, Osztrovszky utca 5",
+      price: "7 990 Ft",
+      szak: "Urulógus"
+    },
+    {
+      title: "Röntgen Vizsgálatok",
+      description: "Röntgenfelvétel testtájanként - 1 irány",
+      location: " Szeged, Osztrovszky utca 5",
+      price: "7 990 Ft",
+      szak: "Urulógus"
+    },
+    {
+      title: "Röntgen Vizsgálatok",
+      description: "Röntgenfelvétel testtájanként - 1 irány",
+      location: " Szeged, Osztrovszky utca 5",
+      price: "7 990 Ft",
+      szak: "Urulógus"
+    },
+    {
+      title: "Röntgen Vizsgálatok",
+      description: "Röntgenfelvétel testtájanként - 1 irány",
+      location: " Szeged, Osztrovszky utca 5",
+      price: "7 990 Ft",
+      szak: "Urulógus"
+    },
+    {
+      title: "Röntgen Vizsgálatok",
+      description: "Röntgenfelvétel testtájanként - 1 irány",
+      location: " Szeged, Osztrovszky utca 5",
+      price: "7 990 Ft",
+      szak: "Urulógus"
+    },
+    {
+      title: "Röntgen Vizsgálatok",
+      description: "Röntgenfelvétel testtájanként - 1 irány",
+      location: " Szeged, Osztrovszky utca 5",
       price: "7 990 Ft",
       szak: "Urulógus"
     },
     {
       title: "Várandósgondozás",
       description: "Babamozi",
-      location: "TritonLife Medical Center Hegyalja",
+      location: " Szeged, Osztrovszky utca 5",
       price: "27 990 Ft",
       szak: "Oszteopata"
     },
     {
       title: "Ultrahang-diagnosztika",
       description: "Emlők és axillák ultrahang vizsgálata",
-      location: "TritonLife Medical Center Genium",
+      location: "Szeged, Osztrovszky utca 5",
       price: "27 990 Ft",
       szak: "Ultrahang diagnosztika"
     }
@@ -141,7 +176,7 @@ const PromotionSlider = () => {
 
   return (
     <div className="promo-container"><br />
-      <h2>Aktuális kedvezményeink!</h2>
+      <h2>Vizsgálatok/Árak!</h2>
       <Swiper
         slidesPerView={3}
         spaceBetween={20}
@@ -174,11 +209,18 @@ const PromotionSlider = () => {
             <p className="price">{selectedPromo.price}</p>
 
             {/* ORVOSOK MEGJELENÍTÉSE */}
+            
             <h3>Elérhető kezelőorvosok:</h3>
+            <p></p>
             {doctors
               .filter((doctor) => doctor.szak === selectedPromo.szak)
               .map((doctor, index) => (
-                <div key={index} className="doctor-card">
+                <div key={index} className="doctor-card" style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center",
+                  margin: "0 auto"}}>
                   <img src={doctor.orvoskep} alt={doctor.nev} className="doctor-img" />
                   <div>
                     <p><strong>{doctor.nev}</strong></p>
