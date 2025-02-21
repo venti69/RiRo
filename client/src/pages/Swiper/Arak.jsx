@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import './swiper.css';
 import "swiper/css";
 import '../../css/Modal.css';
 import "swiper/css/pagination";
@@ -204,12 +205,17 @@ const PromotionSlider = () => {
     <div className="promo-container"><br />
       <h2>Vizsgálatok/Árak!</h2>
       <Swiper
-        slidesPerView={3}
-        spaceBetween={20}
-        pagination={{ clickable: true }}
-        modules={[Pagination]}
-        className="promo-slider"
-      >
+  slidesPerView={"auto"}
+  breakpoints={{
+    320: { slidesPerView: 1, spaceBetween: 10 }, // Mobil
+    600: { slidesPerView: 2, spaceBetween: 15 }, // Kisebb tabletek
+    1024: { slidesPerView: 3, spaceBetween: 20 }, // Nagyobb kijelzők
+  }}
+  pagination={{ clickable: true }}
+  modules={[Pagination]}
+  className="promo-slider"
+>
+
         {promotions.map((promo, index) => (
           <SwiperSlide key={index} className="promo-card">
             <h3>{promo.title}</h3>

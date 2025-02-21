@@ -51,4 +51,27 @@
   .book-btn svg, .details-btn svg {
     margin-right: 5px;
   }
+
+  @media screen and (max-width: 780px) {
+    .swiper-wrapper {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr); /* Mobilon 1 oszlop */
+      width: 100%; /* Teljes szélesség */
+    }
+  }
   
+  @media screen and (max-width: 768px) {
+    .doctor-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Középre igazítás */
+      gap: 10px;
+      width: 90%; /* Kisebb margó */
+      margin: 0 auto; /* Középre igazítás */
+    }
+  
+    .doctor-card img {
+      max-width: 100px; /* Nagyobb kép */
+      height: auto;
+    }
+  }

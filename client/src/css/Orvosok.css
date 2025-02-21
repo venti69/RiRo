@@ -94,7 +94,7 @@ body {
 /* Reszponzív nézetek */
 @media screen and (max-width: 1500px) {
   .doctors-list {
-      grid-template-columns: repeat(2, 1fr); /* 3 oszlop, kisebb kijelzőkhöz */
+      grid-template-columns: repeat(2, 1fr); 
   }
 }
 
