@@ -37,6 +37,15 @@ exports.createKezeles = async (req, res) => {
         const elerheto = doctor.idopont.split(' ')[1];
         const kezdo = elerheto.split('-')[0];
         const vegso = elerheto.split('-')[1];
+        const napErtek = new Date(idopont).getDay();
+
+        if (doctor.idopont.includes("H-P") && (napErtek === 0 || napErtek === 6)) {
+            return res.status(400).json({ msg: "Ez az orvos csak hétfőtől péntekig rendel!" });
+        }
+
+        if (doctor.idopont.includes("Szo-V") && (napErtek >= 1 && napErtek <= 5)) {
+            return res.status(400).json({ msg: "Ez az orvos csak hétvégén rendel!" });
+        }
 
         if (Number(kezdo) < Number(ora) && Number(ora) < Number(vegso)) {
             const ujKezeles = new Kezeles({
@@ -75,7 +84,7 @@ exports.deletedKezeles = async (req, res) => {
     
     try {
         await Kezeles.findByIdAndDelete({_id:id});
-        res.status(200).json({msg: "Sikeres törlés Rómeó!"});
+        res.status(200).json({msg: "Sikeres törlés!"});
     } catch (error) {
         res.status(500).render('error', { msg: error.message });
     }

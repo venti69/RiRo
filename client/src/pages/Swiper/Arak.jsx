@@ -6,11 +6,14 @@ import '../../css/Modal.css';
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const PromotionSlider = () => {
   const [selectedPromo, setSelectedPromo] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [doctors, setDoctors] = useState([]);
+  const navigate = useNavigate();
+  
 
   const styles = `
   .promo-container {
@@ -273,6 +276,7 @@ const PromotionSlider = () => {
                 </div>
               ))}
             </p>
+            <button onClick={() => navigate('/orvosok')}>Jelentkezés</button>
             <button className="close-btn" onClick={closeModal}>Bezárás</button>
           </div>
         </div>

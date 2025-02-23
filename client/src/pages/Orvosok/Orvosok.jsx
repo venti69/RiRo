@@ -42,15 +42,10 @@ const Orvosok = () => {
   };
 
   const jelentkezes = () => {
-    // console.log(datetimeRef.current);
-    
     if (!selectedDoctor || !datetimeRef.current?.state.selectedDate) {
       errorNotify();
       return;
-    };
-    // if (){
-
-    // }
+    }
 
     const selectedDate = datetimeRef.current.state.selectedDate;
     const today = new Date();
@@ -58,6 +53,19 @@ const Orvosok = () => {
 
     if (selectedDate < today) {
       errorNotify("Nem lehet múltbeli időpontra jelentkezni!");
+      return;
+    }
+
+    // Ellenőrizzük a kiválasztott napot (0 = vasárnap, 6 = szombat)
+    const dayOfWeek = selectedDate.day(); // Moment.js-ben ez adja vissza a hét napját
+
+    if (selectedDoctor.idopont.includes("H-P") && (dayOfWeek === 0 || dayOfWeek === 6)) {
+      errorNotify("Ez az orvos csak hétfőtől péntekig rendel!");
+      return;
+    }
+
+    if (selectedDoctor.idopont.includes("Szo-V") && (dayOfWeek >= 1 && dayOfWeek <= 5)) {
+      errorNotify("Ez az orvos csak hétvégén rendel!");
       return;
     }
 
@@ -82,7 +90,8 @@ const Orvosok = () => {
     .catch((err) => errorNotify(err.message));
 
     closeModal();
-  };
+};
+
 
   return (
     <div className="info-container">
