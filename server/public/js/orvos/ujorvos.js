@@ -7,6 +7,7 @@ function hozzaadOrvos() {
     const email = document.getElementById("email").value;
     const telszam = document.getElementById("telszam").value;
     const idopont = document.getElementById("idopont").value;
+    const orvoskep = document.getElementById("orvoskep").value;
 
     const newDoctor = {
         nev,
@@ -15,7 +16,8 @@ function hozzaadOrvos() {
         neme,
         email,
         telszam,
-        idopont
+        idopont,
+        orvoskep
     };
 
     fetch('/doctors', {

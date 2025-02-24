@@ -119,77 +119,74 @@ const PromotionSlider = () => {
   // PROMÓCIÓK (VIZSGÁLATOK)
   const promotions = [
     {
-      title: "Röntgen Vizsgálatok",
-      description: "Röntgenfelvétel testtájanként - 1 irány",
+      title: "Végbéltükrözés",
+      description: "Laparatoszkópikus vizsgálat ",
       location: " Szeged, Osztrovszky utca 5",
-      price: "7 990 Ft",
+      price: "21.000 Ft",
       szak: "Urulógus",
       leiras: "Vizsgálat leírása: ",
-      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában 5-15 percet vesz igénybe, attól függően, hogy hány felvételre van szükség és milyen testrészről van szó. A tényleges röntgenkép elkészítése csupán néhány másodpercig tart. A páciensnek el kell távolítania minden fémtárgyat (ékszerek, övek, melltartók merevítői), mert ezek zavarhatják a felvételt. Az asszisztens segít a megfelelő testhelyzetbe állni vagy feküdni, és egyes vizsgálatoknál szükség lehet arra, hogy pár másodpercig egy bizonyos pózban mozdulatlanul maradj. A röntgengép rövid ideig kis dózisú sugárzást bocsát ki, amely képet alkot a testrészedről. A felvételt a radiológus kiértékeli, és az eredményeket általában néhány órán vagy napon belül megkapja a kezelőorvos. Általában nem szükséges speciális előkészület, de egyes esetekben az orvos kérheti, hogy ne egyél vagy igyál pár órával a vizsgálat előtt (pl. gyomor- vagy bélröntgen esetén). A röntgensugárzás dózisa nagyon alacsony, így nem jelent veszélyt a páciens számára, de terhesség esetén mindenképpen jelezni kell az orvosnak!"
+      vizsgalatszoveg:"A végbéltükrözés (rectoscopia) egy diagnosztikai eljárás, amely során a végbél belső falát és a bél alsó szakaszát vizsgálják egy speciális, vékony kamerás eszközzel. A vizsgálat célja lehet aranyér, polipok, gyulladásos bélbetegségek vagy egyéb elváltozások felismerése. A vizsgálat előtt a belek tisztítása szükséges, és a beavatkozás minimális kellemetlenséggel jár. Az eredmények segítenek a pontos diagnózis felállításában és a megfelelő kezelés meghatározásában."
     },
+    
     {
       title: "Röntgen Vizsgálatok",
       description: "Röntgenfelvétel testtájanként - 1 irány",
-      location: " Szeged, Osztrovszky utca 5",
+      location: "Szeged, Osztrovszky utca 5",
       price: "7 990 Ft",
       szak: "Gyermekorvos",
       leiras: "Vizsgálat leírása: ",
-      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
+      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat során kis mennyiségű ionizáló sugárzást alkalmaznak, amely áthalad a testen, és a különböző szövetek eltérő módon nyelik el azt, így létrehozva a diagnosztikai képet. Az eljárás néhány perctől akár fél óráig is tarthat a vizsgált testrésztől függően. A modern röntgengépek alacsony sugárdózissal működnek, így a vizsgálat biztonságos, még gyermekek számára is. Az orvos a kapott képek alapján értékeli az esetleges eltéréseket, és szükség esetén további vizsgálatokat javasolhat."
     },
+    
+
     {
-      title: "Röntgen Vizsgálatok",
-      description: "Röntgenfelvétel testtájanként - 1 irány",
-      location: " Szeged, Osztrovszky utca 5",
+      title: "Diabetológiai Vizsgálat",
+      description: "Cukorbetegség Észlelése időben",
+      location: "Szeged, Osztrovszky utca 5",
       price: "7 990 Ft",
-      szak: "Urulógus",
+      szak: "Diabetológus",
       leiras: "Vizsgálat leírása: ",
-      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
+      vizsgalatszoveg: "A diabetológiai vizsgálat célja a cukorbetegség felismerése, kezelése és nyomon követése. Az orvos felméri a kórtörténetet, fizikális vizsgálatot végez, valamint laborvizsgálatokat rendelhet el, mint az éhomi vércukormérés, HbA1c, terheléses vércukorteszt vagy vizeletvizsgálat. A vizsgálat során a páciens személyre szabott kezelési tervet kap, amely magában foglalhat étrendi tanácsokat, gyógyszeres terápiát vagy életmódbeli változtatásokat."
     },
+  
     {
-      title: "Röntgen Vizsgálatok",
-      description: "Röntgenfelvétel testtájanként - 1 irány",
-      location: " Szeged, Osztrovszky utca 5",
-      price: "7 990 Ft",
-      szak: "Urulógus",
+      title: "Neurológiai Vizsgálat",
+      description: "Komplex ideggyógyászati kivizsgálás",
+      location: "Szeged, Osztrovszky utca 5",
+      price: "14 990 Ft",
+      szak: "Neurológus",
       leiras: "Vizsgálat leírása: ",
-      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
+      vizsgalatszoveg: "A neurológiai vizsgálat célja az idegrendszer állapotának felmérése, amely magában foglalja az agy, a gerincvelő, az idegek és az izmok működésének ellenőrzését. Az orvos különböző reflex-, koordinációs és érzékelési teszteket végez, valamint ellenőrzi az izomerőt és az egyensúlyt. A vizsgálat segíthet olyan betegségek diagnosztizálásában, mint a migrén, epilepszia, neuropátia vagy Parkinson-kór. Szükség esetén további képalkotó eljárások, például MRI vagy CT is javasoltak a pontosabb diagnózis érdekében."
     },
+    
     {
-      title: "Röntgen Vizsgálatok",
-      description: "Röntgenfelvétel testtájanként - 1 irány",
-      location: " Szeged, Osztrovszky utca 5",
-      price: "7 990 Ft",
-      szak: "Urulógus",
-      leiras: "Vizsgálat leírása: ",
-      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
-    },
-    {
-      title: "Röntgen Vizsgálatok",
-      description: "Röntgenfelvétel testtájanként - 1 irány",
-      location: " Szeged, Osztrovszky utca 5",
-      price: "7 990 Ft",
-      szak: "Urulógus",
-      leiras: "Vizsgálat leírása: ",
-      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
-    },
-    {
-      title: "Várandósgondozás",
-      description: "Babamozi",
-      location: " Szeged, Osztrovszky utca 5",
-      price: "27 990 Ft",
+      title: "Oszteopátiás Kezelés",
+      description: "Manuálterápiás és holisztikus kezelési eljárás",
+      location: "Szeged, Osztrovszky utca 5",
+      price: "19 990 Ft",
       szak: "Oszteopata",
       leiras: "Vizsgálat leírása: ",
-      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
+      vizsgalatszoveg: "Az oszteopátia egy manuális terápiás módszer, amely az izmok, ízületek és a test egyensúlyának helyreállítására fókuszál. A kezelés során a szakember kézzel végzi az ízületek, csontok és kötőszövetek finom manipulációját, hogy csökkentse a fájdalmat és javítsa a mozgékonyságot. Az oszteopátiás terápia segíthet hát- és derékfájdalmak, migrén, mozgásszervi problémák és egyes emésztési zavarok kezelésében. A kezelés fájdalommentes és személyre szabott, figyelembe véve a páciens egyéni szükségleteit."
     },
     {
-      title: "Ultrahang-diagnosztika",
-      description: "Emlők és axillák ultrahang vizsgálata",
+      title: "Fül-Orr-Gégészeti Vizsgálat",
+      description: "Fül, orr és gége betegségeinek diagnosztikája és kezelése",
       location: "Szeged, Osztrovszky utca 5",
-      price: "27 990 Ft",
-      szak: "Ultrahang diagnosztika",
+      price: "13 990 Ft",
+      szak: "Fül-orr gégész",
       leiras: "Vizsgálat leírása: ",
-      vizsgalatszoveg: "A röntgenvizsgálat egy gyors és fájdalommentes képalkotó eljárás, amelyet csonttörések, tüdőbetegségek, ízületi problémák és egyéb belső elváltozások vizsgálatára használnak. A vizsgálat általában"
+      vizsgalatszoveg: "A fül-orr-gégészeti vizsgálat célja a felső légutak és hallószervek egészségi állapotának felmérése. Az orvos endoszkópos és mikroszkópos eljárásokat alkalmazhat a középfül, orrüreg, garat és gége vizsgálatához. A vizsgálat során megállapítható a fülgyulladás, arcüreggyulladás, orrpolip, rekedtség vagy egyéb légúti panaszok oka. Szükség esetén további hallásvizsgálatok vagy allergiatesztek is elvégezhetők a pontos diagnózis érdekében."
+    },
+    {
+      title: "Idegsebészeti Konzultáció",
+      description: "Gerinc- és idegrendszeri betegségek specialistája",
+      location: "Szeged, Osztrovszky utca 5",
+      price: "24 990 Ft",
+      szak: "Idegsebész",
+      leiras: "Vizsgálat leírása: ",
+      vizsgalatszoveg: "Az idegsebészeti konzultáció során a szakorvos felméri a páciens idegrendszeri problémáit, amelyek lehetnek gerincsérv, idegi fájdalmak, daganatok vagy koponyaűri nyomásfokozódás. Az orvos részletes fizikális vizsgálatot végez, és szükség esetén MRI vagy CT vizsgálatot rendelhet el. A konzultáció során megbeszélik a kezelési lehetőségeket, amelyek lehetnek konzervatív terápiák, fájdalomcsillapító eljárások vagy sebészeti beavatkozások. A cél a megfelelő kezelési terv kidolgozása a páciens életminőségének javítása érdekében."
     }
+    
   ];
 
   // MODAL MEGNYITÁSA
