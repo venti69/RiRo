@@ -85,6 +85,16 @@ const PromotionSlider = () => {
     background: linear-gradient(135deg, #4caf50, #00c896);
     color: white;
   }
+
+  .close-btn{
+    background: linear-gradient(135deg, #007bff, #00a2ff);
+    width: 50%;
+    color: white;
+    text-align: center;
+    margin: auto; 
+    border: none;
+    padding: 5px;
+  }
   
   .details-btn {
     background: linear-gradient(135deg, #007bff, #00a2ff);
@@ -335,13 +345,14 @@ const PromotionSlider = () => {
                     <p><strong>{doctor.nev}</strong></p>
                     <p><strong>Email:</strong> {doctor.email}</p>
                     <p><strong>Telefonszám:</strong> {doctor.telszam}</p>
-                    <button style={{borderRadius: "20px", margin: "15px" }} onClick={() => openModal2(doctor)}>Jelentkezés</button>
+                    <button className="jelentkezesBtn" style={{borderRadius: "20px", margin: "15px", color: "white", background:"#00C896", border: "none" }} onClick={() => openModal2(doctor)}>Jelentkezés</button>
                   </div>
                 </div>
               ))}
             </div>
             {/* <button onClick={() => navigate('/orvosok')}>Jelentkezés</button> */}
-            <br /> <button style={{borderRadius: "20px" }}  className="close-btn" onClick={closeModal}>Bezárás</button>
+    
+    <br /> <button style={{borderRadius: "20px"}}  className="close-btn" onClick={closeModal}>Bezárás</button>
           </div>
         </div>
       )}
