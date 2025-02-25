@@ -1,18 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import './swiper.css';
 import "swiper/css";
 import '../../css/Modal.css';
 import "swiper/css/pagination";
+import Datetime from 'react-datetime';
 import { Pagination } from "swiper/modules";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import { Link, useNavigate } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
 
+const successNotify = () => toast.success("Sikeres jelentkezés!");
+const errorNotify = (message) => toast.error(message || "Sikertelen jelentkezés!");
 const PromotionSlider = () => {
   const [selectedPromo, setSelectedPromo] = useState(null);
+  const [selectedDoctor, setSelectedDoctor] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible2, setModalVisible2] = useState(false);
   const [doctors, setDoctors] = useState([]);
   const navigate = useNavigate();
+  const datetimeRef = useRef(null);
   
 
   const styles = `
@@ -115,7 +123,74 @@ const PromotionSlider = () => {
     };
     fetchDoctors();
   }, []);
+  const openModal = (promo) => {
+    setSelectedPromo(promo);
+    setModalVisible(true);
+  };
 
+  const closeModal = () => {
+    setSelectedDoctor(null);
+    setModalVisible(false);
+  };
+  const openModal2 = (doctor) => {
+    setSelectedDoctor(doctor);
+    setModalVisible2(true);
+  };
+  const closeModal2 = () => {
+    setSelectedDoctor(null);
+    setModalVisible2(false);
+    // window.location.reload();
+  };
+  const jelentkezes = () => {
+    if (!selectedDoctor || !datetimeRef.current?.state.selectedDate) {
+      errorNotify();
+      return;
+    }
+
+    const selectedDate = datetimeRef.current.state.selectedDate;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (selectedDate < today) {
+      errorNotify("Nem lehet múltbeli időpontra jelentkezni!");
+      return;
+    }
+
+    // Ellenőrizzük a kiválasztott napot (0 = vasárnap, 6 = szombat)
+    const dayOfWeek = selectedDate.day(); // Moment.js-ben ez adja vissza a hét napját
+
+    if (selectedDoctor.idopont.includes("H-P") && (dayOfWeek === 0 || dayOfWeek === 6)) {
+      errorNotify("Ez az orvos csak hétfőtől péntekig rendel!");
+      return;
+    }
+
+    if (selectedDoctor.idopont.includes("Szo-V") && (dayOfWeek >= 1 && dayOfWeek <= 5)) {
+      errorNotify("Ez az orvos csak hétvégén rendel!");
+      return;
+    }
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    const userId = localStorage.getItem('userId');
+
+    fetch('http://localhost:3001/kezeles', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nev: user.name,
+        orvosId: selectedDoctor._id,
+        paciensId: userId,
+        idopont: selectedDate,
+      }),
+    })
+    .then((response) => {
+      if (!response.ok) throw new Error('Az orvos ebben az időpontban nem elérhető!');
+      return response.json();
+    })
+    .then(() => successNotify())
+    .catch((err) => errorNotify(err.message));
+
+    closeModal2();
+};
   // PROMÓCIÓK (VIZSGÁLATOK)
   const promotions = [
     {
@@ -189,17 +264,7 @@ const PromotionSlider = () => {
     
   ];
 
-  // MODAL MEGNYITÁSA
-  const openModal = (promo) => {
-    setSelectedPromo(promo);
-    setModalVisible(true);
-  };
-
-  // MODAL BEZÁRÁSA
-  const closeModal = () => {
-    setSelectedPromo(null);
-    setModalVisible(false);
-  };
+  
 
   return (
     <div className="promo-container"><br />
@@ -246,7 +311,7 @@ const PromotionSlider = () => {
             {/* ORVOSOK MEGJELENÍTÉSE */}
             
             <h3>Elérhető kezelőorvosok:</h3>
-            <p style={{
+            <div style={{
                   display: "flex",
                   flexDirection: "row",
                   // alignItems: "center",
@@ -269,15 +334,37 @@ const PromotionSlider = () => {
                     <p><strong>{doctor.nev}</strong></p>
                     <p><strong>Email:</strong> {doctor.email}</p>
                     <p><strong>Telefonszám:</strong> {doctor.telszam}</p>
+                    <button onClick={() => openModal2(doctor)}>Jelentkezés</button>
                   </div>
                 </div>
               ))}
-            </p>
-            <button onClick={() => navigate('/orvosok')}>Jelentkezés</button>
+            </div>
+            {/* <button onClick={() => navigate('/orvosok')}>Jelentkezés</button> */}
             <button className="close-btn" onClick={closeModal}>Bezárás</button>
           </div>
         </div>
       )}
+      {modalVisible2 && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="close-button" onClick={closeModal2}>&times;</button>
+            {selectedDoctor && (
+              <div className="modal-body">
+                <h2>{selectedDoctor.nev}</h2>
+                <img className="modal-image" src={selectedDoctor.orvoskep} alt="Orvos" />
+                <p><strong>Email:</strong> {selectedDoctor.email}</p>
+                <p><strong>Telefonszám:</strong> {selectedDoctor.telszam}</p>
+                <p><strong>Neme:</strong> {selectedDoctor.neme}</p>
+                <p><strong>Kor:</strong> {selectedDoctor.kor}</p>
+                <p><strong>Rendelések:</strong> <br />{selectedDoctor.idopont}</p>
+                <Datetime ref={datetimeRef} />
+                <button onClick={jelentkezes}>Jelentkezés</button>
+              </div>
+            )}
+          </div>
+        </div>
+      )} 
+      <ToastContainer />
     </div>
   );
 };
