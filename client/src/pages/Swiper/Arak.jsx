@@ -318,6 +318,7 @@ const PromotionSlider = () => {
                   // textAlign: "center",
                   // margin: "0 auto"
                   }}>
+                  
             {doctors 
               .filter((doctor) => doctor.szak === selectedPromo.szak)
               .map((doctor, index) => (
@@ -334,13 +335,13 @@ const PromotionSlider = () => {
                     <p><strong>{doctor.nev}</strong></p>
                     <p><strong>Email:</strong> {doctor.email}</p>
                     <p><strong>Telefonszám:</strong> {doctor.telszam}</p>
-                    <button onClick={() => openModal2(doctor)}>Jelentkezés</button>
+                    <button style={{borderRadius: "20px", margin: "15px" }} onClick={() => openModal2(doctor)}>Jelentkezés</button>
                   </div>
                 </div>
               ))}
             </div>
             {/* <button onClick={() => navigate('/orvosok')}>Jelentkezés</button> */}
-            <button className="close-btn" onClick={closeModal}>Bezárás</button>
+            <br /> <button style={{borderRadius: "20px" }}  className="close-btn" onClick={closeModal}>Bezárás</button>
           </div>
         </div>
       )}
