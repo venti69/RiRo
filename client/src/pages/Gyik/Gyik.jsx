@@ -8,9 +8,9 @@ const Info = () => {
   const hospitalPosition = [46.259277, 20.155028];
 
   return (
-    <div className="info-container">
+    <div className="info-container" style={{marginTop: "30px"}}>
         <div className="gyik-section">
-          <h2> Kérdései vannak? Előtte látogassa meg a Gyakori Kérdések oldalt, hogy megtalálja a válaszát!</h2>
+          <h2>Üdvözöljük a Gyakran Ismételt Kérdések oldalon!</h2>
 
           <details>
             <summary> Hogyan tudok időpontot foglalni?</summary>

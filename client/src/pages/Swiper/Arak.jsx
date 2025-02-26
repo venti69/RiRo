@@ -278,7 +278,7 @@ const PromotionSlider = () => {
 
   return (
     <div className="promo-container"><br />
-      <h2>Vizsgálatok/Árak!</h2>
+      <h2 style={{marginTop: "30px"}}>Vizsgálatok/Árak!</h2>
       <Swiper
   slidesPerView={"auto"}
   breakpoints={{
