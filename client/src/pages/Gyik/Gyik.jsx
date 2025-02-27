@@ -15,6 +15,7 @@ const Info = () => {
           <details>
             <summary> Hogyan tudok időpontot foglalni?</summary>
             <p>Időpontot foglalhat online a weboldalon keresztül, telefonon vagy személyesen a recepción.</p>
+            <button><Link to='/orvosok'>Időpont foglalás</Link></button>
           </details>
 
           <details>
@@ -44,7 +45,7 @@ const Info = () => {
 
           <details>
             <summary> Mit kell hoznom a kórházi felvételhez?</summary>
-            <p>A személyi igazolvány, TAJ-kártya és a beutaló szükséges. További dokumentumok az adott ellátástól függően lehetnek szükségesek.</p>
+            <p>A személyi igazolvány, TAJ-kártya, lakcím kártya és a beutaló szükséges. További dokumentumok az adott ellátástól függően lehetnek szükségesek.</p>
           </details>
 
           <details>
@@ -54,7 +55,7 @@ const Info = () => {
 
           <details>
             <summary> Látogatási idő és szabályok?</summary>
-            <p>A látogatási idő hétköznap 14:00-18:00, hétvégén 10:00-18:00 között van. Kérjük, hogy a betegek érdekében tartsák be a látogatási rendet.</p>
+            <p>A látogatási idő hétköznap 14:00-18:00, hétvégén 10:00-14:00 között van. Kérjük, hogy a betegek érdekében tartsák be a látogatási rendet.</p>
           </details>
         </div>
     </div>
