@@ -11,7 +11,10 @@ const Info = () => {
     <div className="info-container" style={{marginTop: "30px"}}>
         <div className="gyik-section">
           <h2>Üdvözöljük a Gyakran Ismételt Kérdések oldalon!</h2>
-
+          <details>
+            <summary> Hogyan tudok fizetni?</summary>
+            <p>Az online fizetés még nem támogatott, kórházban lehetséges csak fizetés kézpénzzel és kártyával egyaránt.</p>
+          </details>
           <details>
             <summary> Hogyan tudok időpontot foglalni?</summary>
             <p>Időpontot foglalhat online a weboldalon keresztül, telefonon vagy személyesen a recepción.</p>
