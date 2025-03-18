@@ -377,6 +377,18 @@ const PromotionSlider = () => {
         </div>
       )} 
       <ToastContainer />
+      <div>
+        <h1>Teszt</h1>
+        <div>
+          <p>Név: </p>
+          <input type="text" />
+        </div>
+        <div>
+          <p>Email cím</p>
+          <input type="email" name="email" id="" />
+        </div>
+        <button>Click me!</button>
+      </div>
     </div>
   );
 };
