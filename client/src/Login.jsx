@@ -15,30 +15,41 @@ function Login() {
     const { setIsLogged, setIsAdmin } = useContext(BelepContext);
 
     const successNotify = () => toast.success("Sikeres bejelentkezés!");
-    const errorNotify = (message) => toast.error(message || "Bejelentkezési hiba!");
+    const errorNotify = (message) => toast.error(message || "Minden mező kitöltése kötelező!");
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
+    
+        if (!email.trim() || !password.trim()) {
+            errorNotify("Minden mező kitöltése kötelező!");
+            return;
+        }
+    
         axios
             .post('http://localhost:3001/login', { email, password })
             .then((result) => {
                 const user = result.data;
                 console.log(user);
-
+    
                 if (user.loggedIn) {
                     localStorage.setItem('userId', user.userId);
                     localStorage.setItem('user', JSON.stringify(user.user));
-                    // localStorage.setItem('isAdmin', user.isAdmin);
-
+    
                     setIsLogged(true);
                     setIsAdmin(user.isAdmin);
-
+    
                     successNotify();
-                    setTimeout(()=> 1500);
-                    setTimeout(() => window.location.reload('/fooldal'),  navigate('/fooldal'), 1500);
-                    
+                    setTimeout(() => {
+                        navigate('/fooldal');
+                        window.location.reload();
+                    }, 1500);
                 } else {
-                    errorNotify(user.msg);
+                    if (user.msg === "Nincs ilyen felhasználó") {
+                        errorNotify("Nincs ilyen felhasználó, ellenőrizd az email címet!");
+                    } else {
+                        errorNotify(user.msg);
+                    }
                 }
             })
             .catch((err) => {
@@ -46,7 +57,7 @@ function Login() {
                 errorNotify("Hiba történt a bejelentkezés során.");
             });
     };
-
+    
     return (
         <div className="login-container">
             <div className="login-card">
