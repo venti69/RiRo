@@ -12,6 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 
 const successNotify = () => toast.success("Sikeres jelentkezés!");
+const successNotify2 = () => toast.success("Sikeres beküldés!");
 const errorNotify = (message) => toast.error(message || "Sikertelen jelentkezés!");
 const PromotionSlider = () => {
   const [selectedPromo, setSelectedPromo] = useState(null);
@@ -151,6 +152,20 @@ const PromotionSlider = () => {
     setModalVisible2(false);
     // window.location.reload();
   };
+  const [name, setName] = useState("");
+const [text, setText] = useState("");
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  if (!name.trim() || !text.trim()) {
+    errorNotify("Minden mező kitöltése kötelező!");
+    return;
+  }
+
+  successNotify2();
+  setTimeout(() => window.location.reload(), 1500);
+};
   const jelentkezes = () => {
     if (!selectedDoctor || !datetimeRef.current?.state.selectedDate) {
       errorNotify();
@@ -377,18 +392,14 @@ const PromotionSlider = () => {
         </div>
       )} 
       <ToastContainer />
-      <div>
-        <h1>Teszt</h1>
-        <div>
-          <p>Név: </p>
-          <input type="text" />
-        </div>
-        <div>
-          <p>Email cím</p>
-          <input type="email" name="email" id="" />
-        </div>
-        <button>Click me!</button>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <div id="szovegTorzs"><br />
+        <p style={{textAlign: "center"}}>Név: </p>
+        <input type="text" placeholder="Név" id="bekertNev"  value={name} onChange={(e) => setName(e.target.value)}/> <br />
+        <p>Szöveg</p>
+        <textarea placeholder="Szöveg" rows="5" id="bekertSzoveg" value={text} onChange={(e) => setText(e.target.value)}/> <br />
+        <button type="submit">Beküldés</button></div>
+      </form>
     </div>
   );
 };
