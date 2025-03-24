@@ -394,9 +394,10 @@ const handleSubmit = (e) => {
       <ToastContainer />
       <form onSubmit={handleSubmit}>
         <div id="szovegTorzs"><br />
+        <h1 className="uzenet" style={{width: "370px", textAlign: "center", marginLeft: "720px"}}>Küldjön Üzenetet!</h1>
         <p style={{textAlign: "center"}}>Név: </p>
         <input type="text" placeholder="Név" id="bekertNev"  value={name} onChange={(e) => setName(e.target.value)}/> <br />
-        <p>Szöveg</p>
+        <p>Szöveg: </p>
         <textarea placeholder="Szöveg" rows="5" id="bekertSzoveg" value={text} onChange={(e) => setText(e.target.value)}/> <br />
         <button type="submit">Beküldés</button></div>
       </form>
