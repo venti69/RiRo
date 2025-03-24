@@ -37,7 +37,9 @@ const PatientSchema = new mongoose.Schema(
         },
         birthName: {
             type: String,
-            default: '',
+            default: function () {
+                return this.name;
+            },
         },
         birthDate: {
             type: String,
