@@ -158,7 +158,7 @@ const Adatok = () => {
                         <label htmlFor="birthName">Születési név</label>
                         <input
                             type="text"
-                            placeholder="Add meg a születési neved"
+                            placeholder="Add meg a születési neved (ha nem egyezik)"
                             value={birthName}
                             onChange={(e) => {
                                 const value = e.target.value.replace(/[^A-Za-zÀ-ž\s]/g, '');

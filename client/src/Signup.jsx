@@ -52,7 +52,7 @@ function Signup() {
                         <label htmlFor="name">Név</label>
                         <input
                             type="text"
-                            placeholder="Add meg a neved"
+                            placeholder="Add meg a teljes neved"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
