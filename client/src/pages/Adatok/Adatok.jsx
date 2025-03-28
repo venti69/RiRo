@@ -11,12 +11,12 @@ const Adatok = () => {
     const [birthName, setBirthName] = useState('');
     const [birthDate, setBirthDate] = useState('');
     const [message, setMessage] = useState('');
-
     const [kezelesek, setKezelesek] = useState([]);
     const [filteredKezelesek, setFilteredKezelesek] = useState([]);
-
+    const [userData, setUserData] = useState({});
     const navigate = useNavigate();
     const userId = localStorage.getItem('userId');
+    // console.log("Felhasználói ID:", userId); 
     const kiegeszit = async (e) => {
         e.preventDefault();
 
@@ -105,27 +105,42 @@ const Adatok = () => {
         
             useEffect(() => {
                 // Kezelések lekérése a szerverről
-                const fetchKezelesek = async () => {
+                // const fetchKezelesek = async () => {
+                //     try {
+                //         const response = await fetch('http://localhost:3001/kezelesFrontend'); // Cseréld ki a megfelelő API végpontra
+                //         if (!response.ok) throw new Error('Hiba a kezelések lekérdezésénél');
+                        
+                //         const data = await response.json();
+                //         // console.log(data.kezelesek);
+                //         // console.log(userId);
+                //         setKezelesek(data);
+                        
+                //         // Csak azokat a kezeléseket mutatjuk, amelyek a bejelentkezett userhez tartoznak
+                //         const userKezelesek = data.kezelesek.filter(kezeles => kezeles.paciens === userId);
+                //         setFilteredKezelesek(userKezelesek);
+                //     } catch (error) {
+                //         console.error('Hiba:', error);
+                //     }
+                // };
+        
+                // fetchKezelesek();
+                const fetchUserData = async () => {
+                    if (!userId) return;
+                    
                     try {
-                        const response = await fetch('http://localhost:3001/kezelesFrontend'); // Cseréld ki a megfelelő API végpontra
-                        if (!response.ok) throw new Error('Hiba a kezelések lekérdezésénél');
-                        
+                        const response = await fetch(`http://localhost:3001/adatok/${userId}`);
+                        if (!response.ok) throw new Error('Hiba az adatok lekérésekor');
+            
                         const data = await response.json();
-                        // console.log(data.kezelesek);
-                        // console.log(userId);
-                        setKezelesek(data);
-                        
-                        // Csak azokat a kezeléseket mutatjuk, amelyek a bejelentkezett userhez tartoznak
-                        const userKezelesek = data.kezelesek.filter(kezeles => kezeles.paciens === userId);
-                        setFilteredKezelesek(userKezelesek);
+                        console.log("Lekérdezett adatok:", data); // Ellenőrizd, hogy az adatokat megkapod-e
+                        setUserData(data);
                     } catch (error) {
                         console.error('Hiba:', error);
                     }
                 };
-        
-                fetchKezelesek();
+            
+                fetchUserData();
             }, [userId]);
-
     return (
         <div className="signup-container">
             <div className="adatok-card">
@@ -135,8 +150,8 @@ const Adatok = () => {
                         <label htmlFor="phone">Telefonszám</label>
                         <input
                             type="text"
-                            placeholder="+36 20 123 4567"
-                            value={phone}
+                            placeholder={userData.phone || "+36 20 123 4567"}
+                            value={phone}   
                             onChange={(e) => {
                                 let value = e.target.value.replace(/\D/g, ''); // Csak számokat
                                 if (value.startsWith('36')) value = '+' + value;
@@ -158,7 +173,7 @@ const Adatok = () => {
                         <label htmlFor="birthName">Születési név</label>
                         <input
                             type="text"
-                            placeholder="Add meg a születési neved (ha nem egyezik)"
+                            placeholder={userData.birthName || "Add meg a születési neved (ha nem egyezik)"}
                             value={birthName}
                             onChange={(e) => {
                                 const value = e.target.value.replace(/[^A-Za-zÀ-ž\s]/g, '');
@@ -169,7 +184,7 @@ const Adatok = () => {
 
                     {/* NEM */}
                     <div className="input-group">
-                        <label htmlFor="gender">Neme: </label>
+                        <label htmlFor="gender">Neme: {userData.gender}</label>
                         <select onChange={(e) => setGender(e.target.value)}>
                             <option value="other">Egyéb</option>
                             <option value="male">Férfi</option>
@@ -182,7 +197,7 @@ const Adatok = () => {
                         <label htmlFor="address">Lakcím</label>
                         <input
                             type="text"
-                            placeholder="Add meg a lakcímed"
+                            placeholder={userData.address || "Add meg a lakcímed"}
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
                         />
@@ -193,7 +208,7 @@ const Adatok = () => {
                         <label htmlFor="ssn">TAJ-szám</label>
                         <input
                             type="text"
-                            placeholder="123-456-789"
+                            placeholder={userData.ssn || "123-456-789"}
                             value={ssn}
                             onChange={(e) => {
                                 let value = e.target.value.replace(/\D/g, '');
@@ -215,7 +230,7 @@ const Adatok = () => {
                         <label htmlFor="motherName">Anyja neve</label>
                         <input
                             type="text"
-                            placeholder="Adja meg az anyja nevét"
+                            placeholder={userData.motherName || "Adja meg az anyja nevét"}
                             value={motherName}
                             onChange={(e) => {
                                 const value = e.target.value.replace(/[^A-Za-zÀ-ž\s]/g, '');
@@ -226,7 +241,7 @@ const Adatok = () => {
 
                     {/* SZÜLETÉSI DÁTUM */}
                     <div className="input-group">
-                        <label htmlFor="birthdate">Születési dátum</label>
+                        <label htmlFor="birthdate">Születési dátum: {userData.birthDate}</label>
                         <input
                             type="date"
                             id="birthdate"

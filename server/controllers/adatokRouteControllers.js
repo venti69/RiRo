@@ -31,7 +31,21 @@ exports.postAdatok = async (req, res) => {
         res.status(500).json({ msg: "Hiba történt a frissítés során.", error: error.message });
     }
 };
+exports.getAdatok = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const user = await Employee.findById(id);
 
+        if (!user) {
+            return res.status(404).json({ msg: "Felhasználó nem található." });
+        }
+
+        res.status(200).json(user);
+    } catch (error) {
+        console.error('Hiba történt az adatok lekérésekor:', error);
+        res.status(500).json({ msg: "Hiba történt az adatok lekérésekor.", error: error.message });
+    }
+};
 
 /* // User model lekérése.
 const User = require('../models/User');
