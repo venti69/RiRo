@@ -17,7 +17,7 @@ const NewsCarousel = () => {
             },
             { 
                   title: "MR Vizsgálat",
-                  image: "https://medicoverkorhaz.hu/wp-content/uploads/2020/05/koponya-mr-medicover-diagnosztika-mr-vizsgalat-mri-vizsgalat-mri-mr.jpg",
+                  image: "https://www.webbeteg.hu/uploads/pet-ct-kardio.jpg"
             }
         ]);
 
