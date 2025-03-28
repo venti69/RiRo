@@ -105,25 +105,25 @@ const Adatok = () => {
         
             useEffect(() => {
                 // Kezelések lekérése a szerverről
-                // const fetchKezelesek = async () => {
-                //     try {
-                //         const response = await fetch('http://localhost:3001/kezelesFrontend'); // Cseréld ki a megfelelő API végpontra
-                //         if (!response.ok) throw new Error('Hiba a kezelések lekérdezésénél');
+                const fetchKezelesek = async () => {
+                    try {
+                        const response = await fetch('http://localhost:3001/kezelesFrontend'); // Cseréld ki a megfelelő API végpontra
+                        if (!response.ok) throw new Error('Hiba a kezelések lekérdezésénél');
                         
-                //         const data = await response.json();
-                //         // console.log(data.kezelesek);
-                //         // console.log(userId);
-                //         setKezelesek(data);
+                        const data = await response.json();
+                        // console.log(data.kezelesek);
+                        // console.log(userId);
+                        setKezelesek(data);
                         
-                //         // Csak azokat a kezeléseket mutatjuk, amelyek a bejelentkezett userhez tartoznak
-                //         const userKezelesek = data.kezelesek.filter(kezeles => kezeles.paciens === userId);
-                //         setFilteredKezelesek(userKezelesek);
-                //     } catch (error) {
-                //         console.error('Hiba:', error);
-                //     }
-                // };
+                        // Csak azokat a kezeléseket mutatjuk, amelyek a bejelentkezett userhez tartoznak
+                        const userKezelesek = data.kezelesek.filter(kezeles => kezeles.paciens === userId);
+                        setFilteredKezelesek(userKezelesek);
+                    } catch (error) {
+                        console.error('Hiba:', error);
+                    }
+                };
         
-                // fetchKezelesek();
+                fetchKezelesek();
                 const fetchUserData = async () => {
                     if (!userId) return;
                     
