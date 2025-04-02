@@ -56,6 +56,10 @@ const PatientSchema = new mongoose.Schema(
             type: Boolean, 
             default: false 
         },
+        profileImage: { // Új mező a profilkép tárolására
+            type: String, // Base64 formátumban tároljuk
+            default: null,
+        },
     },
     {
         timestamps: true,

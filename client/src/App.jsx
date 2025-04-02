@@ -14,6 +14,7 @@ import Vizsgalat from './pages/Vizsgalat/Vizsgalat';
 import Diabetologia from './pages/Diabetologia/Diabetologia';
 import Gyik from './pages/Gyik/Gyik';
 import Arak from './pages/Swiper/Arak';
+import Profile from './pages/Profil/Profil';
 
 function App() {
     return (
@@ -69,6 +70,10 @@ function App() {
                 />
                 <Route path='/arak'
                 element={<Arak/>}
+                />
+                 <Route 
+                    path="/profil" 
+                    element={<Profile />}
                 />
             </Routes>
         </BrowserRouter>

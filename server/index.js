@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const PatientModel = require('./models/Patient.js');
+const profileRoutes = require('./routes/profileRoutes'); // Új import
 const app = express();
 // const Patient = require('./models/Patient');
 
@@ -60,6 +61,9 @@ app.post('/login', async (req, res) => {
         res.status(500).json({ msg: 'Hiba történt a bejelentkezés során.', error: err.message });
     }
 });
+
+// Új profil útvonal regisztrálása
+app.use('/api/profile', profileRoutes); // Új útvonal
 
 // const serverRoutes = require('./server.js');
 // app.get('/server', serverRoutes);
