@@ -42,7 +42,7 @@ const Navbar = () => {
                         <NavLink to="/adatok" onClick={() => setMenuOpen(false)}>Adatok</NavLink>
                         <NavLink to="/gyik" onClick={() => setMenuOpen(false)}>GYIK</NavLink>
                         <NavLink to="/arak" onClick={() => setMenuOpen(false)}>Árak/Vizsgálatok</NavLink>
-                        <NavLink to="/profil" onClick={() => setMenuOpen(false)}>Profil</NavLink>
+                        {/* <NavLink to="/profil" onClick={() => setMenuOpen(false)}>Profil</NavLink> */}
                         
                         <button 
                             onClick={kilep} 
